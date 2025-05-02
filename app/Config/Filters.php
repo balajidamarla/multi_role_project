@@ -34,6 +34,9 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'role'          => \App\Filters\RoleFilter::class,
+        'superadminauth' => \App\Filters\SuperAdminAuth::class,
+        'adminauth' => \App\Filters\AdminAuth::class,
     ];
 
     /**
@@ -70,7 +73,7 @@ class Filters extends BaseFilters
     public array $globals = [
         'before' => [
             // 'honeypot',
-            // 'csrf',
+            'csrf',
             // 'invalidchars',
         ],
         'after' => [
@@ -103,5 +106,14 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        'role' => [
+            'before' => [
+                'superadmin/*',
+                'admin/*',
+                'surveyor/*',
+                'surveyorlite/*',
+            ]
+        ],
+    ];
 }
