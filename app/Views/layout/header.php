@@ -96,8 +96,10 @@
                             <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/manage_customers') ?>">Customers</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/manage_projects') ?>">Projects</a>
+                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/projects') ?>">Projects</a>
                         </li>
+
+
                         <li class="nav-item mx-2">
                             <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/teams') ?>">Teams</a>
                         </li>

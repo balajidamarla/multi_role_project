@@ -69,12 +69,8 @@ $routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
 });
 
 
-
-
-//project
-$routes->get('admin/manage_projects', 'ProjectController::index');
-
-$routes->get('projects', 'ProjectController::index');
-$routes->get('projects/create', 'ProjectController::create');
-$routes->post('projects/store', 'ProjectController::store');
-$routes->get('projects/delete/(:num)', 'ProjectController::delete/$1');
+$routes->get('admin/projects', 'Admin\ProjectController::index');
+$routes->get('admin/projects/create', 'Admin\ProjectController::create');
+$routes->post('projects/store', 'Admin\ProjectController::store');
+$routes->post('admin/projects/store', 'Admin\ProjectController::store');
+$routes->get('projects/delete/(:num)', 'Admin\ProjectController::delete/$1');
