@@ -74,3 +74,9 @@ $routes->get('admin/projects/create', 'Admin\ProjectController::create');
 $routes->post('projects/store', 'Admin\ProjectController::store');
 $routes->post('admin/projects/store', 'Admin\ProjectController::store');
 $routes->get('projects/delete/(:num)', 'Admin\ProjectController::delete/$1');
+
+
+$routes->get('admin/signs', 'SignController::index');              // View assigned tasks
+$routes->get('admin/signs/create', 'SignController::create');      // Show the assign sign form
+$routes->post('signs/store', 'SignController::store');       // Submit new sign
+$routes->get('signs/delete/(:num)', 'SignController::delete/$1'); // Delete a sign

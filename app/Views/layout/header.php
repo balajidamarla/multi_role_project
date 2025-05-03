@@ -104,7 +104,7 @@
                             <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/teams') ?>">Teams</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/signs/create') ?>">Assign Sign</a>
+                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/signs') ?>">Signs</a>
                         </li>
 
                     <?php endif; ?>

@@ -69,26 +69,23 @@ class ProjectController extends BaseController
         // Get the input data from the form
         $projectData = [
             'customer_id' => $this->request->getPost('customer_id'),
-            'name' => $this->request->getPost('name'),
+            'name'        => $this->request->getPost('name'),
             'description' => $this->request->getPost('description'),
-            'status' => $this->request->getPost('status'),
+            'status'      => $this->request->getPost('status'),
             'assigned_to' => $this->request->getPost('assigned_to'),
-            'created_at' => date('Y-m-d H:i:s'),  // Timestamp for created_at
-            'updated_at' => date('Y-m-d H:i:s'),  // Timestamp for updated_at
+            'created_by'  => session()->get('user_id'), // Get from session
+            'created_at'  => date('Y-m-d H:i:s'),
+            'updated_at'  => date('Y-m-d H:i:s'),
         ];
-
-        // Set the 'created_by' field to the logged-in user's ID
-        $projectData['created_by'] = session()->get('user_id');  // Assuming 'user_id' is stored in session
 
         // Save the project data to the database
         if ($this->projectModel->save($projectData)) {
-            // If save is successful, redirect or display a success message
             return redirect()->to('/admin/projects')->with('success', 'Project created successfully.');
         } else {
-            // If there is an error, redirect back with error message
             return redirect()->back()->with('error', 'Failed to create project.');
         }
     }
+
 
 
     public function delete($id)

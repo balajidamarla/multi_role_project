@@ -1,55 +1,85 @@
 <?php
+// Controller: Admin/SignController.php
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
 use App\Models\SignModel;
+use App\Models\CustomerModel;
 use App\Models\ProjectModel;
 use App\Models\UserModel;
-use CodeIgniter\Controller;
 
-class SignController extends Controller
+class SignController extends BaseController
 {
+    protected $signModel;
+
+    public function __construct()
+    {
+        $this->signModel = new SignModel();
+    }
+
     public function index()
     {
-        $signModel = new SignModel();
-        $data['signs'] = $signModel->findAll();
-        return view('admin/signs', $data);
+        $data['signs'] = $this->signModel->findAll();
+        return view('admin/signs/index', $data);
     }
+
 
     public function create()
     {
         $projectModel = new ProjectModel();
+        $customerModel = new CustomerModel();
         $userModel = new UserModel();
 
         $data['projects'] = $projectModel->findAll();
-        $data['teamMembers'] = $userModel
-            ->whereIn('role', ['sales_surveyor', 'surveyor_lite'])
+        $data['customers'] = $customerModel->findAll();
+        $data['surveyors'] = $userModel
+            ->whereIn('role', ['Sales Surveyor', 'Surveyor Lite'])
             ->findAll();
 
-        return view('admin/create_sign', $data);
+        return view('admin/signs/create', $data);
     }
+
 
     public function store()
     {
-        $signModel = new SignModel();
-        $signModel->save([
-            'project_id' => $this->request->getPost('project_id'),
-            'assigned_to' => $this->request->getPost('assigned_to'),
+        $this->signModel->save([
+            'sign_name'        => $this->request->getPost('sign_name'),
+            'project_id'       => $this->request->getPost('project_id'),
+            'customer_id'      => $this->request->getPost('customer_id'),
+            'assigned_to'      => $this->request->getPost('assigned_to'),
             'sign_description' => $this->request->getPost('sign_description'),
-            'sign_type' => $this->request->getPost('sign_type'),
-            'status' => 'pending',
-            'start_date' => $this->request->getPost('start_date'),
-            'completion_date' => $this->request->getPost('completion_date'),
-            'created_by' => session()->get('user_id'),
+            'sign_type'        => $this->request->getPost('sign_type'),
+            'address'          => $this->request->getPost('address'),
+            'due_date'         => $this->request->getPost('due_date'),
+            'progress'         => $this->request->getPost('progress'),
+            'created_by'       => session()->get('user_id'),
+            'created_at'       => date('Y-m-d H:i:s'),
         ]);
 
-        return redirect()->to('admin/signs')->with('success', 'Sign assigned successfully.');
+        return redirect()->to('/admin/signs')->with('success', 'Sign added successfully.');
     }
 
     public function delete($id)
     {
-        $signModel = new SignModel();
-        $signModel->delete($id);
-        return redirect()->to('admin/signs')->with('success', 'Sign deleted.');
+        $this->signModel->delete($id);
+        return redirect()->to('/admin/signs')->with('success', 'Sign deleted.');
+    }
+    public function test()
+    {
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|valid_email'
+        ];
+        if (!$this->validate($rules)) {
+            return $this->response->setJSON(['status' => false, 'message' => $this->validator->getErrors()]);
+        }
+        $json = $this->request->getJSON();
+        $name = $json->name;
+        $email = $json->email;
+        $data = ['name' => $name, 'email' => $email];
+        return $this->response
+            ->setStatusCode(403)
+            ->setJSON(['status' => true, 'message' => "success", 'data' => $data]);
     }
 }
