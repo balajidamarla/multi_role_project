@@ -103,11 +103,14 @@
 </div>
 
 <script>
+    // Initialize dynamic sign type options based on selection
     document.getElementById('sign_type').addEventListener('change', function() {
         var signTypeSelect = document.getElementById('dynamic_sign_type');
-        signTypeSelect.innerHTML = ''; // Clear existing options
+        signTypeSelect.innerHTML = '<option>Loading...</option>'; // Show loading message initially
 
         var signType = this.value;
+        signTypeSelect.innerHTML = ''; // Clear loading message
+
         if (signType === 'Indoor') {
             var indoorOptions = ['LED', 'Neon', 'Banner'];
             indoorOptions.forEach(function(type) {

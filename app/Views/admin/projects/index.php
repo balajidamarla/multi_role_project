@@ -1,10 +1,6 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
-<!-- <h2 class="mb-4">Manage Projects</h2> -->
-
-<!-- <a href="<//?= base_url('admin/projects/create') ?>" class="btn btn-success mb-3">Add Project</a> -->
-
 <?php if (session()->getFlashdata('success')): ?>
     <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
 <?php endif; ?>
@@ -19,7 +15,9 @@
                 <th>Status</th>
                 <th>Assigned To</th>
                 <th>Signs</th>
-                <th>Actions</th>
+                <?php if ($role !== 'salessurveyor'): ?>
+                    <th>Actions</th>
+                <?php endif; ?>
             </tr>
         </thead>
         <tbody>
@@ -43,14 +41,17 @@
                             $db = \Config\Database::connect();
                             $signs = $db->table('signs')->where('project_id', $project['id'])->get()->getResultArray();
                             foreach ($signs as $sign) {
-                                echo "<li>" . esc($sign['sign_description']) . "</li>";
+                                echo "<li><strong>" . esc($sign['sign_description']) . "</strong><br><small>Due: " . esc($sign['due_date']) . "</small></li>";
                             }
                             ?>
                         </ul>
                     </td>
-                    <td>
-                        <a href="<?= base_url('admin/projects/delete/' . $project['id']) ?>" onclick="return confirm('Are you sure?')">Delete</a>
-                    </td>
+                    <?php if ($role !== 'salessurveyor'): ?>
+                        <td>
+                            <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="<?= base_url('admin/projects/delete/' . $project['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    <?php endif; ?>
                 </tr>
             <?php endforeach; ?>
         </tbody>

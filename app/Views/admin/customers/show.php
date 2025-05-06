@@ -10,7 +10,6 @@
             <?= esc($customer['address1']) ?><br>
             <?= esc($customer['city_state']) ?><br>
             <?= esc($customer['zipcode']) ?>
-
         </div>
         <div class="col-md-2">
             <strong>Primary Contact</strong><br>
@@ -31,8 +30,9 @@
             <?= esc($customer['notes'] ?? 'No notes') ?>
         </div>
         <div class="col-md-2 d-flex align-items-center">
-            <!-- Flexbox ensures buttons stay on the same line -->
-            <a href="<?= base_url('admin/delete_customer/' . $customer['id']) ?>" class="btn btn-danger btn-sm mr-2" onclick="return confirm('Are you sure?')">Delete</a>
+            <?php if (!isset($user_role) || $user_role !== 'salessurveyor'): ?>
+                <a href="<?= base_url('admin/delete_customer/' . $customer['id']) ?>" class="btn btn-danger btn-sm mr-2" onclick="return confirm('Are you sure?')">Delete</a>
+            <?php endif; ?>
             <a href="<?= base_url('admin/customers/report/' . $customer['id']) ?>" class="btn btn-primary btn-sm">Report</a>
         </div>
     </div>

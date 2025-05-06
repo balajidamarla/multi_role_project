@@ -156,4 +156,49 @@ class SignController extends BaseController
 
         return redirect()->back()->with('error', 'Invalid data provided.');
     }
+
+    public function edit($id)
+    {
+        $signModel = new SignModel();
+        $userModel = new UserModel();
+
+        $sign = $signModel->find($id); // returns array by default
+
+        if (!$sign) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Sign not found');
+        }
+
+        $users = $userModel->findAll(); // or filter as needed
+
+        return view('admin/signs/edit', [
+            'sign' => $sign,
+            'users' => $users
+        ]);
+    }
+
+
+    public function update($id)
+    {
+        $signModel = new SignModel();
+        $sign = $signModel->find($id);
+
+        if (!$sign) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Sign not found.");
+        }
+
+        $signData = [
+            'sign_name'        => $this->request->getPost('sign_name'),
+            'sign_description' => $this->request->getPost('sign_description'),
+            'sign_type'        => $this->request->getPost('sign_type'),
+            'assigned_to'      => $this->request->getPost('assigned_to'),
+            'status'           => $this->request->getPost('status'),
+            'due_date'         => $this->request->getPost('due_date'),
+            'updated_at'       => date('Y-m-d H:i:s'),
+        ];
+
+        $signModel->update($id, $signData);
+
+        session()->setFlashdata('success', 'Sign updated successfully.');
+        return redirect()->to(base_url('admin/projects/view/' . $sign['project_id']));
+    }
 }

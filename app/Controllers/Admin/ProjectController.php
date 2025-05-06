@@ -23,25 +23,16 @@ class ProjectController extends BaseController
 
     public function index()
     {
-        $data['projects'] = $this->projectModel
-            ->select('
-            projects.*, 
-            CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,  
-            CONCAT(customers.address1, " ", customers.address2, " ", customers.city_state) AS customer_address,  
-            customers.zipcode,
-            customers.phone AS contact_info,
-            customers.created_at AS customer_created_at,
-            users.first_name AS assigned_to_name  
-        ')
-            ->join('customers', 'customers.id = projects.customer_id')
-            ->join('users', 'users.id = projects.assigned_to', 'left')
-            ->orderBy('projects.created_at', 'DESC')
-            ->findAll();
+        $data['projects'] = $this->projectModel->projects();
+
+        // Get the role of the current logged-in user from the session
+        $currentUserId = session()->get('user_id');
+        $userModel = new UserModel();
+        $user = $userModel->find($currentUserId);
+        $data['role'] = $user['role']; // Pass role to the view
 
         return view('admin/projects/index', $data);
     }
-
-
 
     public function view($id)
     {
@@ -77,25 +68,31 @@ class ProjectController extends BaseController
         ]);
     }
 
-
+    // Create Project
     public function create($project_id)
     {
         // Fetch the project data
         $projectModel = new ProjectModel();
         $project = $projectModel->find($project_id);
         $currentUserId = session()->get('user_id');
+        $userRole = session()->get('user_role'); // Get the role from session
 
         // Check if the project exists
         if (!$project) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Project not found.');
         }
 
-        // Fetch only relevant users (admin, superadmin, sales_surveyor, surveyor_lite)
+        // Check if the user has permission to create signs
+        if ($userRole !== 'admin' && $userRole !== 'salessurveyor') {
+            throw new \CodeIgniter\Exceptions\ForbiddenException("You don't have permission to add signs.");
+        }
+
+        // Fetch only relevant users (admin, sales_surveyor)
         $userModel = new UserModel();
         $users = $userModel
             ->select('id, first_name, last_name, role')
             ->groupStart()
-            ->whereIn('role', ['admin','salessurveyor','Surveyor Lite'])
+            ->whereIn('role', ['admin', 'salessurveyor', 'Surveyor Lite'])
             ->orWhere('id', $currentUserId)
             ->groupEnd()
             ->findAll();
@@ -107,12 +104,7 @@ class ProjectController extends BaseController
         ]);
     }
 
-
-
-
-
-    // Controller: ProjectsController.php
-
+    // Add Sign
     public function addSign()
     {
         // Fetch all customers
@@ -139,12 +131,7 @@ class ProjectController extends BaseController
         return view('admin/projects/create', $data);
     }
 
-
-
-    // Controller: ProjectsController.php
-
-
-
+    // Store the sign
     public function store()
     {
         // Get the input data from the form
@@ -163,6 +150,13 @@ class ProjectController extends BaseController
             'updated_at'       => date('Y-m-d H:i:s'),
         ];
 
+        $userRole = session()->get('user_role'); // Get the role from session
+
+        // Check if user is allowed to add signs
+        if ($userRole !== 'admin' && $userRole !== 'salessurveyor') {
+            throw new \CodeIgniter\Exceptions\ForbiddenException("You don't have permission to add signs.");
+        }
+
         // Create an instance of SignModel
         $signModel = new SignModel();
 
@@ -178,9 +172,7 @@ class ProjectController extends BaseController
         }
     }
 
-
-
-
+    // Delete Project
     public function delete($id)
     {
         $this->projectModel->delete($id);

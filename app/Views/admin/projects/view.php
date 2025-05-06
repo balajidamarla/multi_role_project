@@ -2,7 +2,11 @@
 <?= $this->section('content') ?>
 
 <h2 class="mb-4">Project Detail</h2>
-<a href="<?= base_url('admin/signs/create/' . $project['id']) ?>" class="btn btn-primary mb-3">Add Sign</a>
+
+<?php if ($user_role !== 'salessurveyor'): ?>
+    <a href="<?= base_url('admin/signs/create/' . $project['id']) ?>" class="btn btn-primary mb-3">Add Sign</a>
+<?php endif; ?>
+
 <div class="card p-4 mb-4">
     <h4 class="mb-3">Customer Information</h4>
     <p><strong>Company Name:</strong> <?= esc($project['company_name']) ?></p>
@@ -13,8 +17,6 @@
     <p><strong>Email:</strong> <?= esc($project['email']) ?></p>
     <p><strong>Created At:</strong> <?= date('Y-m-d', strtotime($project['created_at'])) ?></p>
 </div>
-
-
 
 <?php if (!empty($signs)): ?>
     <h4>Signs for this Project</h4>
