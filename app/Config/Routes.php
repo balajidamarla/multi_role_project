@@ -75,8 +75,33 @@ $routes->post('projects/store', 'Admin\ProjectController::store');
 $routes->post('admin/projects/store', 'Admin\ProjectController::store');
 $routes->get('projects/delete/(:num)', 'Admin\ProjectController::delete/$1');
 
+$routes->get('admin/projects/view/(:num)', 'admin\ProjectController::view/$1');
+
+
+$routes->get('admin/projects', 'ProjectController::index');
+$routes->get('admin/projects/view/(:num)', 'ProjectController::view/$1');
+$routes->get('admin/projects/delete/(:num)', 'ProjectController::delete/$1');
+
+
+$routes->get('admin/signs/create/(:num)', 'Admin\ProjectController::create/$1');
+$routes->post('admin/signs/updateAssignment/(:num)', 'SignController::updateAssignment/$1');
+
 
 $routes->get('admin/signs', 'SignController::index');              // View assigned tasks
 $routes->get('admin/signs/create', 'SignController::create');      // Show the assign sign form
 $routes->post('signs/store', 'SignController::store');       // Submit new sign
 $routes->get('signs/delete/(:num)', 'SignController::delete/$1'); // Delete a sign
+
+//sales surveyor
+
+// $routes->get('dashboard', 'Dashboard::index');
+$routes->get('salessurveyor/manage_customers', 'SurveyorController::manageCustomers');
+$routes->get('salessurveyor/customers/(:num)', 'SurveyorController::show/$1');
+
+$routes->get('salessurveyor/delete_customer/(:num)', 'SurveyorController::delete/$1');
+$routes->get('salessurveyor/customers/report/(:num)', 'SurveyorController::report/$1');
+
+$routes->get('salessurveyor/projects', 'ProjectController::index');
+$routes->get('salessurveyor/teams', 'TeamController::index');
+$routes->get('salessurveyor/signs', 'SignController::index');
+$routes->get('salessurveyor/assigned_tasks', 'SignController::assigned');

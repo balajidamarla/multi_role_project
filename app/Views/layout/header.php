@@ -56,8 +56,8 @@
                     $dashboardLink = base_url('admin/dashboard');
                     $panelLabel = 'Admin Panel';
                     break;
-                case 'sales_surveyor':
-                    $dashboardLink = base_url('sales/dashboard');
+                case 'salessurveyor':
+                    $dashboardLink = base_url('salessurveyor/dashboard');
                     $panelLabel = 'Sales Surveyor Panel';
                     break;
                 case 'surveyor_lite':
@@ -76,10 +76,15 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
 
+                    <?php
+                    // Normalize role for consistency
+                    $role = strtolower(trim($role));
+                    ?>
+
                     <!-- Dashboard (Visible to All Except Admin) -->
                     <?php if ($role !== 'admin'): ?>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= $dashboardLink ?>">Dashboard</a>
+                            <!-- <a class="nav-link text-white nav-link-hover" href="<//?= $dashboardLink ?>">Dashboard</a> -->
                         </li>
                     <?php endif; ?>
 
@@ -98,21 +103,30 @@
                         <li class="nav-item mx-2">
                             <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/projects') ?>">Projects</a>
                         </li>
-
-
                         <li class="nav-item mx-2">
                             <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/teams') ?>">Teams</a>
                         </li>
                         <li class="nav-item mx-2">
                             <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/signs') ?>">Signs</a>
                         </li>
-
                     <?php endif; ?>
 
                     <!-- Sales Surveyor only -->
-                    <?php if ($role === 'sales_surveyor'): ?>
+                    <?php if ($role === 'salessurveyor'): ?>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('sales/assigned_tasks') ?>">Assigned Tasks</a>
+                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/manage_customers') ?>">Customers</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/projects') ?>">Projects</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/teams') ?>">Teams</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/signs') ?>">Signs</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/assigned_tasks') ?>">Assigned Tasks</a>
                         </li>
                     <?php endif; ?>
 
@@ -130,6 +144,7 @@
 
                 </ul>
             </div>
+
         </div>
     </nav>
 
