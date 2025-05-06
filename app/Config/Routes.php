@@ -97,6 +97,20 @@ $routes->get('signs/delete/(:num)', 'SignController::delete/$1'); // Delete a si
 // $routes->get('dashboard', 'Dashboard::index');
 $routes->get('salessurveyor/manage_customers', 'SurveyorController::manageCustomers');
 $routes->get('salessurveyor/customers/(:num)', 'SurveyorController::show/$1');
+$routes->get('salessurveyor/add_customer', 'SurveyorController::addCustomerForm');
+$routes->get('salessurveyor/projects', 'SurveyorController::getIndex');
+$routes->get('salessurveyor/projects/view/(:num)', 'SurveyorController::view/$1');
+$routes->get('salessurveyor/projects/create', 'SurveyorController::create');
+
+
+$routes->get('salessurveyor/signs/create/(:num)', 'SurveyorController::create/$1');
+$routes->get('salessurveyor/signs/create', 'SignController::create');      // Show the assign sign form
+
+
+
+
+$routes->post('salessurveyor/projects/store', 'SurveyorController::store');
+
 
 $routes->get('salessurveyor/delete_customer/(:num)', 'SurveyorController::delete/$1');
 $routes->get('salessurveyor/customers/report/(:num)', 'SurveyorController::report/$1');

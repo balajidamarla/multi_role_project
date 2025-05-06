@@ -3,7 +3,7 @@
 
 <!-- <h2 class="mb-4">Manage Projects</h2> -->
 
-<!-- <a href="<//?= base_url('admin/projects/create') ?>" class="btn btn-success mb-3">Add Project</a> -->
+<!-- <a href="<//?= base_url('salessurveyor/projects/create') ?>" class="btn btn-success mb-3">Add Project</a> -->
 
 <?php if (session()->getFlashdata('success')): ?>
     <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
@@ -19,14 +19,14 @@
                 <th>Status</th>
                 <th>Assigned To</th>
                 <th>Signs</th>
-                <th>Actions</th>
+                
             </tr>
         </thead>
         <tbody>
             <?php foreach ($projects as $project): ?>
                 <tr>
                     <td>
-                        <a href="<?= base_url('admin/projects/view/' . $project['id']) ?>">
+                        <a href="<?= base_url('salessurveyor/projects/view/' . $project['id']) ?>">
                             <strong><?= esc($project['customer_name']) ?></strong><br>
                             <?= esc($project['customer_address']) ?>
                         </a><br>
@@ -48,9 +48,7 @@
                             ?>
                         </ul>
                     </td>
-                    <td>
-                        <a href="<?= base_url('admin/projects/delete/' . $project['id']) ?>" onclick="return confirm('Are you sure?')">Delete</a>
-                    </td>
+                    
                 </tr>
             <?php endforeach; ?>
         </tbody>

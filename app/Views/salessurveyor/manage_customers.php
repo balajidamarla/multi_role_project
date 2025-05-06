@@ -3,7 +3,7 @@
 
 <div class="container mt-4">
     <h3>Manage Customers</h3>
-    <a href="<?= base_url('admin/add_customer') ?>" class="btn btn-primary mb-3">Add Customer</a>
+    <a href="<?= base_url('salessurveyor/add_customer') ?>" class="btn btn-primary mb-3">Add Customer</a>
 
     <?php if (!empty($customers)): ?>
         <table class="table table-bordered">

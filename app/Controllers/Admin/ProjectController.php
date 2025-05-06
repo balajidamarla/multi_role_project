@@ -81,20 +81,27 @@ class ProjectController extends BaseController
     public function create($project_id)
     {
         // Fetch the project data
-        $projectModel = new \App\Models\ProjectModel();
+        $projectModel = new ProjectModel();
         $project = $projectModel->find($project_id);
+        $currentUserId = session()->get('user_id');
 
         // Check if the project exists
         if (!$project) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Project not found.');
         }
 
-        // Fetch the users for the 'Assign to Team' dropdown
-        $userModel = new \App\Models\UserModel();
-        $users = $userModel->findAll(); // Assuming you have a model for users
+        // Fetch only relevant users (admin, superadmin, sales_surveyor, surveyor_lite)
+        $userModel = new UserModel();
+        $users = $userModel
+            ->select('id, first_name, last_name, role')
+            ->groupStart()
+            ->whereIn('role', ['admin','salessurveyor','Surveyor Lite'])
+            ->orWhere('id', $currentUserId)
+            ->groupEnd()
+            ->findAll();
 
         // Pass project and users to the view
-        return view('admin/signs/create', [
+        return view('salessurveyor/signs/create', [
             'project' => $project,
             'users' => $users
         ]);

@@ -125,9 +125,7 @@
                         <li class="nav-item mx-2">
                             <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/signs') ?>">Signs</a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/assigned_tasks') ?>">Assigned Tasks</a>
-                        </li>
+                        
                     <?php endif; ?>
 
                     <!-- Surveyor Lite only -->
