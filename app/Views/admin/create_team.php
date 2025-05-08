@@ -1,67 +1,56 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="max-w-3xl mx-auto mt-10 bg-white text-black p-8 rounded-xl shadow-lg">
+    <h3 class="text-2xl font-bold mb-6">Add Team Member</h3>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if (session()->getFlashdata('errors')): ?>
+        <div class="mb-6 bg-red-700 text-white p-4 rounded-lg">
+            <ul class="list-disc pl-5">
+                <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                    <li><?= esc($error) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
-</head>
+    <form method="post" action="<?= base_url('admin/teams/store') ?>">
+        <?= csrf_field() ?>
 
-<body>
-    <div class="container mt-4">
-        <h3>Add Team Member</h3>
-
-        <?php if (session()->getFlashdata('errors')): ?>
-            <div class="alert alert-danger">
-                <ul>
-                    <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                        <li><?= esc($error) ?></li>
-                    <?php endforeach; ?>
-                </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+                <label class="block font-medium mb-2">First Name</label>
+                <input type="text" name="first_name" class="w-full bg-white border border-gray-400 p-3 rounded-lg focus:ring-2 focus:ring-white" required>
             </div>
-        <?php endif; ?>
-
-        <form method="post" action="<?= base_url('admin/teams/store') ?>">
-            <?= csrf_field() ?>
-
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label>First Name</label>
-                    <input type="text" name="first_name" class="form-control" required>
-                </div>
-                <div class="col-md-6">
-                    <label>Last Name</label>
-                    <input type="text" name="last_name" class="form-control" required>
-                </div>
+            <div>
+                <label class="block font-medium mb-2">Last Name</label>
+                <input type="text" name="last_name" class="w-full bg-white border border-gray-400 p-3 rounded-lg focus:ring-2 focus:ring-white" required>
             </div>
+        </div>
 
-            <div class="form-group mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
+        <div class="mb-6">
+            <label class="block font-medium mb-2">Email</label>
+            <input type="email" name="email" class="w-full bg-white border border-gray-400 p-3 rounded-lg focus:ring-2 focus:ring-white" required>
+        </div>
 
-            <div class="form-group mb-3">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" required>
-            </div>
+        <div class="mb-6">
+            <label class="block font-medium mb-2">Password</label>
+            <input type="password" name="password" class="w-full bg-white border border-gray-400 p-3 rounded-lg focus:ring-2 focus:ring-white" required>
+        </div>
 
-            <div class="form-group mb-4">
-                <label>Role</label>
-                <select name="role" class="form-control" required>
-                    <option value="">-- Select Role --</option>
-                    <option value="Sales Surveyor">Sales Surveyor</option>
-                    <option value="Surveyor Lite">Surveyor Lite</option>
-                </select>
-            </div>
+        <div class="mb-8">
+            <label class="block font-medium mb-2">Role</label>
+            <select name="role" class="w-full bg-white border border-gray-400 p-3 rounded-lg focus:ring-2 focus:ring-white" required>
+                <option value="">-- Select Role --</option>
+                <option value="Sales Surveyor">Sales Surveyor</option>
+                <option value="Surveyor Lite">Surveyor Lite</option>
+            </select>
+        </div>
 
-            <button type="submit" class="btn btn-primary">Add Member</button>
-        </form>
-    </div>
+        <button type="submit" class="w-full bg-black text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-900 transition">
+            Add Member
+        </button>
+    </form>
+</div>
 
-</body>
-
-</html>
 <?= $this->endSection() ?>

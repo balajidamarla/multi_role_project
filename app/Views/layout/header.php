@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi Role Project</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <style>
         .nav-link-hover:hover {
             text-decoration: underline;
@@ -40,111 +44,112 @@
 
 <body>
     <!--  Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <?php
-            $role = session()->get('role'); // get the logged-in user role
-            $dashboardLink = '#';
-            $panelLabel = '';
+    <nav class="bg-gray-900 text-white" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <?php
+                $role = session()->get('role');
+                $dashboardLink = '#';
+                $panelLabel = '';
 
-            switch ($role) {
-                case 'superadmin':
-                    $dashboardLink = base_url('superadmin/dashboard');
-                    $panelLabel = 'Super Admin Panel';
-                    break;
-                case 'admin':
-                    $dashboardLink = base_url('admin/dashboard');
-                    $panelLabel = 'Admin Panel';
-                    break;
-                case 'salessurveyor':
-                    $dashboardLink = base_url('salessurveyor/dashboard');
-                    $panelLabel = 'Sales Surveyor Panel';
-                    break;
-                case 'surveyor_lite':
-                    $dashboardLink = base_url('lite/dashboard');
-                    $panelLabel = 'Surveyor Lite Panel';
-                    break;
-            }
-            ?>
+                switch ($role) {
+                    case 'superadmin':
+                        $dashboardLink = base_url('superadmin/dashboard');
+                        $panelLabel = 'Super Admin Panel';
+                        break;
+                    case 'admin':
+                        $dashboardLink = base_url('admin/dashboard');
+                        $panelLabel = 'Admin Panel';
+                        break;
+                    case 'salessurveyor':
+                        $dashboardLink = base_url('salessurveyor/dashboard');
+                        $panelLabel = 'Sales Surveyor Panel';
+                        break;
+                    case 'surveyor_lite':
+                        $dashboardLink = base_url('lite/dashboard');
+                        $panelLabel = 'Surveyor Lite Panel';
+                        break;
+                }
+                ?>
 
-            <a class="navbar-brand" href="<?= $dashboardLink ?>">
-                SignPilot Dashboard // <span><?= esc($panelLabel) ?></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+                <!-- Logo / Brand -->
+                <div class="flex-shrink-0">
+                    <a href="<?= $dashboardLink ?>" class="text-lg font-bold text-white hover:text-blue-400 transition-all duration-200">
+                        SignPilot Dashboard //<span class="text-yellow-300"> <?= esc($panelLabel) ?></span>
+                    </a>
+                </div>
 
-                    <?php
-                    // Normalize role for consistency
-                    $role = strtolower(trim($role));
-                    ?>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="open = !open" type="button" class="text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                            <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
 
-                    <!-- Dashboard (Visible to All Except Admin) -->
-                    <?php if ($role !== 'admin'): ?>
-                        <li class="nav-item mx-2">
-                            <!-- <a class="nav-link text-white nav-link-hover" href="<//?= $dashboardLink ?>">Dashboard</a> -->
-                        </li>
-                    <?php endif; ?>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <?php $role = strtolower(trim($role)); ?>
 
-                    <!-- Super Admin only -->
                     <?php if ($role === 'superadmin'): ?>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('superadmin/add_admin') ?>">Add Admin</a>
-                        </li>
+                        <a href="<?= base_url('superadmin/add_admin') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Add Admin</a>
                     <?php endif; ?>
 
-                    <!-- Admin only -->
                     <?php if ($role === 'admin'): ?>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/manage_customers') ?>">Customers</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/projects') ?>">Projects</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/teams') ?>">Teams</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('admin/signs') ?>">Signs</a>
-                        </li>
+                        <a href="<?= base_url('admin/manage_customers') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Customers</a>
+                        <a href="<?= base_url('admin/projects') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Projects</a>
+                        <a href="<?= base_url('admin/teams') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Teams</a>
+                        <a href="<?= base_url('admin/signs') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Signs</a>
                     <?php endif; ?>
 
-                    <!-- Sales Surveyor only -->
                     <?php if ($role === 'salessurveyor'): ?>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/manage_customers') ?>">Customers</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/projects') ?>">Projects</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/teams') ?>">Teams</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('salessurveyor/signs') ?>">Signs</a>
-                        </li>
-                        
+                        <a href="<?= base_url('salessurveyor/manage_customers') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Customers</a>
+                        <a href="<?= base_url('salessurveyor/projects') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Projects</a>
+                        <a href="<?= base_url('salessurveyor/teams') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Teams</a>
+                        <a href="<?= base_url('salessurveyor/signs') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Signs</a>
                     <?php endif; ?>
 
-                    <!-- Surveyor Lite only -->
                     <?php if ($role === 'surveyor_lite'): ?>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link text-white nav-link-hover" href="<?= base_url('lite/tasks') ?>">My Tasks</a>
-                        </li>
+                        <a href="<?= base_url('lite/tasks') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">My Tasks</a>
                     <?php endif; ?>
 
-                    <!-- Logout (Visible to All) -->
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-danger nav-link-hover" href="<?= base_url('auth/logout') ?>">Logout</a>
-                    </li>
-
-                </ul>
+                    <a href="<?= base_url('auth/logout') ?>" class="text-red-500 transition-all duration-200 hover:text-red-400 hover:underline hover:scale-105">Logout</a>
+                </div>
             </div>
+        </div>
 
+        <!-- Mobile Nav -->
+        <div x-show="open" class="md:hidden px-4 pb-4 space-y-2">
+            <?php if ($role === 'superadmin'): ?>
+                <a href="<?= base_url('superadmin/add_admin') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Add Admin</a>
+            <?php endif; ?>
+
+            <?php if ($role === 'admin'): ?>
+                <a href="<?= base_url('admin/manage_customers') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Customers</a>
+                <a href="<?= base_url('admin/projects') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Projects</a>
+                <a href="<?= base_url('admin/teams') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Teams</a>
+                <a href="<?= base_url('admin/signs') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Signs</a>
+            <?php endif; ?>
+
+            <?php if ($role === 'salessurveyor'): ?>
+                <a href="<?= base_url('salessurveyor/manage_customers') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Customers</a>
+                <a href="<?= base_url('salessurveyor/projects') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Projects</a>
+                <a href="<?= base_url('salessurveyor/teams') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Teams</a>
+                <a href="<?= base_url('salessurveyor/signs') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Signs</a>
+            <?php endif; ?>
+
+            <?php if ($role === 'surveyor_lite'): ?>
+                <a href="<?= base_url('lite/tasks') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">My Tasks</a>
+            <?php endif; ?>
+
+            <a href="<?= base_url('auth/logout') ?>" class="block text-red-500 transition-all duration-200 hover:text-red-400 hover:underline hover:scale-105">Logout</a>
         </div>
     </nav>
+
 
     <!--  Navbar End -->
 
@@ -154,7 +159,8 @@
     </div>
     <!-- Content Section End -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
 </body>
 

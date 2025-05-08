@@ -1,39 +1,55 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
-<h2 class="mb-3">Customer Dashboard</h2>
 
-<div class="container-fluid p-0">
-    <div class="row border mb-5" style="margin-left: 0; margin-right: 0;">
-        <div class="col-md-2">
-            <strong>Address</strong><br>
-            <?= esc($customer['address1']) ?><br>
-            <?= esc($customer['city_state']) ?><br>
-            <?= esc($customer['zipcode']) ?>
+<div class="max-w-6xl mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-10">Customer Dashboard</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-sm text-gray-900">
+
+        <!-- Address -->
+        <div>
+            <h3 class="font-bold text-gray-700 mb-1">Address</h3>
+            <p><?= esc($customer['address1']) ?><br>
+                <?= esc($customer['city_state']) ?><br>
+                <?= esc($customer['zipcode']) ?></p>
         </div>
-        <div class="col-md-2">
-            <strong>Primary Contact</strong><br>
-            <?= esc($customer['first_name']) ?> <?= esc($customer['last_name']) ?><br>
-            <?= esc($customer['phone']) ?><br>
-            <?= esc($customer['email'] ?? 'N/A') ?>
+
+        <!-- Contact -->
+        <div>
+            <h3 class="font-bold text-gray-700 mb-1">Primary Contact</h3>
+            <p><?= esc($customer['first_name']) ?> <?= esc($customer['last_name']) ?><br>
+                <?= esc($customer['phone']) ?><br>
+                <?= esc($customer['email'] ?? 'N/A') ?></p>
         </div>
-        <div class="col-md-2">
-            <strong>Date Added</strong><br>
-            <?= date('d-m-Y', strtotime($customer['created_at'])) ?>
+
+        <!-- Date Added -->
+        <div>
+            <h3 class="font-bold text-gray-700 mb-1">Date Added</h3>
+            <p><?= date('d-m-Y', strtotime($customer['created_at'])) ?></p>
         </div>
-        <div class="col-md-2">
-            <strong>Tasks:</strong><br>
-            <?= $signCount ?>
+
+        <!-- Tasks -->
+        <div>
+            <h3 class="font-bold text-gray-700 mb-1">Tasks</h3>
+            <p><?= $signCount ?></p>
         </div>
-        <div class="col-md-2">
-            <strong>Notes</strong><br>
-            <?= esc($customer['notes'] ?? 'No notes') ?>
+
+        <!-- Notes -->
+        <div>
+            <h3 class="font-bold text-gray-700 mb-1">Notes</h3>
+            <p><?= esc($customer['notes'] ?? 'No notes') ?></p>
         </div>
-        <div class="col-md-2 d-flex align-items-center">
+
+        <!-- Actions -->
+        <div class="flex flex-col justify-center gap-2">
             <?php if (!isset($user_role) || $user_role !== 'salessurveyor'): ?>
-                <a href="<?= base_url('admin/delete_customer/' . $customer['id']) ?>" class="btn btn-danger btn-sm mr-2" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="<?= base_url('admin/delete_customer/' . $customer['id']) ?>"
+                    class="bg-red-600 text-white text-center py-2 px-4 rounded hover:bg-red-700"
+                    onclick="return confirm('Are you sure?')">Delete</a>
             <?php endif; ?>
-            <a href="<?= base_url('admin/customers/report/' . $customer['id']) ?>" class="btn btn-primary btn-sm">Report</a>
+            <a href="<?= base_url('admin/customers/report/' . $customer['id']) ?>"
+                class="bg-blue-600 text-white text-center py-2 px-4 rounded hover:bg-blue-700">Report</a>
         </div>
     </div>
 </div>

@@ -1,8 +1,10 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
-<div class="container mt-4">
-    <h3>Manage Signs</h3>
+<div class="max-w-6xl mx-auto p-6">
+    <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-semibold text-white">Manage Signs</h3>
+    </div>
 
     <?php
     $session = session();
@@ -10,73 +12,84 @@
     $userId = $session->get('id'); // Used to limit visibility to assigned signs
     ?>
 
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
+            <?= session()->getFlashdata('error') ?>
+        </div>
+    <?php endif; ?>
+
     <?php if (!empty($signs)): ?>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Sign Name</th>
-                    <th>Customer Name</th>
-                    <th>Assigned To</th>
-                    <th>Sign Type</th>
-                    <th>Status</th>
-                    <?php if (in_array($role, ['admin', 'manager'])): ?>
-                        <th>Actions</th>
-                    <?php endif; ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($signs as $sign): ?>
-                    <?php
-                    // Allow access if the user is assigned OR is an admin/manager
-                    if ($sign['assigned_to'] == $userId || in_array($role, ['admin', 'manager'])):
-                    ?>
-                        <tr>
-                            <td><?= esc($sign['sign_description']) ?></td>
-                            <td><?= esc($sign['customer_name']) ?></td>
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200 text-sm text-gray-800">
+                <thead class="bg-black text-white">
+                    <tr>
+                        <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Name</th>
+                        <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Customer Name</th>
+                        <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Assigned To</th>
+                        <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Type</th>
+                        <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Status</th>
+                        <?php if (in_array($role, ['admin'])): ?>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Actions</th>
+                        <?php endif; ?>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <?php foreach ($signs as $sign): ?>
+                        <?php
+                        // Allow access if the user is assigned OR is an admin/manager
+                        if ($sign['assigned_to'] == $userId || in_array($role, ['admin', 'manager'])):
+                        ?>
+                            <tr class="hover:bg-gray-100 transition">
+                                <td class="px-4 py-3"><?= esc($sign['sign_description']) ?></td>
+                                <td class="px-4 py-3"><?= esc($sign['customer_name']) ?></td>
 
-                            <td>
-                                <?php if (in_array($role, ['admin', 'manager'])): ?>
-                                    <form action="<?= base_url('admin/signs/updateAssignment/' . $sign['id']) ?>" method="post">
-                                        <?= csrf_field() ?>
-                                        <select name="assigned_to" class="form-select form-select-sm" onchange="this.form.submit()">
-                                            <?php foreach ($users as $user): ?>
-                                                <option value="<?= $user['id'] ?>" <?= ($sign['assigned_to'] == $user['id']) ? 'selected' : '' ?>>
-                                                    <?= esc($user['first_name'] . ' ' . $user['last_name']) ?> (<?= ucfirst($user['role']) ?>)
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </form>
-                                <?php else: ?>
-                                    <?php
-                                    $assignedUser = array_filter($users, fn($u) => $u['id'] == $sign['assigned_to']);
-                                    $assignedUser = reset($assignedUser);
+                                <td class="px-4 py-3">
+                                    <?php if (in_array($role, ['admin'])): ?>
+                                        <form action="<?= base_url('admin/signs/updateAssignment/' . $sign['id']) ?>" method="post">
+                                            <?= csrf_field() ?>
+                                            <select name="assigned_to" class="form-select form-select-sm px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="this.form.submit()">
+                                                <?php foreach ($users as $user): ?>
+                                                    <option value="<?= $user['id'] ?>" <?= $user['id'] == $sign['assigned_to'] ? 'selected' : '' ?>>
+                                                        <?= esc($user['first_name'] . ' ' . $user['last_name']) ?> (<?= esc($user['role']) ?>)
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </form>
+                                    <?php else: ?>
+                                        <?php
+                                        $assignedUser = array_filter($users, fn($u) => $u['id'] == $sign['assigned_to']);
+                                        $assignedUser = reset($assignedUser);
 
-                                    // Show "Self" if current user is assigned
-                                    $displayName = ($assignedUser && $assignedUser['id'] == $userId)
-                                        ? 'Self'
-                                        : esc($assignedUser['first_name'] . ' ' . $assignedUser['last_name']) . ' (' . ucfirst($assignedUser['role']) . ')';
-                                    ?>
-                                    <?= $displayName ?>
-                                <?php endif; ?>
-                            </td>
-
-                            <td><?= esc($sign['sign_type']) ?></td>
-                            <td><?= esc($sign['progress']) ?></td>
-
-                            <?php if (in_array($role, ['admin', 'manager'])): ?>
-                                <td>
-                                    <a href="<?= base_url('admin/signs/edit/' . $sign['id']) ?>" class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="<?= base_url('admin/signs/delete/' . $sign['id']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                        // Show "Self" if current user is assigned
+                                        $displayName = ($assignedUser && $assignedUser['id'] == $userId)
+                                            ? 'Self'
+                                            : esc($assignedUser['first_name'] . ' ' . $assignedUser['last_name']) . ' (' . ucfirst($assignedUser['role']) . ')';
+                                        ?>
+                                        <?= $displayName ?>
+                                    <?php endif; ?>
                                 </td>
-                            <?php endif; ?>
-                        </tr>
-                    <?php endif; ?>
-                <?php endforeach; ?>
 
-            </tbody>
-        </table>
+                                <td class="px-4 py-3"><?= esc($sign['sign_type']) ?></td>
+                                <td class="px-4 py-3"><?= esc($sign['progress']) ?></td>
+
+                                <?php if (in_array($role, ['admin', 'manager'])): ?>
+                                    <td class="px-4 py-3 space-x-2">
+                                        <a href="<?= base_url('admin/signs/edit/' . $sign['id']) ?>" class="bg-yellow-600 text-white px-3 py-1 rounded-md text-xs hover:bg-yellow-700 transition">
+                                            Edit
+                                        </a>
+                                        <a href="<?= base_url('admin/signs/delete/' . $sign['id']) ?>" onclick="return confirm('Are you sure you want to delete this sign?')" class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
+                                            Delete
+                                        </a>
+                                    </td>
+                                <?php endif; ?>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     <?php else: ?>
-        <p>No signs have been assigned yet.</p>
+        <p class="text-gray-400 mt-6">No signs have been assigned yet.</p>
     <?php endif; ?>
 </div>
 

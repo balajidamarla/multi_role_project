@@ -25,7 +25,6 @@ class CustomerController extends BaseController
         ]);
     }
 
-    // Show specific customer details
     public function show($id)
     {
         $session = session();
@@ -35,7 +34,10 @@ class CustomerController extends BaseController
         $projectModel = new ProjectModel();
         $signModel = new SignModel();
 
+        // Fetch the customer by ID
         $customer = $customerModel->find($id);
+
+        // If customer is not found, show 404 error
         if (!$customer) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Customer not found.");
         }
@@ -56,6 +58,7 @@ class CustomerController extends BaseController
             'user_role' => $user_role
         ]);
     }
+
 
     // Delete a customer (only for non-surveyors)
     public function delete($id)
@@ -113,5 +116,4 @@ class CustomerController extends BaseController
             'user_role' => $user_role // Pass the role to the view
         ]);
     }
-
 }

@@ -58,10 +58,6 @@ class SignController extends BaseController
         ]);
     }
 
-
-
-
-
     public function create()
     {
         $projectModel = new ProjectModel();
@@ -122,27 +118,16 @@ class SignController extends BaseController
 
     public function showAssignedSigns($projectId)
     {
-        // Query to fetch signs along with customer info, project name, and assigned user
-        $builder = $this->db->table('signs');
-        $builder->select('signs.*, customers.company_name AS customer_name, projects.name AS project_name, users.first_name, users.last_name');
-        $builder->join('customers', 'signs.customer_id = customers.id', 'left'); // Join customers using customer_id
-        $builder->join('projects', 'signs.project_id = projects.id', 'left'); // Join projects to get the project name
-        $builder->join('users', 'signs.assigned_to = users.id', 'left'); // Join users to get the assigned person's name
-        $builder->where('signs.project_id', $projectId); // Filter by the project_id
-
-        // Execute query and retrieve results
-        $signs = $builder->get()->getResultArray();
-
-        // Debug output to check the structure of the result
-        echo '<pre>';
-        print_r($signs); // This will print out the structure of the $signs array
-        echo '</pre>';
+        $signModel = new SignModel();
+        $signs = $signModel->getSignsWithDetails($projectId);
 
         // Pass data to the view
         return view('admin/signs/index', [
             'signs' => $signs,
         ]);
     }
+
+
 
     public function updateAssignment($signId)
     {
@@ -191,7 +176,7 @@ class SignController extends BaseController
             'sign_description' => $this->request->getPost('sign_description'),
             'sign_type'        => $this->request->getPost('sign_type'),
             'assigned_to'      => $this->request->getPost('assigned_to'),
-            'status'           => $this->request->getPost('status'),
+            'progress'           => $this->request->getPost('progre'),
             'due_date'         => $this->request->getPost('due_date'),
             'updated_at'       => date('Y-m-d H:i:s'),
         ];

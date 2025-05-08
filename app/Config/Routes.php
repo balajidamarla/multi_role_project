@@ -56,7 +56,6 @@ $routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
     $routes->get('teams/delete/(:num)', 'Admin\TeamController::delete/$1');
 
     // Signs
-    $routes->get('signs', 'SignController::index');
     $routes->get('signs/create', 'SignController::create');
     $routes->post('signs/store', 'SignController::store');
     $routes->get('signs/delete/(:num)', 'SignController::delete/$1');
@@ -81,6 +80,11 @@ $routes->get('admin/projects/view/(:num)', 'admin\ProjectController::view/$1');
 $routes->get('admin/projects', 'ProjectController::index');
 $routes->get('admin/projects/view/(:num)', 'ProjectController::view/$1');
 $routes->get('admin/projects/delete/(:num)', 'ProjectController::delete/$1');
+
+$routes->get('admin/projects/edit/(:num)', 'Admin\ProjectController::edit/$1');
+$routes->post('admin/projects/update/(:num)', 'Admin\ProjectController::update/$1');
+
+
 
 $routes->get('admin/signs/edit/(:num)', 'SignController::edit/$1');
 $routes->post('admin/signs/update/(:num)', 'SignController::update/$1');
