@@ -94,6 +94,28 @@ class ProjectController extends BaseController
         return view('admin/signs/create', $data);
     }
 
+    public function createProject()
+    {
+        // Initialize models
+        $customerModel = new \App\Models\CustomerModel();
+        $userModel = new \App\Models\UserModel();
+
+        // Fetch all customers
+        $data['customers'] = $customerModel->findAll();
+
+        // Only fetch users with relevant roles
+        $data['users'] = $userModel
+            ->whereNotIn('role', ['salessurveyor', 'Surveyor Lite'])
+            ->findAll();
+
+        // Get the user's role
+        $data['role'] = session()->get('role');
+
+        // Pass data to the view
+        return view('admin/projects/creates', $data);
+    }
+
+
 
 
 

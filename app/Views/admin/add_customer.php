@@ -9,7 +9,7 @@
         <!-- Company Name -->
         <div>
             <label class="block text-gray-700 font-medium mb-1">Company Name</label>
-            <input type="text" name="company_name" class="w-full border border-gray-300 rounded px-3 py-2 focus:ring focus:ring-blue-400" required>
+            <input type="text" name="company_name" class="w-full border border-gray-300 rounded px-3 py-2 " required>
         </div>
 
         <!-- First & Last Name -->
@@ -62,7 +62,7 @@
 
         <!-- Submit -->
         <div class="text-right">
-            <button type="submit" class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">
+            <button type="submit" class="w-full bg-black text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-900 transition">
                 Add Customer
             </button>
         </div>

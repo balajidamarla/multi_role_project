@@ -70,7 +70,7 @@ $routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
 
 $routes->get('admin/projects', 'Admin\ProjectController::index');
 $routes->get('admin/projects/create', 'Admin\ProjectController::create');
-$routes->post('projects/store', 'Admin\ProjectController::store');
+$routes->post('admin/projects/store', 'Admin\ProjectController::store');
 $routes->post('admin/projects/store', 'Admin\ProjectController::store');
 $routes->get('projects/delete/(:num)', 'Admin\ProjectController::delete/$1');
 
@@ -84,7 +84,8 @@ $routes->get('admin/projects/delete/(:num)', 'ProjectController::delete/$1');
 $routes->get('admin/projects/edit/(:num)', 'Admin\ProjectController::edit/$1');
 $routes->post('admin/projects/update/(:num)', 'Admin\ProjectController::update/$1');
 $routes->get('admin/projects/deleteProject/(:num)', 'Admin\ProjectController::deleteProject/$1');
-$routes->get('admin/project/create', 'Admin\ProjectController::create');
+// $routes->get('admin/projects/creates', 'Admin\ProjectController::create');
+
 
 
 
@@ -102,5 +103,4 @@ $routes->get('signs/delete/(:num)', 'SignController::delete/$1'); // Delete a si
 
 //sales surveyor
 
-$routes->get('salessurveyor/manage_customers', 'SurveyorController::manageCustomers');
 

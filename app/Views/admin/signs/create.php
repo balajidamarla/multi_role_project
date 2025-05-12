@@ -6,7 +6,7 @@
 
     <form action="<?= base_url('admin/signs/store') ?>" method="post" class="bg-white text-black p-6 rounded-xl shadow-2xl">
         <?= csrf_field() ?>
-        
+
         <?php if (isset($project)): ?>
             <input type="hidden" name="project_id" value="<?= esc($project['id']) ?>">
             <input type="hidden" name="customer_id" value="<?= esc($project['customer_id']) ?>">
@@ -84,13 +84,16 @@
                 <label for="assigned_to" class="block font-medium mb-2">Assign to Team</label>
                 <select name="assigned_to" id="assigned_to" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-white" required>
                     <option value="">-- Select User --</option>
-                    <?php if (isset($users)): ?>
-                        <?php foreach ($users as $user): ?>
+                    <?php if (empty($surveyors)): ?>
+                        <p class="text-red-500">No surveyors available.</p>
+                    <?php else: ?>
+                        <?php foreach ($surveyors as $user): ?>
                             <option value="<?= esc($user['id']) ?>">
-                                <?= esc($user['first_name'] ?? '') . ' ' . esc($user['last_name'] ?? '') ?> (<?= esc($user['role'] ?? '') ?>)
+                                <?= esc($user['first_name']) . ' ' . esc($user['last_name']) ?> (<?= esc($user['role']) ?>)
                             </option>
                         <?php endforeach; ?>
                     <?php endif; ?>
+
                 </select>
             </div>
 
@@ -107,7 +110,7 @@
 </div>
 
 <script>
-    document.getElementById('sign_type').addEventListener('change', function () {
+    document.getElementById('sign_type').addEventListener('change', function() {
         const signTypeSelect = document.getElementById('dynamic_sign_type');
         signTypeSelect.innerHTML = '';
 
