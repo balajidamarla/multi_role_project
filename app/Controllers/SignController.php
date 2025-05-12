@@ -14,6 +14,7 @@ class SignController extends BaseController
     protected $signModel;
     protected $UserModel;
     protected $db;
+    protected $projectModel;
 
     public function __construct()
     {
@@ -21,6 +22,7 @@ class SignController extends BaseController
         $this->UserModel = new UserModel();
         // Load the database
         $this->db = \Config\Database::connect();
+        $this->projectModel = new ProjectModel();
     }
 
     public function index()
@@ -31,7 +33,8 @@ class SignController extends BaseController
         $signs = $this->signModel
             ->select('
             signs.*, 
-            customers.company_name AS customer_name,
+              CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
+              customers.company_name AS customer,
             projects.name AS project_name,
             assigned_user.first_name AS assigned_first_name,
             assigned_user.last_name AS assigned_last_name
@@ -60,25 +63,37 @@ class SignController extends BaseController
 
     public function create()
     {
-        $projectModel = new ProjectModel();
-        $customerModel = new CustomerModel();
-        $userModel = new UserModel();
+        $projectModel = new \App\Models\ProjectModel();
+        $customerModel = new \App\Models\CustomerModel();
+        $userModel = new \App\Models\UserModel();
 
-        $data['projects'] = $projectModel->findAll();
+        // Get all projects with customer names (if needed, use your `projects()` method)
+        $data['projects'] = $projectModel->projects();
+
+        // Get all customers
         $data['customers'] = $customerModel->findAll();
-        $data['surveyors'] = $userModel
-            ->whereIn('role', ['Sales Surveyor', 'Surveyor Lite'])
+
+        // Get users with specific roles
+        $data['users'] = $userModel
+            ->select('id, first_name, last_name, role')
+            ->whereIn('role', ['Admin','salessurveyor', 'Surveyor Lite'])
             ->findAll();
+
+        // You can also pass the current user's role if needed in the view
+        $data['role'] = session()->get('role');
 
         return view('admin/signs/create', $data);
     }
 
 
+
     public function store()
     {
+        $project_id = $this->request->getPost('project_id');
+
         $this->signModel->save([
             'sign_name'        => $this->request->getPost('sign_name'),
-            'project_id'       => $this->request->getPost('project_id'),
+            'project_id'       => $project_id,
             'customer_id'      => $this->request->getPost('customer_id'),
             'assigned_to'      => $this->request->getPost('assigned_to'),
             'sign_description' => $this->request->getPost('sign_description'),
@@ -92,6 +107,7 @@ class SignController extends BaseController
 
         return redirect()->to('/admin/signs')->with('success', 'Sign added successfully.');
     }
+
 
     public function delete($id)
     {
@@ -176,7 +192,7 @@ class SignController extends BaseController
             'sign_description' => $this->request->getPost('sign_description'),
             'sign_type'        => $this->request->getPost('sign_type'),
             'assigned_to'      => $this->request->getPost('assigned_to'),
-            'progress'           => $this->request->getPost('progre'),
+            'progress'           => $this->request->getPost('progress'),
             'due_date'         => $this->request->getPost('due_date'),
             'updated_at'       => date('Y-m-d H:i:s'),
         ];
@@ -184,6 +200,6 @@ class SignController extends BaseController
         $signModel->update($id, $signData);
 
         session()->setFlashdata('success', 'Sign updated successfully.');
-        return redirect()->to(base_url('admin/projects/view/' . $sign['project_id']));
+        return redirect()->to(base_url('admin/signs'));
     }
 }

@@ -10,7 +10,7 @@ class TeamController extends BaseController
     public function index()
     {
         $userModel = new UserModel();
-        $teams = $userModel->whereIn('role', ['Sales Surveyor', 'Surveyor Lite'])->findAll();
+        $teams = $userModel->whereIn('role', ['salessurveyor', 'Surveyor Lite'])->findAll();
 
         return view('admin/teams', ['teams' => $teams]);
     }
@@ -29,7 +29,7 @@ class TeamController extends BaseController
             'last_name'  => 'required',
             'email'      => 'required|valid_email|is_unique[users.email]',
             'password'   => 'required|min_length[6]',
-            'role'       => 'required|in_list[Sales Surveyor,Surveyor Lite]',
+            'role'       => 'required|in_list[salessurveyor,Surveyor Lite]',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {

@@ -83,6 +83,8 @@ $routes->get('admin/projects/delete/(:num)', 'ProjectController::delete/$1');
 
 $routes->get('admin/projects/edit/(:num)', 'Admin\ProjectController::edit/$1');
 $routes->post('admin/projects/update/(:num)', 'Admin\ProjectController::update/$1');
+$routes->get('admin/projects/deleteProject/(:num)', 'Admin\ProjectController::deleteProject/$1');
+$routes->get('admin/project/create', 'Admin\ProjectController::create');
 
 
 

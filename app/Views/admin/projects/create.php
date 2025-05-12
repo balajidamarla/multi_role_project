@@ -1,60 +1,79 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
-<h2 class="mb-4">Create Project</h2>
+<div class="max-w-3xl mx-auto bg-white p-6 shadow-md rounded-lg mt-6">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Create Project</h2>
 
-<?php if ($user_role === 'salessurveyor'): ?>
-    <div class="alert alert-warning">
-        You do not have permission to create projects. Please contact an admin.
-    </div>
-<?php else: ?>
-    <form method="post" action="<?= base_url('admin/projects/store') ?>">
-        <?= csrf_field() ?> <!-- CSRF token for security -->
-
-        <div class="mb-3">
-            <label for="customer_id" class="form-label">Customer</label>
-            <select name="customer_id" id="customer_id" class="form-select" required>
-                <option value="">-- Select Customer --</option>
-                <?php foreach ($customers as $customer): ?>
-                    <option value="<?= $customer['id'] ?>">
-                        <?= esc($customer['name']) ?> <!-- Now using the 'name' field -->
-                    </option>
-                <?php endforeach; ?>
-            </select>
+    <?php if ($role === 'salessurveyor'): ?>
+        <div class="bg-yellow-100 text-yellow-800 px-4 py-3 rounded">
+            You do not have permission to create projects. Please contact an admin.
         </div>
+    <?php else: ?>
+        <form method="post" action="<?= base_url('admin/projects/store') ?>" class="space-y-5">
+            <?= csrf_field() ?>
 
-        <div class="mb-3">
-            <label for="name" class="form-label">Project Name</label>
-            <input type="text" name="name" id="name" class="form-control" required>
-        </div>
+            <!-- Customer -->
+            <div>
+                <label for="customer_id" class="block text-sm font-medium text-gray-700">Customer</label>
+                <select name="customer_id" id="customer_id" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black border-[1px]" required>
+                    <option value="">-- Select Customer --</option>
+                    <?php foreach ($customers as $customer): ?>
+                        <option value="<?= $customer['id'] ?>">
+                            <?= esc(trim(($customer['first_name'] ?? '') . ' ' . ($customer['last_name'] ?? ''))) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea name="description" id="description" class="form-control" rows="3"></textarea>
-        </div>
+            <!-- Project Name -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-black mb-1">Project Name</label>
+                <input type="text" name="name" id="name" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black border-[1px]" required>
+            </div>
 
-        <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <select name="status" id="status" class="form-select">
-                <option value="pending">Pending</option>
-                <option value="in_progress">In Progress</option>
-                <option value="completed">Completed</option>
-            </select>
-        </div>
+            <!-- sign name -->
+            <div>
+                <label for="sign_name" class="block text-sm font-medium text-black mb-1">Sign Name</label>
+                <input type="text" name="sign_name" id="sign_name" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black border-[1px]" required>
+            </div>
 
-        <!-- Team Member Dropdown -->
-        <div class="mb-3">
-            <label for="assigned_to" class="form-label">Assign To</label>
-            <select name="assigned_to" id="assigned_to" class="form-select" required>
-                <option value="">-- Select Team Member --</option>
-                <?php foreach ($users as $user): ?>
-                    <option value="<?= $user['id'] ?>"><?= esc($user['name']) ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
+            <!-- Description -->
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea name="description" id="description" rows="4" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black border-[1px]"></textarea>
+            </div>
 
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
-<?php endif; ?>
+            <!-- Status -->
+            <div>
+                <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <select name="status" id="status" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black border-[1px]">
+                    <option value="pending">Pending</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <!-- Assign To -->
+            <div>
+                <label for="assigned_to" class="block text-sm font-medium text-gray-700 mb-1">Assign To</label>
+                <select name="assigned_to" id="assigned_to" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black border-[1px]" required>
+                    <option value="">-- Select Team Member --</option>
+                    <?php foreach ($users as $user): ?>
+                        <option value="<?= $user['id'] ?>">
+                            <?= esc($user['name']) ?> (<?= esc($user['role']) ?>)
+                        </option>
+
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+
+            <!-- Submit -->
+            <div>
+                <button type="submit" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">Create</button>
+            </div>
+        </form>
+    <?php endif; ?>
+</div>
 
 <?= $this->endSection() ?>

@@ -42,7 +42,7 @@
             <label class="block font-medium mb-2">Role</label>
             <select name="role" class="w-full bg-white border border-gray-400 p-3 rounded-lg focus:ring-2 focus:ring-white" required>
                 <option value="">-- Select Role --</option>
-                <option value="Sales Surveyor">Sales Surveyor</option>
+                <option value="salessurveyor">Sales Surveyor</option>
                 <option value="Surveyor Lite">Surveyor Lite</option>
             </select>
         </div>

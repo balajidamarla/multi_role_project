@@ -25,6 +25,7 @@
                     <tr>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Name</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Customer Name</th>
+                        <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Cumpany Name</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Assigned To</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Type</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Status</th>
@@ -42,6 +43,7 @@
                             <tr class="hover:bg-gray-100 transition">
                                 <td class="px-4 py-3"><?= esc($sign['sign_description']) ?></td>
                                 <td class="px-4 py-3"><?= esc($sign['customer_name']) ?></td>
+                                <td class="px-4 py-3"><?= esc($sign['customer']) ?></td>
 
                                 <td class="px-4 py-3">
                                     <?php if (in_array($role, ['admin'])): ?>
@@ -58,12 +60,15 @@
                                     <?php else: ?>
                                         <?php
                                         $assignedUser = array_filter($users, fn($u) => $u['id'] == $sign['assigned_to']);
-                                        $assignedUser = reset($assignedUser);
+                                        $assignedUser = reset($assignedUser); // Get the matched user
 
-                                        // Show "Self" if current user is assigned
-                                        $displayName = ($assignedUser && $assignedUser['id'] == $userId)
-                                            ? 'Self'
-                                            : esc($assignedUser['first_name'] . ' ' . $assignedUser['last_name']) . ' (' . ucfirst($assignedUser['role']) . ')';
+                                        if ($assignedUser):
+                                            $displayName = ($assignedUser['id'] == $currentUserId)
+                                                ? 'Self'
+                                                : esc($assignedUser['first_name'] . ' ' . $assignedUser['last_name']) . ' (' . ucfirst($assignedUser['role']) . ')';
+                                        else:
+                                            $displayName = 'Unassigned';
+                                        endif;
                                         ?>
                                         <?= $displayName ?>
                                     <?php endif; ?>

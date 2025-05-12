@@ -33,15 +33,23 @@ class SignModel extends Model
      */
     public function getSignsWithDetails($projectId)
     {
-        // Build the query to fetch the sign data with the customer, project, and user details
-        $builder = $this->db->table('signs');
-        $builder->select('signs.*, customers.company_name AS customer_name, projects.name AS project_name, users.first_name, users.last_name, users.role');
-        $builder->join('customers', 'signs.customer_id = customers.id', 'left'); // Join customers using customer_id
-        $builder->join('projects', 'signs.project_id = projects.id', 'left'); // Join projects to get the project name
-        $builder->join('users', 'signs.assigned_to = users.id', 'left'); // Join users to get the assigned person's name and role
-        $builder->where('signs.project_id', $projectId); // Filter by the project_id
-
-        // Execute the query and return the result as an array
-        return $builder->get()->getResultArray();
+        return $this->db->table('signs')
+            ->select('
+                signs.*, 
+                customers.first_name AS customer_first_name, 
+                customers.last_name AS customer_last_name,
+                customers.company_name AS customer_company, 
+                projects.name AS project_name, 
+                users.first_name AS assigned_first_name, 
+                users.last_name AS assigned_last_name, 
+                users.role AS assigned_role
+            ')
+            ->join('customers', 'signs.customer_id = customers.id', 'left')
+            ->join('projects', 'signs.project_id = projects.id', 'left')
+            ->join('users', 'signs.assigned_to = users.id', 'left')
+            ->where('signs.project_id', $projectId)
+            ->orderBy('signs.due_date', 'ASC')
+            ->get()
+            ->getResultArray();
     }
 }

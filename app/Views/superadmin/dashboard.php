@@ -7,59 +7,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Admin Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
 </head>
 
 <body>
-    <div class="container mt-4">
-        <h4 class="mt-4">Admins Accounts View</h4>
 
-        <?php if (!empty($admins)): ?>
-            <table class="table table-bordered mt-3">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Action</th> <!-- Toggle Button Column -->
-                        <th>Created Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($admins as $admin): ?>
+    <?php if (!empty($admins)): ?>
+        <div class="max-w-6xl mx-auto p-6">
+            <h2 class="text-2xl font-semibold text-black mb-4">Admin Accounts</h2>
+            <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+                <table class="min-w-full text-sm divide-y divide-gray-200 text-gray-800">
+                    <thead class="bg-black text-white">
                         <tr>
-                            <td><?= esc($admin['id']) ?></td>
-                            <td><?= esc($admin['first_name']) ?></td>
-                            <td><?= esc($admin['email']) ?></td>
-                            <td><?= esc($admin['role']) ?></td>
-                            <td>
-                                <span class="badge badge-<?= $admin['status'] === 'Active' ? 'success' : 'secondary' ?>">
-                                    <?= esc($admin['status']) ?>
-                                </span>
-                            </td>
-                            <td>
-                                <form action="<?= base_url('superadmin/toggle_status/' . $admin['id']) ?>" method="post" style="display:inline;">
-                                    <?= csrf_field() ?>
-                                    <button type="submit" class="btn btn-sm <?= $admin['status'] === 'Active' ? 'btn-danger' : 'btn-success' ?>">
-                                        <?= $admin['status'] === 'Active' ? 'Deactivate' : 'Activate' ?>
-                                    </button>
-                                </form>
-                            </td>
-                            <td><?= esc($admin['created_at']) ?></td>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">ID</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Name</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Email</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Role</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Status</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Action</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Created At</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php else: ?>
-            <p class="mt-3 text-muted">No admins registered yet.</p>
-        <?php endif; ?>
-    </div>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <?php foreach ($admins as $admin): ?>
+                            <tr class="hover:bg-gray-100 transition">
+                                <td class="px-4 py-3"><?= esc($admin['id']) ?></td>
+                                <td class="px-4 py-3"><?= esc($admin['first_name']) ?></td>
+                                <td class="px-4 py-3"><?= esc($admin['email']) ?></td>
+                                <td class="px-4 py-3"><?= esc($admin['role']) ?></td>
+                                <td class="px-4 py-3">
+                                    <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full <?= $admin['status'] === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-200 text-gray-700' ?>">
+                                        <?= esc($admin['status']) ?>
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3">
+                                    <form action="<?= base_url('superadmin/toggle_status/' . $admin['id']) ?>" method="post">
+                                        <?= csrf_field() ?>
+                                        <button type="submit" class="inline-block px-3 py-1 text-xs rounded font-medium transition <?= $admin['status'] === 'Active' ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-green-600 text-white hover:bg-green-700' ?>">
+                                            <?= $admin['status'] === 'Active' ? 'Deactivate' : 'Activate' ?>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td class="px-4 py-3"><?= esc($admin['created_at']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <?php else: ?>
+        <p class="text-gray-500 text-center mt-6">No admins registered yet.</p>
+    <?php endif; ?>
 
 </body>
 
 </html>
-
 <?= $this->endSection() ?>

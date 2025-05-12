@@ -96,7 +96,8 @@
                     <?php $role = strtolower(trim($role)); ?>
 
                     <?php if ($role === 'superadmin'): ?>
-                        <a href="<?= base_url('superadmin/add_admin') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Add Admin</a>
+                        <a href="<?= base_url('superadmin/dashboard') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Dashboard</a>
+                        <a href="<?= base_url('superadmin/add_admin') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Add Admin</a>
                     <?php endif; ?>
 
                     <?php if ($role === 'admin'): ?>
@@ -113,7 +114,7 @@
                         <a href="<?= base_url('salessurveyor/signs') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Signs</a>
                     <?php endif; ?>
 
-                    <?php if ($role === 'surveyor_lite'): ?>
+                    <?php if ($role === 'surveyor lite'): ?>
                         <a href="<?= base_url('lite/tasks') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">My Tasks</a>
                     <?php endif; ?>
 
@@ -154,7 +155,7 @@
     <!--  Navbar End -->
 
     <!-- Content Section Start -->
-    <div class="container mt-5">
+    <div class="container mt-5 mx-auto">
         <?= $this->renderSection('content') ?>
     </div>
     <!-- Content Section End -->

@@ -9,7 +9,13 @@
 
 <?php if (!empty($projects)): ?>
     <div class="max-w-6xl mx-auto p-6">
-        <h2 class="text-2xl font-semibold text-white mb-4">Project List</h2>
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold text-black mb-4">Project List</h2>
+            <a href="<?= base_url('admin/project/create') ?>" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 text-sm transition">
+                + Add Project
+            </a>
+        </div>
+
         <div class="overflow-x-auto bg-white shadow-md rounded-lg">
             <table class="min-w-full text-sm divide-y divide-gray-200 text-gray-800">
                 <thead class="bg-black text-white">
@@ -43,19 +49,22 @@
                             <td class="px-4 py-3"><?= esc($project['assigned_to_name'] ?? 'Unassigned') ?></td>
                             <td class="px-4 py-3">
                                 <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                                    <?php
-                                    $db = \Config\Database::connect();
-                                    $signs = $db->table('signs')->where('project_id', $project['id'])->get()->getResultArray();
-                                    foreach ($signs as $sign) {
-                                        echo "<li><span class='font-medium'>" . esc($sign['sign_description']) . "</span><br><small>Due: " . esc($sign['due_date']) . "</small></li>";
-                                    }
-                                    ?>
+                                    <?php if (!empty($signsByProject[$project['id']])): ?>
+                                        <?php foreach ($signsByProject[$project['id']] as $sign): ?>
+                                            <li>
+                                                <span class="font-medium"><?= esc($sign['sign_description']) ?></span><br>
+                                                <small>Due Date: <?= esc($sign['due_date']) ?></small>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <li><em>No signs found</em></li>
+                                    <?php endif; ?>
                                 </ul>
                             </td>
                             <?php if ($role !== 'salessurveyor'): ?>
                                 <td class="px-4 py-3 space-x-2">
                                     <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>" class="inline-block px-3 py-1 bg-black text-white text-xs rounded hover:bg-gray-800 transition">Edit</a>
-                                    <a href="<?= base_url('admin/projects/delete/' . $project['id']) ?>" onclick="return confirm('Are you sure?')" class="inline-block px-3 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700 transition">Delete</a>
+                                    <a href="<?= base_url('admin/projects/deleteProject/' . $project['id']) ?>" onclick="return confirm('Are you sure?')" class="inline-block px-3 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700 transition">Delete</a>
                                 </td>
                             <?php endif; ?>
                         </tr>

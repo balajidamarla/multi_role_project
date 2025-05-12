@@ -6,8 +6,11 @@
 
     <form action="<?= base_url('admin/signs/store') ?>" method="post" class="bg-white text-black p-6 rounded-xl shadow-2xl">
         <?= csrf_field() ?>
-        <input type="hidden" name="project_id" value="<?= esc($project['id']) ?>">
-        <input type="hidden" name="customer_id" value="<?= esc($project['customer_id']) ?>">
+        
+        <?php if (isset($project)): ?>
+            <input type="hidden" name="project_id" value="<?= esc($project['id']) ?>">
+            <input type="hidden" name="customer_id" value="<?= esc($project['customer_id']) ?>">
+        <?php endif; ?>
 
         <!-- 2.1 Sign Setup -->
         <div class="mb-8 border border-gray-700 p-6 rounded-lg">
@@ -43,11 +46,11 @@
                 <label class="block font-medium mb-2">Is this a replacement sign?</label>
                 <div class="flex gap-6">
                     <label class="flex items-center">
-                        <input type="radio" name="replacement" value="yes" class="text-white" />
+                        <input type="radio" name="replacement" value="yes" class="text-white">
                         <span class="ml-2">Yes</span>
                     </label>
                     <label class="flex items-center">
-                        <input type="radio" name="replacement" value="no" checked class="text-white" />
+                        <input type="radio" name="replacement" value="no" checked class="text-white">
                         <span class="ml-2">No</span>
                     </label>
                 </div>
@@ -57,11 +60,11 @@
                 <label class="block font-medium mb-2">Removal Scheduled?</label>
                 <div class="flex gap-6">
                     <label class="flex items-center">
-                        <input type="radio" name="removal_scheduled" value="yes" class="text-white" />
+                        <input type="radio" name="removal_scheduled" value="yes" class="text-white">
                         <span class="ml-2">Yes</span>
                     </label>
                     <label class="flex items-center">
-                        <input type="radio" name="removal_scheduled" value="no" checked class="text-white" />
+                        <input type="radio" name="removal_scheduled" value="no" checked class="text-white">
                         <span class="ml-2">No</span>
                     </label>
                 </div>
@@ -80,9 +83,14 @@
             <div class="mb-4">
                 <label for="assigned_to" class="block font-medium mb-2">Assign to Team</label>
                 <select name="assigned_to" id="assigned_to" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-white" required>
-                    <?php foreach ($users as $user): ?>
-                        <option value="<?= esc($user['id']) ?>"><?= esc($user['first_name']) . ' ' . esc($user['last_name']) ?></option>
-                    <?php endforeach; ?>
+                    <option value="">-- Select User --</option>
+                    <?php if (isset($users)): ?>
+                        <?php foreach ($users as $user): ?>
+                            <option value="<?= esc($user['id']) ?>">
+                                <?= esc($user['first_name'] ?? '') . ' ' . esc($user['last_name'] ?? '') ?> (<?= esc($user['role'] ?? '') ?>)
+                            </option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </select>
             </div>
 
@@ -99,7 +107,7 @@
 </div>
 
 <script>
-    document.getElementById('sign_type').addEventListener('change', function() {
+    document.getElementById('sign_type').addEventListener('change', function () {
         const signTypeSelect = document.getElementById('dynamic_sign_type');
         signTypeSelect.innerHTML = '';
 

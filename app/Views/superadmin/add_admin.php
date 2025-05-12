@@ -1,74 +1,61 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="w-2/3 mx-auto max-h-screen flex items-center justify-center p-10 bg-white text-black ">
+    <div class="w-full max-w-md bg-white border border-gray rounded-xl p-8 shadow-lg">
+        <h2 class="text-2xl font-bold text-center mb-6">Register Admin</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Register Admin</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="mt-5 text-center">Register Admin</h2>
-
-                <!-- Display errors or success messages -->
-                <?php if ($errors = session()->get('error')): ?>
-                    <div class="alert alert-danger">
-                        <?php if (is_array($errors)): ?>
-                            <ul class="mb-0 pl-3">
-                                <?php foreach ($errors as $error): ?>
-                                    <li><?= esc($error) ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php else: ?>
-                            <?= esc($errors) ?>
-                        <?php endif; ?>
-                    </div>
+        <!-- Error messages -->
+        <?php if ($errors = session()->get('error')): ?>
+            <div class="mb-4 bg-red-700 text-white p-4 rounded-lg">
+                <?php if (is_array($errors)): ?>
+                    <ul class="list-disc pl-5">
+                        <?php foreach ($errors as $error): ?>
+                            <li><?= esc($error) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else: ?>
+                    <?= esc($errors) ?>
                 <?php endif; ?>
-
-                <?php if ($success = session()->get('success')): ?>
-                    <div class="alert alert-success">
-                        <?= esc($success) ?>
-                    </div>
-                <?php endif; ?>
-
-                <form method="post" action="<?= base_url('superadmin/create_admin') ?>">
-                    <?= csrf_field() ?>
-
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control form-control-sm" id="name" name="name" value="<?= old('name') ?>" placeholder="Enter name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control form-control-sm" id="email" name="email" value="<?= old('email') ?>" placeholder="Enter email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="Enter password" required>
-                    </div>
-
-                    <!-- Fixed role as Admin -->
-                    <input type="hidden" name="role" value="Admin">
-
-                    <button type="submit" class="btn btn-primary btn-block btn-sm">Register Admin</button>
-                </form>
-
-                
             </div>
-        </div>
+        <?php endif; ?>
+
+        <!-- Success message -->
+        <?php if ($success = session()->get('success')): ?>
+            <div class="mb-4 bg-green-700 text-white p-4 rounded-lg">
+                <?= esc($success) ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="post" action="<?= base_url('superadmin/create_admin') ?>" class="space-y-4">
+            <?= csrf_field() ?>
+
+            <div>
+                <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                <input type="text" id="name" name="name" value="<?= old('name') ?>" placeholder="Enter name"
+                    class="w-full p-2 rounded-lg bg-white border border-gray-400 focus:ring-2 focus:ring-white" required>
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
+                <input type="email" id="email" name="email" value="<?= old('email') ?>" placeholder="Enter email"
+                    class="w-full p-2 rounded-lg bg-white border border-gray-400 focus:ring-2 focus:ring-white" required>
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium mb-1">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password"
+                    class="w-full p-2 rounded-lg bg-white border border-gray-400 focus:ring-2 focus:ring-white" required>
+            </div>
+
+            <input type="hidden" name="role" value="Admin">
+
+            <button type="submit"
+                class="w-full bg-black text-white font-bold py-2 rounded-lg hover:bg-gray-800 transition">
+                Register Admin
+            </button>
+        </form>
     </div>
+</div>
 
-
-</body>
-
-</html>
 <?= $this->endSection() ?>
