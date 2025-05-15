@@ -62,7 +62,7 @@
                         $panelLabel = 'Admin Panel';
                         break;
                     case 'salessurveyor':
-                        $dashboardLink = base_url('salessurveyor/dashboard');
+                         $dashboardLink = base_url('admin/dashboard'); // shared dashboard
                         $panelLabel = 'Sales Surveyor Panel';
                         break;
                     case 'surveyor_lite':
@@ -108,10 +108,10 @@
                     <?php endif; ?>
 
                     <?php if ($role === 'salessurveyor'): ?>
-                        <a href="<?= base_url('salessurveyor/manage_customers') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Customers</a>
-                        <a href="<?= base_url('salessurveyor/projects') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Projects</a>
-                        <a href="<?= base_url('salessurveyor/teams') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Teams</a>
-                        <a href="<?= base_url('salessurveyor/signs') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Signs</a>
+                        <a href="<?= base_url('admin/manage_customers') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Customers</a>
+                        <a href="<?= base_url('admin/projects') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Projects</a>
+                        <a href="<?= base_url('admin/teams') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Teams</a>
+                        <a href="<?= base_url('admin/signs') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Signs</a>
                     <?php endif; ?>
 
                     <?php if ($role === 'surveyor lite'): ?>

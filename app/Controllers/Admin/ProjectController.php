@@ -30,10 +30,12 @@ class ProjectController extends BaseController
         // Get all projects
         $data['projects'] = $projectModel->projects();
 
-        // Get current user's role
-        $currentUserId = session()->get('user_id');
-        $user = $userModel->find($currentUserId);
-        $data['role'] = $user['role'];
+        // Get the current logged-in user's ID and role
+        $userId = session()->get('user_id');
+        $data['user_id'] = $userId;  // Ensure we are passing user_id to the view
+
+        $user = $userModel->find($userId);  // Get the logged-in user from the database
+        $data['role'] = $user['role'];  // Get the user's role
 
         // Fetch all signs and group them by project_id
         $signs = $signModel->findAll();
@@ -41,17 +43,27 @@ class ProjectController extends BaseController
 
         foreach ($signs as $sign) {
             $projectId = $sign['project_id'];
+
+            // Fetch assigned user's name based on 'assigned_to' field in sign table
+            $assignedUser = $userModel->find($sign['assigned_to']);
+            $assignedToName = $assignedUser ? $assignedUser['first_name'] . ' ' . $assignedUser['last_name'] : 'Unassigned';
+
+            // Add assigned_to_name to each sign
+            $sign['assigned_to_name'] = $assignedToName;
+
             if (!isset($signsByProject[$projectId])) {
                 $signsByProject[$projectId] = [];
             }
             $signsByProject[$projectId][] = $sign;
         }
 
-        // Pass grouped signs to the view
+        // Pass the grouped signs to the view
         $data['signsByProject'] = $signsByProject;
 
         return view('admin/projects/index', $data);
     }
+
+
 
 
     public function view($id)

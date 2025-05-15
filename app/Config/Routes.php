@@ -42,7 +42,7 @@ $routes->post('auth/logout', 'SuperadminController::logout');
 
 
 //admin panel
-$routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
+$routes->group('admin','salessurveyor', ['filter' => 'adminauth'], function ($routes) {
     // Customer management
     $routes->get('manage_customers', 'AdminController::manageCustomers');
     $routes->get('add_customer', 'AdminController::addCustomerForm');
@@ -56,8 +56,8 @@ $routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
     $routes->get('teams/delete/(:num)', 'Admin\TeamController::delete/$1');
 
     // Signs
-    $routes->get('signs/create', 'SignController::create');
-    $routes->post('signs/store', 'SignController::store');
+    // $routes->get('signs/create', 'SignController::create');
+    // $routes->post('signs/store', 'SignController::store');
     $routes->get('signs/delete/(:num)', 'SignController::delete/$1');
 
     // Customers detail
@@ -87,18 +87,20 @@ $routes->get('admin/projects/deleteProject/(:num)', 'Admin\ProjectController::de
 // $routes->get('admin/projects/creates', 'Admin\ProjectController::create');
 
 
+$routes->post('admin/signs/updateProgress/(:num)', 'SignController::updateProgress/$1');
 
 
 $routes->get('admin/signs/edit/(:num)', 'SignController::edit/$1');
 $routes->post('admin/signs/update/(:num)', 'SignController::update/$1');
 
-$routes->get('admin/signs/create/(:num)', 'Admin\ProjectController::create/$1');
+$routes->get('admin/signs/create/(:num)', 'SignController::create/$1');
+$routes->post('admin/signs/store', 'SignController::store');
 $routes->post('admin/signs/updateAssignment/(:num)', 'SignController::updateAssignment/$1');
 
 
 $routes->get('admin/signs', 'SignController::index');              // View assigned tasks
 $routes->get('admin/signs/create', 'SignController::create');      // Show the assign sign form
-$routes->post('signs/store', 'SignController::store');       // Submit new sign
+// $routes->post('signs/store', 'SignController::store');       // Submit new sign
 $routes->get('signs/delete/(:num)', 'SignController::delete/$1'); // Delete a sign
 
 //sales surveyor

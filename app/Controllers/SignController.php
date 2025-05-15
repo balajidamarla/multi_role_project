@@ -49,7 +49,7 @@ class SignController extends BaseController
         $users = $this->UserModel
             ->select('id, first_name, last_name, role')
             ->groupStart()
-            ->whereIn('role', ['Sales Surveyor', 'Surveyor Lite'])
+            ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
             ->orWhere('id', $currentAdminId)
             ->groupEnd()
             ->findAll();
@@ -61,26 +61,39 @@ class SignController extends BaseController
         ]);
     }
 
+    // public function create()
+    // {
+    //     $projectModel = new \App\Models\ProjectModel();
+    //     $customerModel = new \App\Models\CustomerModel();
+    //     $userModel = new \App\Models\UserModel();
+
+    //     // Get all projects with customer names (if needed, use your `projects()` method)
+    //     $data['projects'] = $projectModel->projects();
+
+    //     // Get all customers
+    //     $data['customers'] = $customerModel->findAll();
+
+    //     // Get users with specific roles
+    //     $data['users'] = $userModel
+    //         ->select('id, first_name, last_name, role')
+    //         ->whereIn('role', ['Admin', 'salessurveyor', 'Surveyor Lite'])
+    //         ->findAll();
+
+    //     // You can also pass the current user's role if needed in the view
+    //     $data['role'] = session()->get('role');
+
+    //     return view('admin/signs/create', $data);
+    // }
+
     public function create()
     {
-        $projectModel = new \App\Models\ProjectModel();
-        $customerModel = new \App\Models\CustomerModel();
-        $userModel = new \App\Models\UserModel();
+        $projectModel = new ProjectModel();
+        $userModel = new UserModel();
 
-        // Get all projects with customer names (if needed, use your `projects()` method)
-        $data['projects'] = $projectModel->projects();
-
-        // Get all customers
-        $data['customers'] = $customerModel->findAll();
-
-        // Get users with specific roles
-        $data['users'] = $userModel
-            ->select('id, first_name, last_name, role')
-            ->whereIn('role', ['Admin','salessurveyor', 'Surveyor Lite'])
+        $data['projects'] = $projectModel->projects(); // this fetches project + customer info
+        $data['surveyors'] = $userModel
+            ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
             ->findAll();
-
-        // You can also pass the current user's role if needed in the view
-        $data['role'] = session()->get('role');
 
         return view('admin/signs/create', $data);
     }
@@ -90,6 +103,10 @@ class SignController extends BaseController
     public function store()
     {
         $project_id = $this->request->getPost('project_id');
+
+        if (!$project_id) {
+            return redirect()->back()->withInput()->with('error', 'Missing project ID.');
+        }
 
         $this->signModel->save([
             'sign_name'        => $this->request->getPost('sign_name'),
@@ -107,6 +124,7 @@ class SignController extends BaseController
 
         return redirect()->to('/admin/signs')->with('success', 'Sign added successfully.');
     }
+
 
 
     public function delete($id)

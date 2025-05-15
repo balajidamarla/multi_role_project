@@ -3,7 +3,7 @@
 
 <div class="max-w-6xl mx-auto p-6">
     <div class="flex items-center justify-between mb-6">
-        <h3 class="text-2xl font-semibold text-white">Manage Team Members</h3>
+        <h3 class="text-2xl font-semibold text-black">Manage Team Members</h3>
         <a href="<?= base_url('admin/teams/create') ?>" class="bg-black text-white hover:bg-gray-900 px-4 py-2 rounded-md text-sm font-medium transition duration-300">
             Add Member
         </a>
@@ -46,9 +46,14 @@
                             <td class="px-4 py-3">0</td> <!-- TODO: Replace with actual count -->
                             <td class="px-4 py-3"><?= date('d-m-Y', strtotime($member['created_at'])) ?></td>
                             <td class="px-4 py-3">
-                                <a href="<?= base_url('admin/teams/delete/' . $member['id']) ?>" onclick="return confirm('Are you sure you want to delete this team member?')" class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
-                                    Delete
-                                </a>
+                                <?php if (session()->get('role') !== 'salessurveyor'): ?>
+                                    <a href="<?= base_url('admin/teams/delete/' . $member['id']) ?>" onclick="return confirm('Are you sure you want to delete this team member?')" class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
+                                        Delete
+                                    </a>
+                                <?php else: ?>
+                                    <!-- Optionally show a message or leave blank for salessurveyor -->
+                                    <span class="text-gray-500 text-xs">No delete action available</span>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

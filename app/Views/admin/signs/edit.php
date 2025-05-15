@@ -30,9 +30,13 @@
         <!-- Sign Type -->
         <div>
             <label for="sign_type" class="block text-sm font-medium text-gray-700">Sign Type</label>
-            <input type="text" name="sign_type" id="sign_type" value="<?= esc($sign['sign_type']) ?>"
+            <select name="sign_type" id="sign_type"
                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="Indoor" <?= $sign['sign_type'] == 'Indoor' ? 'selected' : '' ?>>Indoor</option>
+                <option value="Outdoor" <?= $sign['sign_type'] == 'Outdoor' ? 'selected' : '' ?>>Outdoor</option>
+            </select>
         </div>
+
 
         <!-- Assigned To -->
         <div>
@@ -72,8 +76,8 @@
                 Update Sign
             </button>
 
-            <a href="<?= base_url('admin/projects') ?>"
-                class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">Cancel</a>
+            <a href="<?= base_url('admin/signs') ?>"
+                class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">Back</a>
         </div>
     </form>
 </div>

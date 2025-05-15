@@ -10,11 +10,11 @@ class AdminAuth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('role') !== 'admin') {
+        if (!in_array(session()->get('role'), ['admin', 'salessurveyor'])) {
             // Show 404 if unauthorized
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
 
-            // OR redirect (optional)
+            // OR redirect instead (optional):
             // return redirect()->to('/unauthorized');
         }
     }

@@ -17,7 +17,7 @@
         </div>
 
         <div class="overflow-x-auto bg-white shadow-md rounded-lg">
-            <table class="min-w-full text-sm divide-y divide-gray-200 text-gray-800">
+            <table class="w-[100%] text-sm divide-y divide-gray-200 text-gray-800">
                 <thead class="bg-black text-white">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Customer Info</th>
@@ -25,9 +25,7 @@
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Status</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Assigned To</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Signs</th>
-                        <?php if ($role !== 'salessurveyor'): ?>
-                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Actions</th>
-                        <?php endif; ?>
+                        <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
@@ -41,19 +39,67 @@
                                     <?= esc($project['customer_address']) ?><br>
                                     Zip: <?= esc($project['zipcode']) ?><br>
                                     Contact: <?= esc($project['contact_info']) ?><br>
-                                    Created: <?= date('Y-m-d', strtotime($project['customer_created_at'])) ?>
+                                    Created: <?= date('d-m-Y', strtotime($project['customer_created_at'])) ?>
                                 </div>
                             </td>
                             <td class="px-4 py-3"><?= esc($project['name']) ?></td>
-                            <td class="px-4 py-3"><?= esc($project['status']) ?></td>
-                            <td class="px-4 py-3"><?= esc($project['assigned_to_name'] ?? 'Unassigned') ?></td>
+
+                            <td class="px-4 py-3">
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <?php if (!empty($signsByProject[$project['id']])): ?>
+                                        <?php foreach ($signsByProject[$project['id']] as $sign): ?>
+                                            <li>
+                                                <small>Status:</small>
+                                                <span class="font-medium">
+                                                    <?= esc($sign['progress']) ?>
+                                                </span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <li><em>No signs assigned</em></li>
+                                    <?php endif; ?>
+                                </ul>
+                            </td>
+
+
+                            <td class="px-4 py-3">
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <?php if (!empty($signsByProject[$project['id']])): ?>
+                                        <?php foreach ($signsByProject[$project['id']] as $sign): ?>
+                                            <li>
+                                                <small>Assigned to : </small>
+                                                <span class="font-medium">
+                                                    <?php
+                                                    $assignedUserId = $sign['assigned_to'];
+                                                    // echo 'Assigned User ID: ' . $assignedUserId . '<br>';
+                                                    // echo 'Logged-in User ID: ' . $user_id . '<br>';
+
+                                                    // Check if the assigned user is the logged-in user
+                                                    if ($assignedUserId == $user_id) {
+                                                        echo 'Self';  // Display "Self" if the assigned user is the logged-in user
+                                                    } else {
+                                                        echo esc($sign['assigned_to_name']);  // Display the assigned name if different
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <li><em>No signs assigned</em></li>
+                                    <?php endif; ?>
+                                </ul>
+                            </td>
+
+
+
                             <td class="px-4 py-3">
                                 <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                                     <?php if (!empty($signsByProject[$project['id']])): ?>
                                         <?php foreach ($signsByProject[$project['id']] as $sign): ?>
                                             <li>
                                                 <span class="font-medium"><?= esc($sign['sign_description']) ?></span><br>
-                                                <small>Due Date: <?= esc($sign['due_date']) ?></small>
+                                                <small>Due Date: <?= date('d-m-Y', strtotime($sign['due_date'])) ?></small>
+
                                             </li>
                                         <?php endforeach; ?>
                                     <?php else: ?>
@@ -61,12 +107,15 @@
                                     <?php endif; ?>
                                 </ul>
                             </td>
-                            <?php if ($role !== 'salessurveyor'): ?>
-                                <td class="px-4 py-3 space-x-2">
-                                    <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>" class="inline-block px-3 py-1 bg-black text-white text-xs rounded hover:bg-gray-800 transition">Edit</a>
+                            <td class="px-4 py-3 space-x-2">
+                                <!-- <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>" class="bg-yellow-600 inline-block px-3 py-1 bg-black text-white text-xs rounded hover:bg-gray-800 transition">Edit</a> -->
+                                <?php if ($role !== 'salessurveyor'): ?>
                                     <a href="<?= base_url('admin/projects/deleteProject/' . $project['id']) ?>" onclick="return confirm('Are you sure?')" class="inline-block px-3 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700 transition">Delete</a>
-                                </td>
-                            <?php endif; ?>
+
+                                <?php else: ?>
+                                    <span class="text-gray-500 text-xs">No delete action available</span>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
