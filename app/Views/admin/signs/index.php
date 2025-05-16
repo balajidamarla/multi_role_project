@@ -21,7 +21,7 @@
     <?php if (!empty($signs)): ?>
         <div class="overflow-x-auto bg-white shadow-md rounded-lg">
             <table class="w-[100%] divide-y divide-gray-200 text-sm text-gray-800">
-                <thead class="bg-black text-white">
+                <thead class="bg-gray-900 text-white">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Name</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Customer Name</th>

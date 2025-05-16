@@ -93,40 +93,53 @@ class ProjectController extends BaseController
     }
 
     // Create Project
+    // public function create()
+    // {
+    //     $projectModel = new ProjectModel();
+    //     $userModel = new UserModel();
+
+    //     $data['projects'] = $projectModel->projects(); // this fetches project + customer info
+    //     $data['surveyors'] = $userModel
+    //         ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
+    //         ->findAll();
+
+    //     return view('admin/signs/create', $data);
+    // }
+
+    // public function createProject()
+    // {
+    //     // Initialize models
+    //     $customerModel = new \App\Models\CustomerModel();
+    //     $userModel = new \App\Models\UserModel();
+
+    //     // Fetch all customers
+    //     $data['customers'] = $customerModel->findAll();
+
+    //     // Only fetch users with relevant roles
+    //     $data['users'] = $userModel
+    //         ->whereNotIn('role', ['salessurveyor', 'Surveyor Lite'])
+    //         ->findAll();
+
+    //     // Get the user's role
+    //     $data['role'] = session()->get('role');
+
+    //     // Pass data to the view
+    //     return view('admin/projects/creates', $data);
+    // }
+
     public function create()
     {
-        $projectModel = new ProjectModel();
+        $customerModel = new CustomerModel();
         $userModel = new UserModel();
 
-        $data['projects'] = $projectModel->projects(); // this fetches project + customer info
-        $data['surveyors'] = $userModel
-            ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
-            ->findAll();
+        $customers = $customerModel->findAll(); // fetch all customers
+        $users = $userModel->findAll();         // fetch all users (for assignment)
 
-        return view('admin/signs/create', $data);
+        return view('admin/projects/create', [
+            'customers' => $customers,
+            'users' => $users
+        ]);
     }
-
-    public function createProject()
-    {
-        // Initialize models
-        $customerModel = new \App\Models\CustomerModel();
-        $userModel = new \App\Models\UserModel();
-
-        // Fetch all customers
-        $data['customers'] = $customerModel->findAll();
-
-        // Only fetch users with relevant roles
-        $data['users'] = $userModel
-            ->whereNotIn('role', ['salessurveyor', 'Surveyor Lite'])
-            ->findAll();
-
-        // Get the user's role
-        $data['role'] = session()->get('role');
-
-        // Pass data to the view
-        return view('admin/projects/creates', $data);
-    }
-
 
 
 
@@ -158,46 +171,29 @@ class ProjectController extends BaseController
         return view('admin/projects/create', $data);
     }
 
-    // Store the sign
+
     public function store()
     {
-        // Get the input data from the form
-        $signData = [
-            'sign_name'        => $this->request->getPost('sign_name'),
-            'project_id'       => $this->request->getPost('project_id'),
-            'customer_id'      => $this->request->getPost('customer_id'),
-            'assigned_to'      => $this->request->getPost('assigned_to'),
-            'sign_description' => $this->request->getPost('sign_description'),
-            'sign_type'        => $this->request->getPost('sign_type'),
-            'address'          => $this->request->getPost('address'),
-            'status'           => $this->request->getPost('status'),
-            'due_date'         => $this->request->getPost('due_date'),
-            'created_by'       => session()->get('user_id'), // Assuming user ID is stored in session
-            'created_at'       => date('Y-m-d H:i:s'),
-            'updated_at'       => date('Y-m-d H:i:s'),
+        $projectModel = new \App\Models\ProjectModel();
+
+        $data = [
+            'customer_id' => $this->request->getPost('customer_id'),
+            'name'        => $this->request->getPost('name'),
+            'description' => $this->request->getPost('description'),
+            'status'      => $this->request->getPost('status'),
+            'assigned_to' => $this->request->getPost('assigned_to'),
+            'created_by'  => session()->get('user_id'), // or however you track logged user
         ];
 
-        $userRole = session()->get('user_role'); // Get the role from session
-
-        // Check if user is allowed to add signs
-        // if ($userRole !== 'admin' && $userRole !== 'salessurveyor') {
-        //     throw new \CodeIgniter\Exceptions\ForbiddenException("You don't have permission to add signs.");
-        // }
-
-        // Create an instance of SignModel
-        $signModel = new SignModel();
-
-        // Save the sign data to the database
-        if ($signModel->save($signData)) {
-            // Flash success message and redirect to project detail page
-            session()->setFlashdata('success', 'Sign created successfully.');
-            return redirect()->to(base_url('admin/projects/view/' . $signData['project_id']));
+        if ($projectModel->insert($data)) {
+            return redirect()->to('/admin/projects')->with('success', 'Project created successfully');
         } else {
-            // Flash error message if saving fails
-            session()->setFlashdata('error', 'Failed to create sign.');
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with('error', 'Failed to create project');
         }
     }
+
+
+
 
     // Delete Project
     public function delete($id)

@@ -24,17 +24,17 @@ class AuthController extends BaseController
             ->first();
 
         if ($user && password_verify($password, $user['password'])) {
-            $normalizedRole = strtolower(str_replace(' ', '', $user['role']));
-            // 'Super Admin' => 'superadmin', etc.
+            $normalizedRole = strtolower(str_replace(' ', '', $user['role'])); // keep this if needed
 
             $session->set([
                 'user_id'   => $user['id'],
                 'email'     => $user['email'],
-                'role'      => $normalizedRole,
+                'role'      => strtolower(str_replace(' ', '', $user['role'])), // e.g. "admin"
+                'role_id' => $user['role_id'], // store role_id as well
                 'logged_in' => true
             ]);
 
-            // Redirect based on role
+            // Redirect based on role string (optional)
             switch ($normalizedRole) {
                 case 'superadmin':
                     return redirect()->to('superadmin/dashboard');
@@ -49,6 +49,7 @@ class AuthController extends BaseController
 
         return redirect()->back()->with('error', 'Invalid credentials or inactive account.');
     }
+
 
     public function registerForm()
     {

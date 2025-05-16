@@ -42,7 +42,7 @@ $routes->post('auth/logout', 'SuperadminController::logout');
 
 
 //admin panel
-$routes->group('admin','salessurveyor', ['filter' => 'adminauth'], function ($routes) {
+$routes->group('admin', 'salessurveyor', ['filter' => 'adminauth'], function ($routes) {
     // Customer management
     $routes->get('manage_customers', 'AdminController::manageCustomers');
     $routes->get('add_customer', 'AdminController::addCustomerForm');
@@ -103,6 +103,54 @@ $routes->get('admin/signs/create', 'SignController::create');      // Show the a
 // $routes->post('signs/store', 'SignController::store');       // Submit new sign
 $routes->get('signs/delete/(:num)', 'SignController::delete/$1'); // Delete a sign
 
-//sales surveyor
+//------------------------------------------------------------------------------------------------------------------
+$routes->get('team/create', 'TeamController::showCreateForm');
 
 
+
+
+
+$routes->get('admin/roles/edit/(:num)', 'RoleController::edit/$1');
+$routes->post('admin/roles/update/(:num)', 'RoleController::update/$1');
+$routes->get('admin/roles', 'RoleController::index');
+$routes->get('admin/roles/delete/(:num)', 'RoleController::delete/$1');
+
+// //Permissions
+// $routes->get('admin/permissions', 'Admin\PermissionController::index');
+// $routes->get('admin/permissions/create', 'Admin\PermissionController::create');
+// $routes->post('admin/permissions/store', 'Admin\PermissionController::store');
+// $routes->get('admin/permissions/edit/(:num)', 'Admin\PermissionController::edit/$1');
+// $routes->post('admin/permissions/update/(:num)', 'Admin\PermissionController::update/$1');
+// $routes->get('admin/permissions/delete/(:num)', 'Admin\PermissionController::delete/$1');
+
+
+// $routes->get('admin/role-permissions', 'Admin\RolePermissionController::index');
+// $routes->post('admin/role-permissions/save', 'Admin\RolePermissionController::save');
+
+
+
+// $routes->group('admin', ['filter' => 'permission:create_team'], function($routes) {
+//     $routes->get('teams/create', 'Admin\TeamsController::create');
+//     $routes->post('teams/store', 'Admin\TeamsController::store');
+// });
+
+// $routes->get('admin/teams', 'Admin\TeamsController::index', ['filter' => 'permission:view_team']);
+// $routes->get('admin/somepage', 'Admin\SomeController::index', ['filter' => 'permission:create_team,update_team']);
+// //no access
+// $routes->get('no-access', function () {
+//     return view('no_access');
+// });
+
+
+
+$routes->get('admin/team', 'TeamController::index', ['filter' => 'permission:view_team']);
+$routes->get('admin/teams/create', 'TeamController::create', ['filter' => 'permission:create_team,admin_access']);
+
+$routes->get('admin/roles/edit/(:num)', 'RoleController::edit/$1', ['filter' => 'permission:edit_role']);
+$routes->post('admin/roles/update/(:num)', 'RoleController::update/$1', ['filter' => 'permission:edit_role']);
+
+// $routes->get('admin/roles/edit/(:num)', 'RoleController::edit/$1');
+// $routes->post('admin/roles/update/(:num)', 'RoleController::update/$1');
+$routes->get('no-access', function(){
+    return view('errors/no_access');
+});

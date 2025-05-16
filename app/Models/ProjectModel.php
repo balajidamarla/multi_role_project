@@ -42,7 +42,7 @@ class ProjectModel extends Model
             ->join('customers', 'customers.id = projects.customer_id')
             ->where('projects.id', $id)
             ->get()
-            ->getFirstRow('array'); // ✅ Specify return type
+            ->getFirstRow('array'); // Specify return type
     }
 
     // Fetch all projects with customer and assigned user data

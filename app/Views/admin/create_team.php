@@ -47,7 +47,7 @@
             </select>
         </div>
 
-        <button type="submit" class="w-full bg-black text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-900 transition">
+        <button type="submit" class="w-full bg-gray-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-900 transition">
             Add Member
         </button>
     </form>

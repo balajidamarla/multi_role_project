@@ -2,167 +2,110 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Multi Role Project</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="icon" href="https://shop.ikegps.com/cdn/shop/files/new_sp_logo_1_e29d6529-a6ff-4f07-abeb-c7242c72d6d2.jpg?v=1731628628" type="image/x-icon" />
     <style>
-        .nav-link-hover:hover {
-            text-decoration: underline;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-        }
-
-        .text-bright-red {
-            color: #ff4d4d !important;
-            /* Brighter red */
-        }
-
-        .navbar-brand span {
-            font-weight: bold;
-            color: #f39c12;
-            /* Adding a vibrant yellow */
-        }
-
-        .navbar-nav .nav-link {
-            font-weight: bold;
-            font-size: 1.2rem;
-            /* Adjusting font size */
-        }
-
-        .navbar-nav .nav-link:hover {
-            background-color: #2c3e50;
-            /* Slightly darkens on hover */
-            border-radius: 5px;
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
 
-<body>
-    <!--  Navbar Start -->
-    <nav class="bg-gray-900 text-white" x-data="{ open: false }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <?php
-                $role = session()->get('role');
-                $dashboardLink = '#';
-                $panelLabel = '';
+<body class="bg-gray-100 text-gray-800" x-data="{ sidebarOpen: true }">
+    <?php
+    $session = session();
+    $role = $session->get('role');
+    $userRole = strtolower(trim($role));
+    ?>
 
-                switch ($role) {
-                    case 'superadmin':
-                        $dashboardLink = base_url('superadmin/dashboard');
-                        $panelLabel = 'Super Admin Panel';
-                        break;
-                    case 'admin':
-                        $dashboardLink = base_url('admin/dashboard');
-                        $panelLabel = 'Admin Panel';
-                        break;
-                    case 'salessurveyor':
-                         $dashboardLink = base_url('admin/dashboard'); // shared dashboard
-                        $panelLabel = 'Sales Surveyor Panel';
-                        break;
-                    case 'surveyor_lite':
-                        $dashboardLink = base_url('lite/dashboard');
-                        $panelLabel = 'Surveyor Lite Panel';
-                        break;
-                }
-                ?>
+    <!-- Fixed Top Navbar -->
+    <header class="fixed top-0 left-0 right-0 bg-gray-100 text-black h-14 flex items-center px-6 shadow-md z-50">
+        <button @click="sidebarOpen = !sidebarOpen" class="text-black focus:outline-none mr-4" aria-label="Toggle Sidebar">
+            <svg x-show="!sidebarOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="sidebarOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <h1 class="text-xl font">SIGN<span class="ml-1 font-bold">PILOT</span></h1>
+    </header>
 
-                <!-- Logo / Brand -->
-                <div class="flex-shrink-0">
-                    <a href="<?= $dashboardLink ?>" class="text-lg font-bold text-white hover:text-blue-400 transition-all duration-200">
-                        SignPilot Dashboard //<span class="text-yellow-300"> <?= esc($panelLabel) ?></span>
-                    </a>
-                </div>
+    <!-- Sidebar and Main Content -->
+    <div class="flex pt-14 min-h-screen">
+        <!-- Sidebar -->
+        <aside :class="sidebarOpen ? 'w-64' : 'w-16'"
+            class="fixed top-14 bottom-0 left-0 bg-gray-900 text-white flex-shrink-0 overflow-hidden flex flex-col transition-all duration-700 ease-in-out z-40">
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button @click="open = !open" type="button" class="text-gray-400 hover:text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                            <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex md:items-center md:space-x-6">
-                    <?php $role = strtolower(trim($role)); ?>
-
-                    <?php if ($role === 'superadmin'): ?>
-                        <a href="<?= base_url('superadmin/dashboard') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Dashboard</a>
-                        <a href="<?= base_url('superadmin/add_admin') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Add Admin</a>
-                    <?php endif; ?>
-
-                    <?php if ($role === 'admin'): ?>
-                        <a href="<?= base_url('admin/manage_customers') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Customers</a>
-                        <a href="<?= base_url('admin/projects') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Projects</a>
-                        <a href="<?= base_url('admin/teams') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Teams</a>
-                        <a href="<?= base_url('admin/signs') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:scale-105">Signs</a>
-                    <?php endif; ?>
-
-                    <?php if ($role === 'salessurveyor'): ?>
-                        <a href="<?= base_url('admin/manage_customers') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Customers</a>
-                        <a href="<?= base_url('admin/projects') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Projects</a>
-                        <a href="<?= base_url('admin/teams') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Teams</a>
-                        <a href="<?= base_url('admin/signs') ?>" class="transition-all duration-200 hover:text-blue-400 font-bold hover:underline hover:scale-105">Signs</a>
-                    <?php endif; ?>
-
-                    <?php if ($role === 'surveyor lite'): ?>
-                        <a href="<?= base_url('lite/tasks') ?>" class="transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">My Tasks</a>
-                    <?php endif; ?>
-
-                    <a href="<?= base_url('auth/logout') ?>" class="text-red-500 transition-all duration-200 hover:text-red-400 hover:underline hover:scale-105">Logout</a>
+            <!-- Sidebar Header with Logo -->
+            <div class="flex items-center justify-between p-4 border-b border-gray-700">
+                <div class="flex items-center space-x-3" x-show="sidebarOpen">
+                    <img src="<?= base_url('public/assets/admin.png') ?>" alt="Logo" class="h-8 w-8 rounded-full object-cover" />
+                    <div>
+                        <div class="text-lg font-bold text-yellow-300 whitespace-nowrap">SignPilot Dashboard</div>
+                        <div class="text-white text-sm"><?= ucfirst($role) ?> Panel</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Mobile Nav -->
-        <div x-show="open" class="md:hidden px-4 pb-4 space-y-2">
-            <?php if ($role === 'superadmin'): ?>
-                <a href="<?= base_url('superadmin/add_admin') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Add Admin</a>
-            <?php endif; ?>
+            <!-- Navigation Links -->
+            <nav class="flex flex-col gap-2  flex-1 overflow-auto">
+                <?php if ($userRole === 'superadmin'): ?>
+                    <a href="<?= base_url('superadmin/dashboard') ?>" class="transition-all duration-500 hover:text-blue-400 font-bold hover:scale-105" :title="sidebarOpen ? '' : 'Dashboard'">Dashboard</a>
+                    <a href="<?= base_url('superadmin/add_admin') ?>" class="transition-all duration-500 hover:text-blue-400 font-bold hover:scale-105" :title="sidebarOpen ? '' : 'Add Admin'">Add Admin</a>
+                <?php endif; ?>
 
-            <?php if ($role === 'admin'): ?>
-                <a href="<?= base_url('admin/manage_customers') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Customers</a>
-                <a href="<?= base_url('admin/projects') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Projects</a>
-                <a href="<?= base_url('admin/teams') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Teams</a>
-                <a href="<?= base_url('admin/signs') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Signs</a>
-            <?php endif; ?>
+                <?php if ($userRole === 'admin' || $userRole === 'salessurveyor'): ?>
+                    <?php
+                    $adminLinks = [
+                        ['label' => 'Customers', 'url' => 'manage_customers', 'icon' => 'customers.png'],
+                        ['label' => 'Projects', 'url' => 'projects', 'icon' => 'projects.png'],
+                        ['label' => 'Teams', 'url' => 'teams', 'icon' => 'teams.png'],
+                        ['label' => 'Signs', 'url' => 'signs', 'icon' => 'signs.png'],
+                    ];
+                    if ($userRole === 'admin') {
+                        $adminLinks[] = ['label' => 'Roles', 'url' => 'roles', 'icon' => 'roles.png'];
+                    }
+                    ?>
+                    <?php foreach ($adminLinks as $link): ?>
+                        <a href="<?= base_url('admin/' . $link['url']) ?>"
+                            class="flex items-center gap-2 transition-all duration-500 hover:text-blue-400 font-bold hover:scale-110 border-b-[0.5px] border-gray-800 hover:border-gray-700 px-4 py-2"
+                            :title="sidebarOpen ? '' : '<?= $link['label'] ?>'">
+                            <img src="<?= base_url('public/assets/' . $link['icon']) ?>" alt="<?= $link['label'] ?> Icon" class="h-8 w-8 flex-shrink-0" />
+                            <span x-show="sidebarOpen" class="whitespace-nowrap"><?= $link['label'] ?></span>
+                        </a>
+                    <?php endforeach; ?>
+                <?php endif; ?>
 
-            <?php if ($role === 'salessurveyor'): ?>
-                <a href="<?= base_url('salessurveyor/manage_customers') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Customers</a>
-                <a href="<?= base_url('salessurveyor/projects') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Projects</a>
-                <a href="<?= base_url('salessurveyor/teams') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Teams</a>
-                <a href="<?= base_url('salessurveyor/signs') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">Signs</a>
-            <?php endif; ?>
+                <?php if ($userRole === 'surveyor_lite'): ?>
+                    <a href="<?= base_url('lite/tasks') ?>"
+                        class="transition-all duration-500 hover:text-blue-400 font-bold hover:scale-105"
+                        :title="sidebarOpen ? '' : 'My Tasks'">
+                        My Tasks
+                    </a>
+                <?php endif; ?>
 
-            <?php if ($role === 'surveyor_lite'): ?>
-                <a href="<?= base_url('lite/tasks') ?>" class="block transition-all duration-200 hover:text-blue-400 hover:underline hover:scale-105">My Tasks</a>
-            <?php endif; ?>
+                <!-- Logout -->
+                <a href="<?= base_url('auth/logout') ?>"
+                    class="flex items-center gap-2 transition-all duration-500 text-red-600 hover:text-red-400 font-bold hover:scale-110 px-4 py-2"
+                    :title="sidebarOpen ? '' : 'Logout'">
+                    <img src="<?= base_url('public/assets/logout.png') ?>" alt="Logout Icon" class="h-8 w-8 flex-shrink-0" />
+                    <span x-show="sidebarOpen" class="whitespace-nowrap">Logout</span>
+                </a>
+            </nav>
+        </aside>
 
-            <a href="<?= base_url('auth/logout') ?>" class="block text-red-500 transition-all duration-200 hover:text-red-400 hover:underline hover:scale-105">Logout</a>
-        </div>
-    </nav>
-
-
-    <!--  Navbar End -->
-
-    <!-- Content Section Start -->
-    <div class="container mt-5 mx-auto">
-        <?= $this->renderSection('content') ?>
+        <!-- Main Content Area -->
+        <main :class="sidebarOpen ? 'ml-64' : 'ml-16'" class="transition-all duration-700 ease-in-out flex-1 p-6">
+            <?= $this->renderSection('content') ?>
+        </main>
     </div>
-    <!-- Content Section End -->
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-
 </body>
 
 </html>

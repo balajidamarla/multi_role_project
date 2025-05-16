@@ -52,7 +52,7 @@ class TeamController extends BaseController
             'role'       => $this->request->getPost('role'),
         ];
 
-        
+
 
         if ($userModel->save($data)) {
             return redirect()->to('admin/teams')->with('success', 'Team member added successfully.');
@@ -70,5 +70,17 @@ class TeamController extends BaseController
         $userModel->delete($id);
 
         return redirect()->to('admin/teams')->with('success', 'Team member deleted.');
+    }
+
+
+    public function showCreateForm()
+    {
+        // Check permission
+        if (!user_has_permission('create_team')) {
+            return redirect()->to('/no-access');
+        }
+
+        // If allowed, show create team form or logic
+        return view('team/create');
     }
 }

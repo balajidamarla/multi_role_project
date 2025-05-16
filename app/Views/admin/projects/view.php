@@ -2,9 +2,9 @@
 <?= $this->section('content') ?>
 
 <div class="max-w-5xl mx-auto p-6 text-gray-800">
-    <h2 class="text-3xl font-semibold text-white mb-6">Project Detail</h2>
+    <h2 class="text-3xl font-semibold text-black mb-6">Project Detail</h2>
 
-    <a href="<?= base_url('admin/signs/create/' . $project['id']) ?>" class="inline-block mb-5 px-5 py-2.5 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition">
+    <a href="<?= base_url('admin/signs/create/' . $project['id']) ?>" class="inline-block mb-5 px-5 py-2.5 bg-gray-900 text-white rounded-full text-sm font-medium hover:bg-gray-800 transition">
         + Add Sign
     </a>
 

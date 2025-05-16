@@ -37,6 +37,7 @@ class Filters extends BaseFilters
         'role'          => \App\Filters\RoleFilter::class,
         'superadminauth' => \App\Filters\SuperAdminAuth::class,
         'adminauth' => \App\Filters\AdminAuth::class,
+        'permission' => \App\Filters\PermissionFilter::class,
     ];
 
     /**
@@ -73,7 +74,7 @@ class Filters extends BaseFilters
     public array $globals = [
         'before' => [
             // 'honeypot',
-             'csrf',
+            'csrf',
             // 'invalidchars',
         ],
         'after' => [

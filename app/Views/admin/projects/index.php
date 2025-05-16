@@ -11,14 +11,14 @@
     <div class="max-w-6xl mx-auto p-6">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-2xl font-semibold text-black mb-4">Project List</h2>
-            <a href="<?= base_url('admin/projects/creates') ?>" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 text-sm transition">
+            <a href="<?= base_url('admin/projects/create') ?>" class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-800 text-sm transition">
                 + Add Project
             </a>
         </div>
 
         <div class="overflow-x-auto bg-white shadow-md rounded-lg">
             <table class="w-[100%] text-sm divide-y divide-gray-200 text-gray-800">
-                <thead class="bg-black text-white">
+                <thead class="bg-gray-900 text-white">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Customer Info</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Project Name</th>

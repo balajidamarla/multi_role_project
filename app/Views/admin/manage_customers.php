@@ -4,7 +4,7 @@
 <div class="max-w-6xl mx-auto p-6">
     <div class="flex items-center justify-between mb-6">
         <h3 class="text-2xl font-semibold text-black">Manage Customers</h3>
-        <a href="<?= base_url('admin/add_customer') ?>" class="bg-black text-white hover:bg-gray-900 px-4 py-2 rounded-md text-sm font-medium transition duration-300">
+        <a href="<?= base_url('admin/add_customer') ?>" class="bg-gray-900 text-white hover:bg-gray-900 px-4 py-2 rounded-md text-sm font-medium transition duration-300">
             Add Customer
         </a>
     </div>
@@ -12,7 +12,7 @@
     <?php if (!empty($customers)): ?>
         <div class="overflow-x-auto bg-white shadow-md rounded-lg">
             <table class="w-[100%] divide-y divide-gray-200 text-sm text-gray-800">
-                <thead class="bg-black text-white">
+                <thead class="bg-gray-900 text-white">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Company Name</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">First Name</th>

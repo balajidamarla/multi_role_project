@@ -85,12 +85,19 @@ class SignController extends BaseController
     //     return view('admin/signs/create', $data);
     // }
 
-    public function create()
+    public function create($projectId)
     {
         $projectModel = new ProjectModel();
         $userModel = new UserModel();
 
-        $data['projects'] = $projectModel->projects(); // this fetches project + customer info
+        // Use your custom method to get full project + customer info
+        $project = $projectModel->getProjectById($projectId);
+
+        if (!$project) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Project not found.");
+        }
+
+        $data['project'] = $project;
         $data['surveyors'] = $userModel
             ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
             ->findAll();

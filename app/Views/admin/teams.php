@@ -4,7 +4,7 @@
 <div class="max-w-6xl mx-auto p-6">
     <div class="flex items-center justify-between mb-6">
         <h3 class="text-2xl font-semibold text-black">Manage Team Members</h3>
-        <a href="<?= base_url('admin/teams/create') ?>" class="bg-black text-white hover:bg-gray-900 px-4 py-2 rounded-md text-sm font-medium transition duration-300">
+        <a href="<?= base_url('admin/teams/create') ?>" class="bg-gray-900 text-white hover:bg-gray-900 px-4 py-2 rounded-md text-sm font-medium transition duration-300">
             Add Member
         </a>
     </div>
@@ -18,7 +18,7 @@
     <?php if (!empty($teams)): ?>
         <div class="overflow-x-auto bg-white shadow-md rounded-lg">
             <table class="min-w-full divide-y divide-gray-200 text-sm text-gray-800">
-                <thead class="bg-black text-white">
+                <thead class="bg-gray-900 text-white">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">First Name</th>
                         <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Last Name</th>
