@@ -36,7 +36,7 @@ $routes->group('superadmin', ['filter' => 'superadminauth'], function ($routes) 
     $routes->post('toggle_status/(:num)', 'SuperadminController::toggle_status/$1');
 });
 
-// Logout route (can be shared)
+// Logout 
 $routes->get('auth/logout', 'SuperadminController::logout');
 $routes->post('auth/logout', 'SuperadminController::logout');
 
@@ -148,6 +148,16 @@ $routes->get('admin/teams/create', 'TeamController::create', ['filter' => 'permi
 
 $routes->get('admin/roles/edit/(:num)', 'RoleController::edit/$1', ['filter' => 'permission:edit_role']);
 $routes->post('admin/roles/update/(:num)', 'RoleController::update/$1', ['filter' => 'permission:edit_role']);
+//add roles
+$routes->get('admin/roles/create', 'RoleController::create');
+$routes->post('admin/roles/store', 'RoleController::store');
+//permissions
+$routes->get('admin/permissions', 'PermissionController::index');
+$routes->get('admin/permissions/create', 'PermissionController::create');
+$routes->post('admin/permissions/store', 'PermissionController::store');
+$routes->get('admin/permissions/edit/(:num)', 'PermissionController::edit/$1');
+$routes->post('admin/permissions/update/(:num)', 'PermissionController::update/$1');
+$routes->get('admin/permissions/delete/(:num)', 'PermissionController::delete/$1');
 
 // $routes->get('admin/roles/edit/(:num)', 'RoleController::edit/$1');
 // $routes->post('admin/roles/update/(:num)', 'RoleController::update/$1');

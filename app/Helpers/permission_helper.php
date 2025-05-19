@@ -4,37 +4,51 @@ use App\Models\RoleModel;
 use App\Models\RolePermissionModel;
 
 if (!function_exists('has_permission')) {
-    /**
-     * Check if current logged-in user has a specific permission.
-     *
-     * @param string $permissionName The permission name to check, e.g. 'edit_role'
-     * @return bool True if user has permission, false otherwise.
-     */
     function has_permission(string $permissionName): bool
     {
         $session = session();
         $roleName = strtolower($session->get('role') ?? '');
 
-        // Admin shortcut: grant all permissions
+        if (!$roleName) {
+            return false; // no role in session
+        }
+
+        // Admin has all permissions
         if ($roleName === 'admin') {
             return true;
         }
 
-        // Load models
+        // Roles allowed to inherit only admin-granted permissions
+        $restrictedRoles = ['salessurveyor', 'Surveyor Lite'];
+
         $roleModel = new RoleModel();
         $rolePermissionModel = new RolePermissionModel();
 
-        // Find role by name (case-insensitive, adjust if needed)
+        // Get current role
         $role = $roleModel->where('LOWER(name)', $roleName)->first();
+        if (!$role) return false;
 
-        if (!$role) {
-            return false; // role not found
+        // If role is one of the restricted ones, check if permission exists in both this role and admin
+        if (in_array($roleName, $restrictedRoles)) {
+            // Get permissions for this role
+            $rolePermissions = $rolePermissionModel->getPermissionsByRoleId($role['id']);
+
+            // Get admin permissions
+            $adminRole = $roleModel->where('LOWER(name)', 'admin')->first();
+            if (!$adminRole) return false;
+
+            $adminPermissions = $rolePermissionModel->getPermissionsByRoleId($adminRole['id']);
+
+            // Convert both permission lists to flat arrays
+            $rolePermissionNames = array_column($rolePermissions, 'name');
+            $adminPermissionNames = array_column($adminPermissions, 'name');
+
+            // Allow only if permission exists in both
+            return in_array($permissionName, $rolePermissionNames) && in_array($permissionName, $adminPermissionNames);
         }
 
-        // Get permissions assigned to this role
+        // For all other roles, check their own permissions only
         $permissions = $rolePermissionModel->getPermissionsByRoleId($role['id']);
-
-        // Check if the requested permission is among the role's permissions
         foreach ($permissions as $permission) {
             if ($permission['name'] === $permissionName) {
                 return true;

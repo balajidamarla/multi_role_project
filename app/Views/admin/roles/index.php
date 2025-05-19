@@ -5,12 +5,19 @@
 ?>
 
 <div class="max-w-7xl mx-auto p-6">
-    <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl font-semibold text-black">Roles List</h2>
-    </div>
 
     <!-- Show current user role from session -->
     <p class="mb-4 font-medium text-gray-700">Current Role: <?= esc(session()->get('role')) ?></p>
+
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-semibold text-black">Roles List</h2>
+
+        <?php if (has_permission('create_role')): ?>
+            <a href="<?= base_url('admin/roles/create') ?>" class="bg-gray-900 text-white font-bold px-4 py-2 rounded-md text-sm hover:bg-gray-800 transition">
+                + Add Role
+            </a>
+        <?php endif; ?>
+    </div>
 
     <?php if (session()->getFlashdata('success')): ?>
         <div class="bg-green-100 text-green-800 px-4 py-3 rounded mb-4">
@@ -29,10 +36,11 @@
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
-                <?php if (!empty($roles)): ?>
+                <?php if (!empty($roles)): $i=1;?>
+                    
                     <?php foreach ($roles as $role): ?>
                         <tr class="hover:bg-gray-100 transition">
-                            <td class="px-4 py-3"><?= esc($role['id']) ?></td>
+                            <td class="px-4 py-3"><?= $i ?></td>
                             <td class="px-4 py-3 font-semibold"><?= esc($role['name']) ?></td>
                             <td class="px-4 py-3"><?= esc($role['permissions']) ?></td>
                             <td class="px-4 py-3 space-x-2 flex">
@@ -49,7 +57,8 @@
                                 <?php endif; ?>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                        
+                    <?php $i++; endforeach; ?>
                 <?php else: ?>
                     <tr>
                         <td colspan="4" class="px-4 py-4 text-gray-500 text-center">No roles found.</td>

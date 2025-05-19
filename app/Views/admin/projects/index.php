@@ -108,13 +108,23 @@
                                 </ul>
                             </td>
                             <td class="px-4 py-3 space-x-2">
-                                <!-- <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>" class="bg-yellow-600 inline-block px-3 py-1 bg-black text-white text-xs rounded hover:bg-gray-800 transition">Edit</a> -->
-                                <?php if ($role !== 'salessurveyor'): ?>
-                                    <a href="<?= base_url('admin/projects/deleteProject/' . $project['id']) ?>" onclick="return confirm('Are you sure?')" class="inline-block px-3 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700 transition">Delete</a>
-
+                                <?php if (has_permission('update_team')): ?>
+                                    <a href="<?= base_url('admin/teams/edit/' . $project['id']) ?>" class="inline-block px-3 py-1 bg-yellow-600 text-white text-xs rounded hover:bg-yellow-700 transition">
+                                        Edit
+                                    </a>
                                 <?php else: ?>
-                                    <span class="text-gray-500 text-xs">No delete action available</span>
+                                    <span class="text-gray-400 text-xs">Edit not allowed</span>
                                 <?php endif; ?>
+
+                                <?php if (has_permission('delete_team')): ?>
+                                    <a href="<?= base_url('admin/teams/delete/' . $project['id']) ?>" onclick="return confirm('Are you sure?')" class="inline-block px-3 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700 transition">
+                                        Delete
+                                    </a>
+                                <?php else: ?>
+                                    <span class="text-gray-400 text-xs">Delete not allowed</span>
+                                <?php endif; ?>
+
+
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -71,6 +71,7 @@
                     ];
                     if ($userRole === 'admin') {
                         $adminLinks[] = ['label' => 'Roles', 'url' => 'roles', 'icon' => 'roles.png'];
+                        $adminLinks[] = ['label' => 'Permissions', 'url' => 'permissions', 'icon' => 'permissions.png'];
                     }
                     ?>
                     <?php foreach ($adminLinks as $link): ?>
