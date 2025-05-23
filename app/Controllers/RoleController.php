@@ -11,15 +11,11 @@ class RoleController extends BaseController
 
     public function index()
     {
+        $session = session();
+        $adminId = $session->get('user_id');
+
         $roleModel = new \App\Models\RoleModel();
-        $rolePermissionModel = new \App\Models\RolePermissionModel();
-
-        $roles = $roleModel->findAll();
-
-        foreach ($roles as &$role) {
-            $permissions = $rolePermissionModel->getPermissionsByRoleId($role['id']);
-            $role['permissions'] = implode(', ', array_column($permissions, 'name'));
-        }
+        $roles = $roleModel->getRolesByAdmin($adminId);
 
         $data['roles'] = $roles;
 
@@ -30,20 +26,32 @@ class RoleController extends BaseController
 
     public function create()
     {
-        $permissionModel = new PermissionModel();
-        $data['permissions'] = $permissionModel->findAll();
+        $permissionModel = new \App\Models\PermissionModel();
+
+        $adminId = session()->get('user_id'); // Get current admin ID from session
+
+        // Fetch only permissions created by this admin
+        $data['permissions'] = $permissionModel
+            ->where('created_by', $adminId)
+            ->findAll();
 
         return view('admin/roles/create', $data);
     }
+
 
     public function store()
     {
         $roleModel = new RoleModel();
         $rolePermissionModel = new RolePermissionModel();
 
+        // Get current admin ID
+        $adminId = session()->get('user_id');
+
         // Insert new role
         $roleId = $roleModel->insert([
-            'name' => $this->request->getPost('role_name')
+            'name' => $this->request->getPost('role_name'),
+            'label' => $this->request->getPost('label_name'),
+            'created_by' => $adminId
         ]);
 
         // Get selected permissions
@@ -65,15 +73,29 @@ class RoleController extends BaseController
         $permissionModel = new PermissionModel();
         $rolePermissionModel = new RolePermissionModel();
 
-        // Get the role info
-        $data['role'] = $roleModel->find($id);
+        $adminId = session()->get('user_id');
 
-        // Get all permissions
-        $data['permissions'] = $permissionModel->findAll();
+        // Get the role info
+        $role = $roleModel->find($id);
+
+        // Check if role exists and belongs to the current admin
+        if (!$role || $role['created_by'] != $adminId) {
+            return redirect()->to('admin/roles')->with('error', 'Unauthorized access.');
+        }
+
+        // Get all permissions created by this admin
+        $permissions = $permissionModel->where('created_by', $adminId)->findAll();
 
         // Get permission IDs assigned to this role
         $rolePerms = $rolePermissionModel->where('role_id', $id)->findAll();
-        $data['rolePermissions'] = array_column($rolePerms, 'permission_id');
+        $rolePermissions = array_column($rolePerms, 'permission_id');
+
+        // Prepare data for the view
+        $data = [
+            'role' => $role,
+            'permissions' => $permissions,
+            'rolePermissions' => $rolePermissions
+        ];
 
         return view('admin/roles/edit', $data);
     }

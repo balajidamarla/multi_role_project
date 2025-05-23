@@ -27,15 +27,15 @@ class ProjectController extends BaseController
         $signModel = new \App\Models\SignModel();
         $userModel = new \App\Models\UserModel();
 
-        // Get all projects
-        $data['projects'] = $projectModel->projects();
-
         // Get the current logged-in user's ID and role
         $userId = session()->get('user_id');
-        $data['user_id'] = $userId;  // Ensure we are passing user_id to the view
+        $data['user_id'] = $userId;
 
-        $user = $userModel->find($userId);  // Get the logged-in user from the database
-        $data['role'] = $user['role'];  // Get the user's role
+        $user = $userModel->find($userId);
+        $data['role'] = $user['role'];
+
+        // Get projects created by the current admin
+        $data['projects'] = $projectModel->getProjectsByAdmin($userId);
 
         // Fetch all signs and group them by project_id
         $signs = $signModel->findAll();
@@ -44,7 +44,7 @@ class ProjectController extends BaseController
         foreach ($signs as $sign) {
             $projectId = $sign['project_id'];
 
-            // Fetch assigned user's name based on 'assigned_to' field in sign table
+            // Fetch assigned user's name based on 'assigned_to' field
             $assignedUser = $userModel->find($sign['assigned_to']);
             $assignedToName = $assignedUser ? $assignedUser['first_name'] . ' ' . $assignedUser['last_name'] : 'Unassigned';
 
@@ -57,11 +57,11 @@ class ProjectController extends BaseController
             $signsByProject[$projectId][] = $sign;
         }
 
-        // Pass the grouped signs to the view
         $data['signsByProject'] = $signsByProject;
 
         return view('admin/projects/index', $data);
     }
+
 
 
 
@@ -132,12 +132,15 @@ class ProjectController extends BaseController
         $customerModel = new CustomerModel();
         $userModel = new UserModel();
 
-        $customers = $customerModel->findAll(); // fetch all customers
-        $users = $userModel->findAll();         // fetch all users (for assignment)
+        $adminId = (int) session()->get('user_id'); // current logged-in admin ID
+
+        // Only fetch customers created by this admin
+        $customers = $customerModel->getCustomersByAdmin($adminId);
+        $users = $userModel->findAll(); // You can optionally filter by role if needed
 
         return view('admin/projects/create', [
             'customers' => $customers,
-            'users' => $users
+            'users'     => $users
         ]);
     }
 

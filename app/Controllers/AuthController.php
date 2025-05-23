@@ -29,6 +29,8 @@ class AuthController extends BaseController
             $session->set([
                 'user_id'   => $user['id'],
                 'email'     => $user['email'],
+                'first_name' => $user['first_name'], 
+                'last_name'  => $user['last_name'],
                 'role'      => strtolower(str_replace(' ', '', $user['role'])), // e.g. "admin"
                 'role_id' => $user['role_id'], // store role_id as well
                 'logged_in' => true

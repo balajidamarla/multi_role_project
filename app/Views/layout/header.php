@@ -19,6 +19,9 @@
     <?php
     $session = session();
     $role = $session->get('role');
+    $mail = $session->get('email');
+    $firstName = session('first_name');
+    $lastName = session('last_name');
     $userRole = strtolower(trim($role));
     ?>
 
@@ -49,16 +52,24 @@
                     <img src="<?= base_url('public/assets/admin.png') ?>" alt="Logo" class="h-8 w-8 rounded-full object-cover" />
                     <div>
                         <div class="text-lg font-bold text-yellow-300 whitespace-nowrap">SignPilot Dashboard</div>
-                        <div class="text-white text-sm"><?= ucfirst($role) ?> Panel</div>
+                        <div class="text-white text-sm">
+                            <a href="<?= base_url('admin/roles/' . urlencode($role)) ?>" class="flex items-center gap-2 transition-all duration-500 hover:text-blue-400 font-semibold hover:scale-110">
+                                <?php if (session()->has('first_name') && session()->has('last_name')): ?>
+                                    <?= ucwords(session('first_name') . ' ' . session('last_name') . ' ('. ucfirst(session('role') .')')) ?>
+                                <?php endif; ?>
+                                
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+
             <!-- Navigation Links -->
             <nav class="flex flex-col gap-2  flex-1 overflow-auto">
                 <?php if ($userRole === 'superadmin'): ?>
-                    <a href="<?= base_url('superadmin/dashboard') ?>" class="transition-all duration-500 hover:text-blue-400 font-bold hover:scale-105" :title="sidebarOpen ? '' : 'Dashboard'">Dashboard</a>
-                    <a href="<?= base_url('superadmin/add_admin') ?>" class="transition-all duration-500 hover:text-blue-400 font-bold hover:scale-105" :title="sidebarOpen ? '' : 'Add Admin'">Add Admin</a>
+                    <a href="<?= base_url('superadmin/dashboard') ?>" class="flex items-center gap-2 transition-all duration-500 hover:text-blue-400 font-bold hover:scale-110 border-b-[0.5px] border-gray-800 hover:border-gray-700 px-4 py-2" :title="sidebarOpen ? '' : 'Dashboard'">Dashboard</a>
+                    <a href="<?= base_url('superadmin/add_admin') ?>" class="flex items-center gap-2 transition-all duration-500 hover:text-blue-400 font-bold hover:scale-110 border-b-[0.5px] border-gray-800 hover:border-gray-700 px-4 py-2" :title="sidebarOpen ? '' : 'Add Admin'">Add Admin</a>
                 <?php endif; ?>
 
                 <?php if ($userRole === 'admin' || $userRole === 'salessurveyor'): ?>

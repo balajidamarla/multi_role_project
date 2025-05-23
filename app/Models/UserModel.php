@@ -23,4 +23,16 @@ class UserModel extends Model
 
     protected $useTimestamps = true;
     protected $returnType = 'array';
+
+    public function getTeamMembersByAdmin(int $adminId): array
+    {
+        return $this->db->table('users')
+            ->select('*')
+            ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
+            ->where('created_by', $adminId)
+            ->orderBy('created_at', 'DESC')
+            ->get()
+            ->getResultArray();
+    }
+    
 }

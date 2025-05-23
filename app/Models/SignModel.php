@@ -52,4 +52,21 @@ class SignModel extends Model
             ->get()
             ->getResultArray();
     }
+    public function getSignsByAdmin(int $adminId): array
+    {
+        return $this->select('
+                signs.*, 
+                CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
+                customers.company_name AS customer,
+                projects.name AS project_name,
+                assigned_user.first_name AS assigned_first_name,
+                assigned_user.last_name AS assigned_last_name
+            ')
+            ->join('customers', 'customers.id = signs.customer_id', 'left')
+            ->join('projects', 'projects.id = signs.project_id', 'left')
+            ->join('users as assigned_user', 'assigned_user.id = signs.assigned_to', 'left')
+            ->where('signs.created_by', $adminId)
+            ->orderBy('signs.created_at', 'DESC')
+            ->findAll();
+    }
 }

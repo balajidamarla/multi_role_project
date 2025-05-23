@@ -9,8 +9,11 @@ class TeamController extends BaseController
 {
     public function index()
     {
-        $userModel = new UserModel();
-        $teams = $userModel->whereIn('role', ['salessurveyor', 'Surveyor Lite'])->findAll();
+        $session = session();
+        $adminId = $session->get('user_id');
+
+        $userModel = new \App\Models\UserModel();
+        $teams = $userModel->getTeamMembersByAdmin($adminId);
 
         return view('admin/teams', ['teams' => $teams]);
     }
@@ -42,6 +45,8 @@ class TeamController extends BaseController
         log_message('debug', 'Email: ' . $this->request->getPost('email'));
         log_message('debug', 'Role: ' . $this->request->getPost('role'));
 
+        $adminId = session()->get('user_id'); // get logged-in admin ID
+
         // Save data to the database
         $userModel = new UserModel();
         $data = [
@@ -50,9 +55,8 @@ class TeamController extends BaseController
             'email'      => $this->request->getPost('email'),
             'password'   => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'role'       => $this->request->getPost('role'),
+            'created_by' => $adminId,  // Add this line
         ];
-
-
 
         if ($userModel->save($data)) {
             return redirect()->to('admin/teams')->with('success', 'Team member added successfully.');
@@ -62,6 +66,7 @@ class TeamController extends BaseController
             return redirect()->back()->withInput()->with('errors', $userModel->errors());
         }
     }
+
 
 
     public function delete($id)

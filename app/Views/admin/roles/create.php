@@ -16,6 +16,10 @@
             <label for="role_name" class="block font-medium mb-1">Role Name</label>
             <input type="text" id="role_name" name="role_name" class="w-full border px-3 py-2 rounded" value="<?= old('role_name') ?>" required>
         </div>
+        <div class="mb-4">
+            <label for="label_name" class="block font-medium mb-1">Label Name</label>
+            <input type="text" id="label_name" name="label_name" class="w-full border px-3 py-2 rounded" value="<?= old('label_name') ?>" required>
+        </div>
 
         <div class="mb-4">
             <label class="block font-medium mb-2">Assign Permissions</label>

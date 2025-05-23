@@ -14,16 +14,19 @@ class CustomerController extends BaseController
     public function index()
     {
         $session = session();
-        $user_role = $session->get('role');
+        $userId = $session->get('user_id');
+        $userRole = $session->get('role');
 
-        $customerModel = new CustomerModel();
-        $customers = $customerModel->orderBy('created_at', 'DESC')->findAll();
-
+        $customerModel = new \App\Models\CustomerModel();
+        $customers = $customerModel->getCustomersByAdmin($userId);
+        var_dump($customers); die;
         return view('admin/customers/index', [
             'customers' => $customers,
-            'user_role' => $user_role
+            'role' => $userRole
         ]);
     }
+
+
 
     public function show($id)
     {

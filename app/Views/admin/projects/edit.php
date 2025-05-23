@@ -54,7 +54,7 @@
         <!-- Buttons -->
         <div class="flex justify-between">
             <button type="submit"
-                class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Update Project</button>
+                class="px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800 transition">Update Project</button>
             <a href="<?= base_url('admin/projects') ?>"
                 class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">Cancel</a>
         </div>

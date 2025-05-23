@@ -15,7 +15,7 @@
                 <option value="">-- Select Customer --</option>
                 <?php foreach ($customers as $customer): ?>
                     <option value="<?= $customer['id'] ?>">
-                        <?= esc(trim(($customer['first_name'] ?? '') . ' ' . ($customer['last_name'] ?? ''))) ?>
+                        <?= esc(trim(($customer['first_name'] ?? '') . ' ' . ($customer['last_name'] ?? '') . ' --> (' . ($customer['company_name']) . ')')) ?>
                     </option>
                 <?php endforeach; ?>
             </select>

@@ -1,7 +1,7 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
-<div class="w-2/3 mx-auto max-h-screen flex items-center justify-center p-10 bg-white text-black ">
+<div class="w-2/3 mx-auto max-h-screen flex items-center justify-center p-10 bg-gray-100 text-black ">
     <div class="w-full max-w-md bg-white border border-gray rounded-xl p-8 shadow-lg">
         <h2 class="text-2xl font-bold text-center mb-6">Register Admin</h2>
 
@@ -31,8 +31,13 @@
             <?= csrf_field() ?>
 
             <div>
-                <label for="name" class="block text-sm font-medium mb-1">Name</label>
-                <input type="text" id="name" name="name" value="<?= old('name') ?>" placeholder="Enter name"
+                <label for="name" class="block text-sm font-medium mb-1">First Name</label>
+                <input type="text" id="name" name="first_name" value="<?= old('name') ?>" placeholder="Enter name"
+                    class="w-full p-2 rounded-lg bg-white border border-gray-400 focus:ring-2 focus:ring-white" required>
+            </div>
+            <div>
+                <label for="name" class="block text-sm font-medium mb-1">Last Name</label>
+                <input type="text" id="name" name="last_name" value="<?= old('name') ?>" placeholder="Enter name"
                     class="w-full p-2 rounded-lg bg-white border border-gray-400 focus:ring-2 focus:ring-white" required>
             </div>
 

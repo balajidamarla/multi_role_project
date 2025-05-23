@@ -19,7 +19,8 @@
                     <thead class="bg-black text-white">
                         <tr>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">ID</th>
-                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Name</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">FIRST NAME</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">LAST NAME</th>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Email</th>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Role</th>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Status</th>
@@ -28,10 +29,12 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                        <?php foreach ($admins as $admin): ?>
+                        <?php  $i = 1; foreach ($admins as $admin): ?>
                             <tr class="hover:bg-gray-100 transition">
-                                <td class="px-4 py-3"><?= esc($admin['id']) ?></td>
+                                <td class="px-4 py-3"><?= $i ?></td>
                                 <td class="px-4 py-3"><?= esc($admin['first_name']) ?></td>
+                                <td class="px-4 py-3"><?= esc($admin['last_name']) ?></td>
+
                                 <td class="px-4 py-3"><?= esc($admin['email']) ?></td>
                                 <td class="px-4 py-3"><?= esc($admin['role']) ?></td>
                                 <td class="px-4 py-3">
@@ -48,8 +51,10 @@
                                     </form>
                                 </td>
                                 <td class="px-4 py-3"><?= esc($admin['created_at']) ?></td>
+                                
                             </tr>
-                        <?php endforeach; ?>
+
+                        <?php $i++; endforeach; ?>
                     </tbody>
                 </table>
             </div>

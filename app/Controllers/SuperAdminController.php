@@ -29,7 +29,8 @@ class SuperAdminController extends BaseController
         $data = $this->request->getPost();
 
         if (!$this->validate([
-            'name' => 'required|min_length[3]',
+            'first_name' => 'required|min_length[3]',
+            'last_name' => 'required|min_length[3]',
             'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]',
         ])) {
@@ -37,7 +38,8 @@ class SuperAdminController extends BaseController
         }
 
         $model->save([
-            'name'     => $data['name'],
+            'first_name'     => $data['first_name'],
+            'last_name'     => $data['last_name'],
             'email'    => $data['email'],
             'password' => password_hash($data['password'], PASSWORD_DEFAULT),
             'role'     => 'Admin', // default role

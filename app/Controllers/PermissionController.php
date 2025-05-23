@@ -9,10 +9,17 @@ class PermissionController extends Controller
 {
     public function index()
     {
-        $permissionModel = new PermissionModel();
-        $data['permissions'] = $permissionModel->findAll();
+        $session = session();
+        $adminId = $session->get('user_id');
+
+        $permissionModel = new \App\Models\PermissionModel();
+
+        $data['permissions'] = $permissionModel->getPermissionsByAdmin($adminId, 5);
+        $data['pager'] = $permissionModel->getPager();
+
         return view('admin/permissions/index', $data);
     }
+
 
     public function create()
     {
@@ -21,32 +28,55 @@ class PermissionController extends Controller
 
     public function store()
     {
-        $permissionModel = new PermissionModel();
+        $permissionModel = new \App\Models\PermissionModel();
+        $adminId = session()->get('user_id');
 
-        $validation = \Config\Services::validation();
-        $validation->setRules([
-            'name'  => 'required|is_unique[permissions.name]',
-            'label' => 'required',
-        ]);
+        $name = $this->request->getPost('name');
+        $label = $this->request->getPost('label');
 
-        if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->back()->withInput()->with('error', implode('<br>', $validation->getErrors()));
+        // Validate inputs
+        if (!$name || !$label) {
+            return redirect()->back()->withInput()->with('error', 'Name and label are required.');
         }
 
+        // Check uniqueness per admin
+        $existing = $permissionModel
+            ->where('name', $name)
+            ->where('created_by', $adminId)
+            ->first();
+
+        if ($existing) {
+            return redirect()->back()->withInput()->with('error', 'You already created this permission name.');
+        }
+
+        // Insert
         $permissionModel->insert([
-            'name'  => $this->request->getPost('name'),
-            'label' => $this->request->getPost('label'),
+            'name'       => $name,
+            'label'      => $label,
+            'created_by' => $adminId
         ]);
 
         return redirect()->to('admin/permissions')->with('success', 'Permission added successfully.');
     }
 
+
     public function edit($id)
     {
         $permissionModel = new PermissionModel();
-        $data['permission'] = $permissionModel->find($id);
+        $adminId = session()->get('user_id'); // Get currently logged-in admin ID
+
+        // Fetch the permission
+        $permission = $permissionModel->find($id);
+
+        // Check if permission exists and belongs to the current admin
+        if (!$permission || $permission['created_by'] != $adminId) {
+            return redirect()->to('admin/permissions')->with('error', 'Unauthorized access.');
+        }
+
+        $data['permission'] = $permission;
         return view('admin/permissions/edit', $data);
     }
+
 
     public function update($id)
     {

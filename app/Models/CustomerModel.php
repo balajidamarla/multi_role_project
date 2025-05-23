@@ -8,6 +8,7 @@ class CustomerModel extends Model
 {
     protected $table = 'customers';
     protected $primaryKey = 'id';
+
     protected $allowedFields = [
         'company_name',
         'first_name',
@@ -18,8 +19,24 @@ class CustomerModel extends Model
         'address2',
         'zipcode',
         'city_state',
-        'created_by'
+        'created_by',
+        'created_at',
+        'updated_at'
     ];
 
-    protected $useTimestamps = false;
+    protected $useTimestamps = false; // set true if you want CI4 to handle timestamps automatically
+    protected $returnType = 'array';
+
+    /**
+     * Get customers created by a specific admin
+     *
+     * @param int $adminId
+     * @return array
+     */
+    public function getCustomersByAdmin(int $adminId): array
+    {
+        return $this->where('created_by', $adminId)
+            ->orderBy('id', 'DESC')
+            ->findAll();
+    }
 }

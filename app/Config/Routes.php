@@ -73,6 +73,8 @@ $routes->get('admin/projects/create', 'Admin\ProjectController::create');
 $routes->post('admin/projects/store', 'Admin\ProjectController::store');
 $routes->post('admin/projects/store', 'Admin\ProjectController::store');
 $routes->get('projects/delete/(:num)', 'Admin\ProjectController::delete/$1');
+$routes->get('admin/projects/delete/(:num)', 'Admin\ProjectController::delete/$1');
+
 
 $routes->get('admin/projects/view/(:num)', 'admin\ProjectController::view/$1');
 
@@ -115,34 +117,6 @@ $routes->post('admin/roles/update/(:num)', 'RoleController::update/$1');
 $routes->get('admin/roles', 'RoleController::index');
 $routes->get('admin/roles/delete/(:num)', 'RoleController::delete/$1');
 
-// //Permissions
-// $routes->get('admin/permissions', 'Admin\PermissionController::index');
-// $routes->get('admin/permissions/create', 'Admin\PermissionController::create');
-// $routes->post('admin/permissions/store', 'Admin\PermissionController::store');
-// $routes->get('admin/permissions/edit/(:num)', 'Admin\PermissionController::edit/$1');
-// $routes->post('admin/permissions/update/(:num)', 'Admin\PermissionController::update/$1');
-// $routes->get('admin/permissions/delete/(:num)', 'Admin\PermissionController::delete/$1');
-
-
-// $routes->get('admin/role-permissions', 'Admin\RolePermissionController::index');
-// $routes->post('admin/role-permissions/save', 'Admin\RolePermissionController::save');
-
-
-
-// $routes->group('admin', ['filter' => 'permission:create_team'], function($routes) {
-//     $routes->get('teams/create', 'Admin\TeamsController::create');
-//     $routes->post('teams/store', 'Admin\TeamsController::store');
-// });
-
-// $routes->get('admin/teams', 'Admin\TeamsController::index', ['filter' => 'permission:view_team']);
-// $routes->get('admin/somepage', 'Admin\SomeController::index', ['filter' => 'permission:create_team,update_team']);
-// //no access
-// $routes->get('no-access', function () {
-//     return view('no_access');
-// });
-
-
-
 $routes->get('admin/team', 'TeamController::index', ['filter' => 'permission:view_team']);
 $routes->get('admin/teams/create', 'TeamController::create', ['filter' => 'permission:create_team,admin_access']);
 
@@ -164,3 +138,10 @@ $routes->get('admin/permissions/delete/(:num)', 'PermissionController::delete/$1
 $routes->get('no-access', function(){
     return view('errors/no_access');
 });
+
+//profiles
+$routes->get('admin/roles/(:segment)', 'UserController::showRole/$1');
+$routes->post('admin/user/update/(:num)', 'UserController::update/$1');
+
+
+// esc($user['first_name']. ' ' . $user['last_name'] . ' (' . 

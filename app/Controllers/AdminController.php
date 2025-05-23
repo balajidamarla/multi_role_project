@@ -13,14 +13,27 @@ class AdminController extends BaseController
     public function manageCustomers()
     {
         $role = session()->get('role');
-        if (!in_array($role, ['admin', 'salessurveyor'])) {
+        $userId = session()->get('user_id');
+
+        if (!has_permission('view_customer')) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
-        $model = new CustomerModel();
-        $data['customers'] = $model->orderBy('created_at', 'DESC')->findAll();
-        return view('admin/manage_customers', $data);
+        // Cast user ID to int
+        $adminId = (int) $userId;
+
+        $model = new \App\Models\CustomerModel();
+
+        // Get customers created by this admin
+        $customers = $model->getCustomersByAdmin($adminId);
+
+        // Pass to view
+        return view('admin/manage_customers', ['customers' => $customers]);
     }
+
+
+
+
 
 
     public function addCustomerForm()

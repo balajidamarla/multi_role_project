@@ -27,25 +27,11 @@ class SignController extends BaseController
 
     public function index()
     {
-        $currentAdminId = session()->get('user_id'); // Get the currently logged-in admin's ID
+        $currentAdminId = session()->get('user_id');
 
-        // Fetch all signs with related customer, project, and assigned user details
-        $signs = $this->signModel
-            ->select('
-            signs.*, 
-              CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
-              customers.company_name AS customer,
-            projects.name AS project_name,
-            assigned_user.first_name AS assigned_first_name,
-            assigned_user.last_name AS assigned_last_name
-        ')
-            ->join('customers', 'customers.id = signs.customer_id', 'left')
-            ->join('projects', 'projects.id = signs.project_id', 'left')
-            ->join('users as assigned_user', 'assigned_user.id = signs.assigned_to', 'left')
-            ->orderBy('signs.created_at', 'DESC')
-            ->findAll();
+        // Use the model method instead of writing query in controller
+        $signs = $this->signModel->getSignsByAdmin($currentAdminId);
 
-        // Fetch users who can be assigned to a sign: sales_surveyor, surveyor_lite, and the current admin
         $users = $this->UserModel
             ->select('id, first_name, last_name, role')
             ->groupStart()
@@ -54,12 +40,13 @@ class SignController extends BaseController
             ->groupEnd()
             ->findAll();
 
-        // Pass the signs and assignable users to the view
         return view('admin/signs/index', [
             'signs' => $signs,
             'users' => $users,
         ]);
     }
+
+
 
     // public function create()
     // {
@@ -87,23 +74,26 @@ class SignController extends BaseController
 
     public function create($projectId)
     {
-        $projectModel = new ProjectModel();
-        $userModel = new UserModel();
-
+        $projectModel = new \App\Models\ProjectModel();
+        $userModel = new \App\Models\UserModel();
         // Use your custom method to get full project + customer info
         $project = $projectModel->getProjectById($projectId);
 
         if (!$project) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Project not found.");
         }
+        $adminId = (int) session()->get('user_id'); // Ensure it's cast to int
+        // Fetch only surveyors created by this admin
+        $surveyors = $userModel->getTeamMembersByAdmin($adminId);
 
-        $data['project'] = $project;
-        $data['surveyors'] = $userModel
-            ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
-            ->findAll();
+        $data = [
+            'project'   => $project,
+            'surveyors' => $surveyors
+        ];
 
         return view('admin/signs/create', $data);
     }
+
 
 
 
