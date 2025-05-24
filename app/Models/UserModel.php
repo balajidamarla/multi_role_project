@@ -34,5 +34,15 @@ class UserModel extends Model
             ->get()
             ->getResultArray();
     }
-    
+
+    public function getMyTeam($userId)
+    {
+        return $this->select('id, first_name, last_name, role')
+            ->groupStart()
+            ->where('created_by', $userId)
+            ->whereIn('role', ['salessurveyor', 'surveyor lite'])
+            ->groupEnd()
+            ->orWhere('id', $userId)
+            ->findAll();
+    }
 }

@@ -27,26 +27,60 @@ class SignController extends BaseController
 
     public function index()
     {
-        $currentAdminId = session()->get('user_id');
+        $session = session();
+        $userId = (int) $session->get('user_id');
+        $role = $session->get('role');
 
-        // Use the model method instead of writing query in controller
-        $signs = $this->signModel->getSignsByAdmin($currentAdminId);
+        // Get signs
+        if (in_array($role, ['salessurveyor', 'surveyorlite'])) {
+            $signs = $this->signModel->getSignsByAssignedUser($userId);
+        } else {
+            $signs = $this->signModel->getSignsByAdmin($userId);
+        }
 
-        $users = $this->UserModel
-            ->select('id, first_name, last_name, role')
-            ->groupStart()
-            ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
-            ->orWhere('id', $currentAdminId)
-            ->groupEnd()
-            ->findAll();
+        $userBuilder = $this->UserModel->select('id, first_name, last_name, role');
+
+        if ($role === 'admin') {
+            // Admin sees all users they created + themselves
+            $userBuilder->groupStart()
+                ->where('created_by', $userId)
+                ->whereIn('role', ['salessurveyor', 'surveyorlite'])
+                ->groupEnd()
+                ->orWhere('id', $userId);
+        } elseif ($role === 'salessurveyor') {
+            // Get admin who created this salessurveyor
+            $creator = $this->UserModel->select('created_by')->where('id', $userId)->first();
+            $adminId = $creator['created_by'] ?? null;
+
+            $userBuilder->groupStart();
+
+            if ($adminId) {
+                // Include "surveyor lite" created by admin
+                $userBuilder->orGroupStart()
+                    ->where('created_by', $adminId)
+                    ->where('role', 'surveyorlite')
+                    ->groupEnd();
+
+                // Include the admin (creator)
+                $userBuilder->orWhere('id', $adminId);
+            }
+
+            // Include the salessurveyor (self)
+            $userBuilder->orWhere('id', $userId);
+
+            $userBuilder->groupEnd();
+        } else {
+            // Surveyor Lite only sees themselves
+            $userBuilder->where('id', $userId);
+        }
+
+        $users = $userBuilder->findAll();
 
         return view('admin/signs/index', [
             'signs' => $signs,
             'users' => $users,
         ]);
     }
-
-
 
     // public function create()
     // {
@@ -76,23 +110,32 @@ class SignController extends BaseController
     {
         $projectModel = new \App\Models\ProjectModel();
         $userModel = new \App\Models\UserModel();
-        // Use your custom method to get full project + customer info
-        $project = $projectModel->getProjectById($projectId);
 
+        $project = $projectModel->getProjectById($projectId);
         if (!$project) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Project not found.");
         }
-        $adminId = (int) session()->get('user_id'); // Ensure it's cast to int
+
+        $adminId = (int) session()->get('user_id');
+
         // Fetch only surveyors created by this admin
         $surveyors = $userModel->getTeamMembersByAdmin($adminId);
 
-        $data = [
+        // Also include current admin if not already in the list
+        $currentUser = $userModel->find($adminId);
+        if ($currentUser) {
+            $exists = array_filter($surveyors, fn($u) => $u['id'] == $adminId);
+            if (empty($exists)) {
+                $surveyors[] = $currentUser;
+            }
+        }
+
+        return view('admin/signs/create', [
             'project'   => $project,
             'surveyors' => $surveyors
-        ];
-
-        return view('admin/signs/create', $data);
+        ]);
     }
+
 
 
 
@@ -104,6 +147,7 @@ class SignController extends BaseController
         if (!$project_id) {
             return redirect()->back()->withInput()->with('error', 'Missing project ID.');
         }
+        // var_dump($this->request->getPost('customer_id')); die;
 
         $this->signModel->save([
             'sign_name'        => $this->request->getPost('sign_name'),
@@ -178,19 +222,26 @@ class SignController extends BaseController
         $signModel = new SignModel();
         $userModel = new UserModel();
 
-        $sign = $signModel->find($id); // returns array by default
+        $sign = $signModel->find($id);
 
         if (!$sign) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Sign not found');
         }
 
-        $users = $userModel->findAll(); // or filter as needed
+        $currentAdminId = (int) session()->get('user_id');
+
+        // Get only team members with specific roles created by this admin, including self
+        $users = $userModel->where('created_by', $currentAdminId)
+            ->whereIn('role', ['salessurveyor', 'surveyorlite'])
+            ->orWhere('id', $currentAdminId) // include self
+            ->findAll();
 
         return view('admin/signs/edit', [
             'sign' => $sign,
             'users' => $users
         ]);
     }
+
 
 
     public function update($id)
@@ -216,5 +267,19 @@ class SignController extends BaseController
 
         session()->setFlashdata('success', 'Sign updated successfully.');
         return redirect()->to(base_url('admin/signs'));
+    }
+
+
+    public function view($id)
+    {
+        $signModel = new \App\Models\SignModel();
+
+        $sign = $signModel->find($id);
+
+        if (!$sign) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Sign not found");
+        }
+
+        return view('admin/signs/view', ['sign' => $sign]);
     }
 }

@@ -214,13 +214,26 @@ class ProjectController extends BaseController
         // Fetch project by ID
         $project = $projectModel->where('id', $id)->get()->getFirstRow('array');
 
-
         if (!$project) {
             return redirect()->to('/projects')->with('error', 'Project not found.');
         }
 
-        // Fetch assigned users
-        $users = $userModel->findAll();
+        // Get current admin ID
+        $adminId = session()->get('user_id');
+
+        // Get users with roles salessurveyor or surveyorlite created by this admin
+        $users = $userModel->where('created_by', $adminId)
+            ->whereIn('role', ['salessurveyor', 'surveyorlite'])
+            ->findAll();
+
+        // Include current admin in the list
+        $currentAdmin = $userModel->find($adminId);
+        if ($currentAdmin) {
+            $users[] = $currentAdmin;
+        }
+
+        // Remove duplicates (if admin also created himself)
+        $users = array_unique($users, SORT_REGULAR);
 
         // Fetch customer based on customer_id in project
         $customer = $customerModel->find($project['customer_id']);
@@ -230,9 +243,10 @@ class ProjectController extends BaseController
 
         return view('admin/projects/edit', [
             'project' => $project,
-            'users' => $users
+            'users'   => $users
         ]);
     }
+
 
 
 

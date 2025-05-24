@@ -29,8 +29,13 @@
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Company Name</th>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Assigned To</th>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Type</th>
+                            <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Due Date</th>
+
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Status</th>
                             <?php if (in_array($role, ['admin', 'salessurveyor'])): ?>
+                                <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Actions</th>
+                            <?php endif; ?>
+                            <?php if (in_array($role, ['surveyorlite'])): ?>
                                 <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Actions</th>
                             <?php endif; ?>
                         </tr>
@@ -44,7 +49,7 @@
                                 <tr class="hover:bg-gray-100 transition">
                                     <td class="px-4 py-3"><?= esc($sign['sign_name']) ?></td>
                                     <td class="px-4 py-3"><?= esc($sign['customer_name']) ?></td>
-                                    <td class="px-4 py-3"><?= esc($sign['customer']) ?></td>
+                                    <td class="px-4 py-3"><?= esc($sign['company_name']) ?></td>
 
                                     <td class="px-4 py-3">
                                         <?php
@@ -82,25 +87,37 @@
 
 
                                     <td class="px-4 py-3"><?= esc($sign['sign_type']) ?></td>
+                                    <td class="px-4 py-3"><?= esc(date('d/m/Y', strtotime($sign['due_date']))) ?></td>
                                     <td class="px-4 py-3"><?= esc($sign['progress']) ?></td>
 
                                     <td class="px-4 py-3 space-x-2 flex">
-                                        <?php if (has_permission('edit_sign')): ?>
-                                            <a href="<?= base_url('admin/signs/edit/' . $sign['id']) ?>" class="bg-yellow-400 text-white px-3 py-1 rounded-md text-xs hover:bg-yellow-500 transition">
-                                                Edit
+                                        <?php if ($role === 'surveyorlite'): ?>
+                                            <a href="<?= base_url('admin/signs/view/' . $sign['id']) ?>"
+                                                class="bg-blue-600 text-white px-3 py-1 rounded-md text-xs hover:bg-blue-700 transition">
+                                                View
                                             </a>
                                         <?php else: ?>
-                                            <span class="text-gray-500 text-xs">Edit not allowed</span>
-                                        <?php endif; ?>
+                                            <?php if ($role === 'admin' || has_permission('edit_sign')): ?>
+                                                <a href="<?= base_url('admin/signs/edit/' . $sign['id']) ?>"
+                                                    class="bg-yellow-400 text-white px-3 py-1 rounded-md text-xs hover:bg-yellow-500 transition">
+                                                    Edit
+                                                </a>
+                                                <?php else: ?>
+                                                    <span class="text-gray-500 text-xs">Edit not allowed</span>
+                                            <?php endif; ?>
 
-                                        <?php if (has_permission('delete_sign')): ?>
-                                            <a href="<?= base_url('admin/signs/delete/' . $sign['id']) ?>" onclick="return confirm('Are you sure you want to delete this sign?')" class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
-                                                Delete
-                                            </a>
-                                        <?php else: ?>
-                                            <span class="text-gray-500 text-xs">Delete not allowed</span>
+                                            <?php if ($role === 'admin' || has_permission('delete_sign')): ?>
+                                                <a href="<?= base_url('admin/signs/delete/' . $sign['id']) ?>"
+                                                    onclick="return confirm('Are you sure you want to delete this sign?')"
+                                                    class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
+                                                    Delete
+                                                </a>
+                                                <?php else: ?>
+                                                    <span class="text-gray-500 text-xs">Delete not allowed</span>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     </td>
+
 
                                 </tr>
                             <?php endif; ?>

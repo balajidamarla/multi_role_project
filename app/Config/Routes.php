@@ -105,6 +105,9 @@ $routes->get('admin/signs/create', 'SignController::create');      // Show the a
 // $routes->post('signs/store', 'SignController::store');       // Submit new sign
 $routes->get('signs/delete/(:num)', 'SignController::delete/$1'); // Delete a sign
 
+//surveyorlite
+$routes->get('admin/signs/view/(:num)', 'SignController::view/$1');
+
 //------------------------------------------------------------------------------------------------------------------
 $routes->get('team/create', 'TeamController::showCreateForm');
 

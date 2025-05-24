@@ -15,7 +15,7 @@ class SurveyorController extends BaseController
         $session = session();
         $role = $session->get('user_role');
 
-        if ($role !== 'sales_surveyor') {
+        if ($role !== 'salessurveyor') {
             return redirect()->to('/')->with('error', 'Access denied.');
         }
 

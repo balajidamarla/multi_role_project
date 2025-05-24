@@ -10,7 +10,7 @@ use App\Models\UserModel;
 
 class CustomerController extends BaseController
 {
-    // Display all customers
+    // Display customers
     public function index()
     {
         $session = session();
@@ -19,7 +19,7 @@ class CustomerController extends BaseController
 
         $customerModel = new \App\Models\CustomerModel();
         $customers = $customerModel->getCustomersByAdmin($userId);
-        var_dump($customers); die;
+        // var_dump($customers); die;
         return view('admin/customers/index', [
             'customers' => $customers,
             'role' => $userRole

@@ -10,26 +10,55 @@ class AdminController extends BaseController
     {
         return view('admin/dashboard');
     }
+
+
+    // public function manageCustomers()
+    // {
+    //     $role = session()->get('role');
+    //     $userId = session()->get('user_id');
+
+    //     if (!has_permission('view_customer')) {
+    //         throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+    //     }
+
+    //     // Cast user ID to int
+    //     $adminId = (int) $userId;
+
+    //     $model = new \App\Models\CustomerModel();
+
+    //     // Get customers created by this admin
+    //     $customers = $model->getCustomersByAdmin($adminId);
+
+    //     // Pass to view
+    //     return view('admin/manage_customers', ['customers' => $customers]);
+    // }
+
     public function manageCustomers()
     {
-        $role = session()->get('role');
+        $role = strtolower(session()->get('role'));
         $userId = session()->get('user_id');
 
         if (!has_permission('view_customer')) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
-        // Cast user ID to int
-        $adminId = (int) $userId;
-
         $model = new \App\Models\CustomerModel();
 
-        // Get customers created by this admin
-        $customers = $model->getCustomersByAdmin($adminId);
+        if ($role === 'admin') {
+            // Admin sees ONLY customers they created
+            $customers = $model->where('created_by', $userId)->findAll();
+        } elseif (in_array($role, ['salessurveyor', 'surveyorlite'])) {
+            // These roles see only customers assigned to them
+            $customers = $model->where('assigned_to', $userId)->findAll();
+        } else {
+            // Fallback: show only customers they created
+            $customers = $model->where('created_by', $userId)->findAll();
+        }
 
-        // Pass to view
         return view('admin/manage_customers', ['customers' => $customers]);
     }
+
+
 
 
 

@@ -36,13 +36,13 @@
         <!-- Description -->
         <div>
             <label for="description" class="block font-medium mb-2">Description</label>
-            <textarea name="description" id="description" rows="4" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-black"></textarea>
+            <textarea name="description" id="description" rows="4" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-black" required></textarea>
         </div>
 
         <!-- Status -->
         <div>
             <label for="status" class="block font-medium mb-2">Status</label>
-            <select name="status" id="status" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-black">
+            <select name="status" id="status" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-black" required>
                 <option value="pending">Pending</option>
                 <option value="in_progress">In Progress</option>
                 <option value="completed">Completed</option>

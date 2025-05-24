@@ -1,6 +1,6 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
-
+<?php $currentUserId = session()->get('user_id'); ?>
 <div class="max-w-2xl mx-auto p-6 bg-white shadow rounded mt-6">
     <h2 class="text-2xl font-semibold text-blue-600 mb-4">Edit Project</h2>
 
@@ -38,7 +38,11 @@
                 class="mt-1 w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
                 <?php foreach ($users as $user): ?>
                     <option value="<?= $user['id'] ?>" <?= $user['id'] == $project['assigned_to'] ? 'selected' : '' ?>>
-                        <?= esc($user['first_name'] . ' ' . $user['last_name']) ?> (<?= esc($user['role']) ?>)
+                        <?php if ($user['id'] == $currentUserId): ?>
+                            Self (<?= esc($user['role']) ?>)
+                        <?php else: ?>
+                            <?= esc($user['first_name'] . ' ' . $user['last_name']) ?> (<?= esc($user['role']) ?>)
+                        <?php endif; ?>
                     </option>
                 <?php endforeach; ?>
             </select>

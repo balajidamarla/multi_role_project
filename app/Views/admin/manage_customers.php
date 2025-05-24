@@ -14,6 +14,7 @@
             <?php endif; ?>
         </div>
 
+        
 
         <?php if (!empty($customers)): ?>
             <div class="overflow-x-auto bg-white shadow-md rounded-lg">

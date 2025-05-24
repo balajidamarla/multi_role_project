@@ -10,13 +10,22 @@ class TeamController extends BaseController
     public function index()
     {
         $session = session();
-        $adminId = $session->get('user_id');
+        $userId = (int) $session->get('user_id');
+        $role = $session->get('role');
 
         $userModel = new \App\Models\UserModel();
-        $teams = $userModel->getTeamMembersByAdmin($adminId);
+
+        if (in_array($role, ['salessurveyor', 'surveyor lite'])) {
+            // Only show the logged-in user
+            $teams = [$userModel->find($userId)];
+        } else {
+            // Admin or other roles can see all team members they created
+            $teams = $userModel->getTeamMembersByAdmin($userId);
+        }
 
         return view('admin/teams', ['teams' => $teams]);
     }
+
 
     public function create()
     {

@@ -57,7 +57,7 @@ class SignModel extends Model
         return $this->select('
                 signs.*, 
                 CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
-                customers.company_name AS customer,
+                customers.company_name AS company_name,
                 projects.name AS project_name,
                 assigned_user.first_name AS assigned_first_name,
                 assigned_user.last_name AS assigned_last_name
@@ -68,5 +68,26 @@ class SignModel extends Model
             ->where('signs.created_by', $adminId)
             ->orderBy('signs.created_at', 'DESC')
             ->findAll();
+    }
+
+    public function getSignsByAssignedUser($userId)
+    {
+        return $this->db->table('signs')
+            ->select('
+            signs.*,
+            projects.name AS project_name,
+            CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
+            CONCAT(customers.address1, ", ", customers.address2, ", ", customers.city_state) AS customer_address,
+            customers.zipcode,
+            customers.company_name,
+            customers.phone AS contact_info,
+            customers.created_at AS customer_created_at
+        ')
+            ->join('projects', 'projects.id = signs.project_id', 'left')
+            ->join('customers', 'customers.id = projects.customer_id', 'left')
+            ->where('signs.assigned_to', $userId)
+            ->orderBy('signs.due_date', 'ASC')
+            ->get()
+            ->getResultArray();
     }
 }

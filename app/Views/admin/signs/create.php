@@ -11,13 +11,15 @@
         <input type="hidden" name="project_id" value="<?= esc($project['id']) ?>">
         <input type="hidden" name="customer_id" value="<?= esc($project['customer_id']) ?>">
 
+
         <!-- Optionally display project & customer info as readonly text -->
         <p><strong>Project:</strong> <?= esc($project['name']) ?></p>
         <p><strong>Customer:</strong> <?= esc($project['first_name'] . ' ' . $project['last_name']) ?></p>
 
 
+
         <!-- Hidden Customer ID field (auto-filled) -->
-        <input type="hidden" name="customer_id" id="customer_id" value="">
+        <!-- <input type="hidden" name="customer_id" id="customer_id" value=""> -->
 
         <!-- 2.1 Sign Setup -->
         <div class="mb-8 border border-gray-700 p-6 rounded-lg">
@@ -99,19 +101,25 @@
 
             <div class="mb-4">
                 <label for="assigned_to" class="block font-medium mb-2">Assign to Team</label>
-                <select name="assigned_to" id="assigned_to" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-white">
+                <select name="assigned_to" id="assigned_to" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-white" required>
                     <option value="">-- Select User --</option>
-                    <?php foreach ($surveyors as $user): ?>
+                    <?php
+                    $currentUserId = session()->get('user_id');
+                    foreach ($surveyors as $user):
+                        $isSelf = ((int) $user['id'] === (int) $currentUserId);
+                        $displayName = $isSelf ? 'Self' : esc($user['first_name']) . ' ' . esc($user['last_name']);
+                    ?>
                         <option value="<?= esc($user['id']) ?>">
-                            <?= esc($user['first_name']) . ' ' . esc($user['last_name']) ?> (<?= esc($user['role']) ?>)
+                            <?= $displayName ?> (<?= esc($user['role']) ?>)
                         </option>
                     <?php endforeach; ?>
                 </select>
+
             </div>
 
             <div class="mb-4">
-                <label for="completion_date" class="block font-medium mb-2">Completion Date</label>
-                <input type="date" name="completion_date" id="completion_date" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-white">
+                <label for="due_date" class="block font-medium mb-2">Completion Date</label>
+                <input type="date" name="due_date" id="due_date" class="w-full bg-white border border-gray text-black p-2 rounded-lg focus:ring-2 focus:ring-white" required>
             </div>
         </div>
 
@@ -128,11 +136,8 @@
             const signTypeSelect = document.getElementById('dynamic_sign_type');
             signTypeSelect.innerHTML = '<option value="">Select a Sign Type</option>';
 
-            const options = this.value === 'Indoor' ?
-                ['LED', 'Neon', 'Banner'] :
-                this.value === 'Outdoor' ?
-                ['Billboard', 'Flag', 'Poster'] :
-                [];
+            const options = this.value === 'Indoor' ? ['LED', 'Neon', 'Banner'] :
+                this.value === 'Outdoor' ? ['Billboard', 'Flag', 'Poster'] : [];
 
             options.forEach(type => {
                 const option = document.createElement('option');

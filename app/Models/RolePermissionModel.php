@@ -16,10 +16,10 @@ class RolePermissionModel extends Model
      */
     public function getPermissionsByRoleId($roleId)
     {
-        return $this->db->table('permissions p')
-            ->select('p.*')
-            ->join('role_permission rp', 'rp.permission_id = p.id')
-            ->where('rp.role_id', $roleId)
+        return $this->db->table('role_permission')
+            ->select('permissions.name')
+            ->join('permissions', 'permissions.id = role_permission.permission_id')
+            ->where('role_permission.role_id', $roleId)
             ->get()
             ->getResultArray();
     }

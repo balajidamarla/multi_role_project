@@ -55,9 +55,9 @@
                         <div class="text-white text-sm">
                             <a href="<?= base_url('admin/roles/' . urlencode($role)) ?>" class="flex items-center gap-2 transition-all duration-500 hover:text-blue-400 font-semibold hover:scale-110">
                                 <?php if (session()->has('first_name') && session()->has('last_name')): ?>
-                                    <?= ucwords(session('first_name') . ' ' . session('last_name') . ' ('. ucfirst(session('role') .')')) ?>
+                                    <?= ucwords(session('first_name') . ' ' . session('last_name') . ' (' . ucfirst(session('role') . ')')) ?>
                                 <?php endif; ?>
-                                
+
                             </a>
                         </div>
                     </div>
@@ -95,11 +95,12 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
 
-                <?php if ($userRole === 'surveyor_lite'): ?>
-                    <a href="<?= base_url('lite/tasks') ?>"
-                        class="transition-all duration-500 hover:text-blue-400 font-bold hover:scale-105"
-                        :title="sidebarOpen ? '' : 'My Tasks'">
-                        My Tasks
+                <?php if ($userRole === 'surveyorlite'): ?>
+                    <a href="<?= base_url('admin/signs') ?>"
+                        class="flex items-center gap-2 transition-all duration-500 hover:text-blue-400 font-bold hover:scale-110 border-b-[0.5px] border-gray-800 hover:border-gray-700 px-4 py-2"
+                        :title="sidebarOpen ? '' : 'Signs'">
+                        <img src="<?= base_url('public/assets/signs.png') ?>" alt="Signs Icon" class="h-8 w-8 flex-shrink-0" />
+                        <span x-show="sidebarOpen" class="whitespace-nowrap">Signs</span>
                     </a>
                 <?php endif; ?>
 
