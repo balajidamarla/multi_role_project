@@ -40,7 +40,12 @@
                             <tr class="hover:bg-gray-100 transition">
                                 <td class="px-4 py-3"><?= esc($member['first_name']) ?></td>
                                 <td class="px-4 py-3"><?= esc($member['last_name']) ?></td>
-                                <td class="px-4 py-3"><?= esc($member['email']) ?></td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-2">
+                                        <img src="<?= base_url('public/assets/mail.png') ?>" alt="Email Icon" class="w-4 h-4">
+                                        <?= esc($member['email']) ?>
+                                    </div>
+                                </td>
                                 <td class="px-4 py-3"><?= ucfirst(str_replace('_', ' ', esc($member['role']))) ?></td>
                                 <td class="px-4 py-3">
                                     <span class="inline-block px-2 py-1 text-xs font-semibold rounded
@@ -49,11 +54,20 @@
                                     </span>
                                 </td>
                                 <td class="px-4 py-3">0</td> <!-- TODO: Replace with actual count -->
-                                <td class="px-4 py-3"><?= date('d-m-Y', strtotime($member['created_at'])) ?></td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-2">
+                                        <img src="<?= base_url('public/assets/calendar.png') ?>" alt="Calendar Icon" class="w-4 h-4">
+                                        <?= date('d-m-Y', strtotime($member['created_at'])) ?>
+                                    </div>
+                                </td>
                                 <td class="px-4 py-3">
                                     <?php if (has_permission('delete_team')): ?>
-                                        <a href="<?= base_url('admin/teams/delete/' . $member['id']) ?>" onclick="return confirm('Are you sure you want to delete this team member?')" class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
-                                            Delete
+
+                                        <a href="<?= base_url('admin/teams/delete/' . $member['id']) ?>"
+                                            onclick="return confirm('Are you sure you want to delete this team member?')"
+                                            class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                            title="Delete">
+                                            <img src="<?= base_url('public/assets/delete.png') ?>" alt="Delete" class="w-5 h-5">
                                         </a>
                                     <?php else: ?>
                                         <span class="text-gray-500 text-xs">Delete not allowed</span>

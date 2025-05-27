@@ -28,7 +28,7 @@ class UserModel extends Model
     {
         return $this->db->table('users')
             ->select('*')
-            ->whereIn('role', ['salessurveyor', 'Surveyor Lite'])
+            ->whereIn('role', ['salessurveyor', 'Surveyorlite'])
             ->where('created_by', $adminId)
             ->orderBy('created_at', 'DESC')
             ->get()
@@ -40,7 +40,7 @@ class UserModel extends Model
         return $this->select('id, first_name, last_name, role')
             ->groupStart()
             ->where('created_by', $userId)
-            ->whereIn('role', ['salessurveyor', 'surveyor lite'])
+            ->whereIn('role', ['salessurveyor', 'surveyorlite'])
             ->groupEnd()
             ->orWhere('id', $userId)
             ->findAll();

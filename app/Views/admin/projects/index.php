@@ -57,12 +57,15 @@
                                     <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                                         <?php if (!empty($signsByProject[$project['id']])): ?>
                                             <?php foreach ($signsByProject[$project['id']] as $sign): ?>
-                                                <li>
-                                                    <small>Status:</small>
+
+                                                <div class="flex items-center gap-2">
+                                                    <img src="<?= base_url('public/assets/status.png') ?>" alt="Status Icon" class="w-4 h-4">
+
                                                     <span class="font-medium">
                                                         <?= esc($sign['progress']) ?>
                                                     </span>
-                                                </li>
+                                                </div>
+
                                             <?php endforeach; ?>
                                         <?php else: ?>
                                             <li><em>No signs assigned</em></li>
@@ -106,8 +109,12 @@
                                         <?php if (!empty($signsByProject[$project['id']])): ?>
                                             <?php foreach ($signsByProject[$project['id']] as $sign): ?>
                                                 <li>
-                                                    <span class="font-medium"><?= esc($sign['sign_description']) ?></span><br>
-                                                    <small>Due Date: <?= date('d-m-Y', strtotime($sign['due_date'])) ?></small>
+                                                    <span class="font-medium"><?= esc($sign['sign_name']) ?></span><br>
+                                                    <small class="flex items-center gap-2">
+                                                        <img src="<?= base_url('public/assets/due date.png') ?>" alt="Due date Icon" class="w-4 h-4">
+                                                        Due Date: <?= date('d-m-Y', strtotime($sign['due_date'])) ?>
+                                                    </small>
+
 
                                                 </li>
                                             <?php endforeach; ?>
@@ -118,16 +125,22 @@
                                 </td>
                                 <td class="px-4 py-3 space-x-2">
                                     <?php if (has_permission('update_project')): ?>
-                                        <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>" class="inline-block px-3 py-1 bg-yellow-400 text-white text-xs rounded hover:bg-yellow-500 transition">
-                                            Edit
+                                        <a href="<?= base_url('admin/projects/edit/' . $project['id']) ?>"
+                                            class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                            title="edit">
+                                            <img src="<?= base_url('public/assets/edit.png') ?>" alt="edit" class="w-5 h-5">
                                         </a>
                                     <?php else: ?>
                                         <span class="text-gray-400 text-xs">Edit not allowed</span>
                                     <?php endif; ?>
 
                                     <?php if (has_permission('delete_project')): ?>
-                                        <a href="<?= base_url('admin/projects/delete/' . $project['id']) ?>" onclick="return confirm('Are you sure?')" class="inline-block px-3 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700 transition">
-                                            Delete
+
+                                        <a href="<?= base_url('admin/projects/delete/' . $project['id']) ?>"
+                                            onclick="return confirm('Are you sure you want to delete this project')"
+                                            class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                            title="Delete">
+                                            <img src="<?= base_url('public/assets/delete.png') ?>" alt="Delete" class="w-5 h-5">
                                         </a>
                                     <?php else: ?>
                                         <span class="text-gray-400 text-xs">Delete not allowed</span>

@@ -23,6 +23,18 @@ class SignModel extends Model
         'completion_date',
         'created_by',
         'created_at',
+
+        // Newly added fields
+        'replacement',
+        'removal_scheduled',
+        'todo',
+        'summary',
+        'permit_required',
+        'todo_permit',
+        'summary_permit',
+        'existing_sign_audit',
+        'permitting_assessment',
+        'surveyor_kit',
     ];
 
     /**
@@ -86,7 +98,7 @@ class SignModel extends Model
             ->join('projects', 'projects.id = signs.project_id', 'left')
             ->join('customers', 'customers.id = projects.customer_id', 'left')
             ->where('signs.assigned_to', $userId)
-            ->orderBy('signs.due_date', 'ASC')
+            ->orderBy('signs.due_date', 'DESC')
             ->get()
             ->getResultArray();
     }

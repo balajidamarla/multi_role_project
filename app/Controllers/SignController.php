@@ -161,6 +161,18 @@ class SignController extends BaseController
             'progress'         => $this->request->getPost('progress'),
             'created_by'       => session()->get('user_id'),
             'created_at'       => date('Y-m-d H:i:s'),
+
+            // Newly added fields
+            'replacement'           => $this->request->getPost('replacement'),
+            'removal_scheduled'     => $this->request->getPost('removal_scheduled'),
+            'todo'                  => $this->request->getPost('todo'),
+            'summary'               => $this->request->getPost('summary'),
+            'permit_required'       => $this->request->getPost('permit_required'),
+            'todo_permit'           => $this->request->getPost('todo_permit'),
+            'summary_permit'        => $this->request->getPost('summary_permit'),
+            'existing_sign_audit'   => $this->request->getPost('existing_sign_audit'),
+            'permitting_assessment' => $this->request->getPost('permitting_assessment'),
+            'surveyor_kit'          => $this->request->getPost('surveyor_kit'),
         ]);
 
         return redirect()->to('/admin/signs')->with('success', 'Sign added successfully.');

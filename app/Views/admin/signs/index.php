@@ -87,8 +87,18 @@
 
 
                                     <td class="px-4 py-3"><?= esc($sign['sign_type']) ?></td>
-                                    <td class="px-4 py-3"><?= esc(date('d/m/Y', strtotime($sign['due_date']))) ?></td>
-                                    <td class="px-4 py-3"><?= esc($sign['progress']) ?></td>
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center gap-2">
+                                            <img src="<?= base_url('public/assets/due date.png') ?>" alt="Calendar Icon" class="w-4 h-4">
+                                            <?= esc(date('d/m/Y', strtotime($sign['due_date']))) ?>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center gap-2">
+                                            <img src="<?= base_url('public/assets/status.png') ?>" alt="Progress Icon" class="w-4 h-4">
+                                            <?= esc($sign['progress'] ?? 'Pending') ?: 'Pending' ?>
+                                        </div>
+                                    </td>
 
                                     <td class="px-4 py-3 space-x-2 flex">
                                         <?php if ($role === 'surveyorlite'): ?>
@@ -98,22 +108,28 @@
                                             </a>
                                         <?php else: ?>
                                             <?php if ($role === 'admin' || has_permission('edit_sign')): ?>
+
+
                                                 <a href="<?= base_url('admin/signs/edit/' . $sign['id']) ?>"
-                                                    class="bg-yellow-400 text-white px-3 py-1 rounded-md text-xs hover:bg-yellow-500 transition">
-                                                    Edit
+                                                    class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                                    title="edit">
+                                                    <img src="<?= base_url('public/assets/edit.png') ?>" alt="edit" class="w-5 h-5">
                                                 </a>
-                                                <?php else: ?>
-                                                    <span class="text-gray-500 text-xs">Edit not allowed</span>
+                                            <?php else: ?>
+                                                <span class="text-gray-500 text-xs">Edit not allowed</span>
                                             <?php endif; ?>
 
                                             <?php if ($role === 'admin' || has_permission('delete_sign')): ?>
+
+
                                                 <a href="<?= base_url('admin/signs/delete/' . $sign['id']) ?>"
-                                                    onclick="return confirm('Are you sure you want to delete this sign?')"
-                                                    class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
-                                                    Delete
+                                                    onclick="return confirm('Are you sure you want to delete this sign')"
+                                                    class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                                    title="Delete">
+                                                    <img src="<?= base_url('public/assets/delete.png') ?>" alt="Delete" class="w-5 h-5">
                                                 </a>
-                                                <?php else: ?>
-                                                    <span class="text-gray-500 text-xs">Delete not allowed</span>
+                                            <?php else: ?>
+                                                <span class="text-gray-500 text-xs">Delete not allowed</span>
                                             <?php endif; ?>
                                         <?php endif; ?>
                                     </td>

@@ -34,11 +34,23 @@
                         <td class="px-6 py-4"><?= esc($permission['name']) ?></td>
                         <td class="px-6 py-4"><?= esc($permission['label']) ?></td>
                         <td class="px-6 py-4 flex gap-2">
-                            <a href="<?= base_url('admin/permissions/edit/' . $permission['id']) ?>" class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-xs font-semibold transition">
+                            <!-- <a href="<?= base_url('admin/permissions/edit/' . $permission['id']) ?>" class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-xs font-semibold transition">
                                 Edit
+                            </a> -->
+
+                            <a href="<?= base_url('admin/permissions/edit/' . $permission['id']) ?>"
+                                class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                title="edit">
+                                <img src="<?= base_url('public/assets/edit.png') ?>" alt="edit" class="w-5 h-5">
                             </a>
-                            <a href="<?= base_url('admin/permissions/delete/' . $permission['id']) ?>" onclick="return confirm('Are you sure you want to delete this permission?')" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-xs font-semibold transition">
-                                Delete
+
+
+
+                            <a href="<?= base_url('admin/permissions/delete/' . $permission['id']) ?>"
+                                onclick="return confirm('Are you sure you want to delete this permission?')"
+                                class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                title="Delete">
+                                <img src="<?= base_url('public/assets/delete.png') ?>" alt="Delete" class="w-5 h-5">
                             </a>
                         </td>
                     </tr>

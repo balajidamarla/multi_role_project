@@ -14,7 +14,7 @@
             <?php endif; ?>
         </div>
 
-        
+
 
         <?php if (!empty($customers)): ?>
             <div class="overflow-x-auto bg-white shadow-md rounded-lg">
@@ -38,14 +38,21 @@
                                 </td>
                                 <td class="px-4 py-3"><?= esc($customer['first_name']) ?></td>
                                 <td class="px-4 py-3"><?= esc($customer['last_name']) ?></td>
-                                <td class="px-4 py-3"><?= esc($customer['created_at']) ?></td>
+                                <td class="px-4 py-3 flex items-center gap-2">
+                                    <img src="<?= base_url('public/assets/calendar.png') ?>" alt="Created At" class="w-4 h-4">
+                                    <?= esc($customer['created_at']) ?>
+                                </td>
                                 <td class="px-4 py-3">
+
                                     <?php if (function_exists('has_permission') && has_permission('delete_customer')): ?>
                                         <a href="<?= base_url('admin/delete_customer/' . $customer['id']) ?>"
                                             onclick="return confirm('Are you sure you want to delete this customer?')"
-                                            class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
-                                            Delete
+                                            class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                            title="Delete">
+                                            <img src="<?= base_url('public/assets/delete.png') ?>" alt="Delete" class="w-5 h-5">
                                         </a>
+
+
                                     <?php else: ?>
                                         <span class="text-gray-400 italic text-xs">Delete not allowed</span>
                                     <?php endif; ?>

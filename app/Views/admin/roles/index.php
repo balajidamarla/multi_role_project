@@ -36,8 +36,8 @@
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
-                <?php if (!empty($roles)): $i=1;?>
-                    
+                <?php if (!empty($roles)): $i = 1; ?>
+
                     <?php foreach ($roles as $role): ?>
                         <tr class="hover:bg-gray-100 transition">
                             <td class="px-4 py-3"><?= $i ?></td>
@@ -45,20 +45,30 @@
                             <td class="px-4 py-3"><?= esc($role['permissions']) ?></td>
                             <td class="px-4 py-3 space-x-2 flex">
                                 <?php if (has_permission('edit_role')): ?>
-                                    <a href="<?= base_url('admin/roles/edit/' . $role['id']) ?>" class="bg-yellow-600 text-white px-3 py-1 rounded-md text-xs hover:bg-yellow-700 transition">
-                                        Edit
+                                    
+
+                                    <a href="<?= base_url('admin/roles/edit/' . $role['id']) ?>"
+                                        class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                        title="edit">
+                                        <img src="<?= base_url('public/assets/edit.png') ?>" alt="edit" class="w-5 h-5">
                                     </a>
                                 <?php endif; ?>
 
                                 <?php if (has_permission('delete_role')): ?>
-                                    <a href="<?= base_url('admin/roles/delete/' . $role['id']) ?>" onclick="return confirm('Are you sure you want to delete this role?')" class="bg-red-600 text-white px-3 py-1 rounded-md text-xs hover:bg-red-700 transition">
-                                        Delete
+                                    
+
+                                    <a href="<?= base_url('admin/roles/delete/' . $role['id']) ?>"
+                                        onclick="return confirm('Are you sure you want to delete this role?')"
+                                        class="inline-flex items-center justify-center p-1 hover:opacity-80 transition"
+                                        title="Delete">
+                                        <img src="<?= base_url('public/assets/delete.png') ?>" alt="Delete" class="w-5 h-5">
                                     </a>
                                 <?php endif; ?>
                             </td>
                         </tr>
-                        
-                    <?php $i++; endforeach; ?>
+
+                    <?php $i++;
+                    endforeach; ?>
                 <?php else: ?>
                     <tr>
                         <td colspan="4" class="px-4 py-4 text-gray-500 text-center">No roles found.</td>
