@@ -26,15 +26,11 @@
             </tr>
             <tr>
                 <td class="px-4 py-2">Customer</td>
-                <td class="px-4 py-2"><?= esc($sign['customer_name'] ?? 'N/A') ?></td>
-            </tr>
-            <tr>
-                <td class="px-4 py-2">Main Sign Category</td>
-                <td class="px-4 py-2"><?= esc($sign['sign_type'] ?? 'N/A') ?></td>
+                <td class="px-4 py-2"><?= esc($sign['first_name'] . ' ' . $sign['last_name'] ?? 'N/A') ?></td>
             </tr>
             <tr>
                 <td class="px-4 py-2">Sign Type</td>
-                <td class="px-4 py-2"><?= esc($sign['dynamic_sign_type'] ?? 'N/A') ?></td>
+                <td class="px-4 py-2"><?= esc($sign['sign_type'] ?? 'N/A') ?></td>
             </tr>
             <tr>
                 <td class="px-4 py-2">Sign Name</td>
@@ -158,19 +154,65 @@
                 <td class="px-4 py-2"><?= esc($sign['due_date'] ?? 'Not set') ?></td>
             </tr>
             <tr>
+                <td class="px-4 py-2">Image</td>
+                <td class="px-4 py-2">
+                    <?php if (!empty($sign['sign_image'])): ?>
+                        <img src="<?= base_url('public/assets/' . $sign['sign_image']) ?>"
+                            alt="Sign Image"
+                            class="w-32 h-auto rounded shadow cursor-pointer"
+                            onclick="openImageModal(this.src)">
+                    <?php else: ?>
+                        No Image
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <!-- <tr>
                 <td class="px-4 py-2">Status</td>
                 <td class="px-4 py-2"><?= esc($sign['status'] ?? 'Pending') ?></td>
+            </tr> -->
+            <tr>
+                <td class="px-4 py-2 font-medium">Status</td>
+                <td class="px-4 py-2">
+                    <form action="<?= base_url('admin/signs/update/' . $sign['id']) ?>" method="post" enctype="multipart/form-data" id="statusForm">
+                        <?= csrf_field() ?>
+                        <select name="progress" id="statusDropdown" class="border rounded p-2" onchange="document.getElementById('statusForm').submit()">
+                            <option value="Pending" <?= $sign['progress'] === 'Pending' ? 'selected' : '' ?>>Pending</option>
+                            <option value="In Progress" <?= $sign['progress'] === 'In Progress' ? 'selected' : '' ?>>In Progress</option>
+                            <option value="Completed" <?= $sign['progress'] === 'Completed' ? 'selected' : '' ?>>Completed</option>
+                        </select>
+                    </form>
+                </td>
             </tr>
+
             <tr>
                 <td class="px-4 py-2">Created At</td>
                 <td class="px-4 py-2"><?= esc($sign['created_at'] ?? 'N/A') ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td class="px-4 py-2">Updated At</td>
                 <td class="px-4 py-2"><?= esc($sign['updated_at'] ?? 'N/A') ?></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 </div>
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden" onclick="closeImageModal()">
+    <img id="modalImage" src="" class="max-w-4xl max-h-[90vh] rounded shadow-lg">
+</div>
+<script>
+    function openImageModal(src) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modalImg.src = src;
+        modal.classList.remove('hidden');
+    }
+
+    function closeImageModal() {
+        document.getElementById('imageModal').classList.add('hidden');
+    }
+    document.getElementById('statusDropdown').addEventListener('change', function() {
+        document.getElementById('statusForm').submit();
+    });
+</script>
 
 <?= $this->endSection() ?>

@@ -112,7 +112,8 @@
                                                     <span class="font-medium"><?= esc($sign['sign_name']) ?></span><br>
                                                     <small class="flex items-center gap-2">
                                                         <img src="<?= base_url('public/assets/due date.png') ?>" alt="Due date Icon" class="w-4 h-4">
-                                                        Due Date: <?= date('d-m-Y', strtotime($sign['due_date'])) ?>
+                                                        Due Date: <?= !empty($sign['due_date']) ? date('d-m-Y', strtotime($sign['due_date'])) : 'null' ?>
+
                                                     </small>
 
 

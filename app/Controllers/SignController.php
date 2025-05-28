@@ -30,13 +30,14 @@ class SignController extends BaseController
         $session = session();
         $userId = (int) $session->get('user_id');
         $role = $session->get('role');
-
+        $perPage = 5;
         // Get signs
         if (in_array($role, ['salessurveyor', 'surveyorlite'])) {
-            $signs = $this->signModel->getSignsByAssignedUser($userId);
+            $signs = $this->signModel->getSignsByAssignedUserPaginated($userId,  $perPage);
         } else {
-            $signs = $this->signModel->getSignsByAdmin($userId);
+            $signs = $this->signModel->getSignsByAdminPaginated($userId,  $perPage);
         }
+        $pager = $this->signModel->pager;
 
         $userBuilder = $this->UserModel->select('id, first_name, last_name, role');
 
@@ -79,6 +80,7 @@ class SignController extends BaseController
         return view('admin/signs/index', [
             'signs' => $signs,
             'users' => $users,
+            'pager' => $pager,
         ]);
     }
 
@@ -156,6 +158,7 @@ class SignController extends BaseController
             'assigned_to'      => $this->request->getPost('assigned_to'),
             'sign_description' => $this->request->getPost('sign_description'),
             'sign_type'        => $this->request->getPost('sign_type'),
+            'dynamic_sign_type' => $this->request->getPost('dynamic_sign_type'),
             'address'          => $this->request->getPost('address'),
             'due_date'         => $this->request->getPost('due_date'),
             'progress'         => $this->request->getPost('progress'),
@@ -173,6 +176,8 @@ class SignController extends BaseController
             'existing_sign_audit'   => $this->request->getPost('existing_sign_audit'),
             'permitting_assessment' => $this->request->getPost('permitting_assessment'),
             'surveyor_kit'          => $this->request->getPost('surveyor_kit'),
+            'sign_image'          => $this->request->getPost('sign_image'),
+
         ]);
 
         return redirect()->to('/admin/signs')->with('success', 'Sign added successfully.');
@@ -250,7 +255,8 @@ class SignController extends BaseController
 
         return view('admin/signs/edit', [
             'sign' => $sign,
-            'users' => $users
+            'users' => $users,
+            'currentUserId' => $currentAdminId,
         ]);
     }
 
@@ -258,21 +264,54 @@ class SignController extends BaseController
 
     public function update($id)
     {
-        $signModel = new SignModel();
+        $signModel = new \App\Models\SignModel();
         $sign = $signModel->find($id);
 
         if (!$sign) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Sign not found.");
         }
 
+        // Handle image upload
+        $image = $this->request->getFile('sign_image');
+        $sign_image = $sign['sign_image']; // default to existing image
+
+        if ($image && $image->isValid() && !$image->hasMoved()) {
+            $newName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/assets/', $newName);
+            $sign_image = $newName;
+
+            // Optionally delete old image
+            if (!empty($sign['sign_image']) && file_exists(ROOTPATH . 'public/assets/' . $sign['sign_image'])) {
+                unlink(ROOTPATH . 'public/assets/' . $sign['sign_image']);
+            }
+        }
+
+        // Handle missing assigned_to in POST (fallback to existing)
+        $assignedTo = $this->request->getPost('assigned_to');
+        if (empty($assignedTo)) {
+            $assignedTo = $sign['assigned_to'];
+        }
+
+        // Prepare data to update
         $signData = [
-            'sign_name'        => $this->request->getPost('sign_name'),
-            'sign_description' => $this->request->getPost('sign_description'),
-            'sign_type'        => $this->request->getPost('sign_type'),
-            'assigned_to'      => $this->request->getPost('assigned_to'),
-            'progress'           => $this->request->getPost('progress'),
-            'due_date'         => $this->request->getPost('due_date'),
-            'updated_at'       => date('Y-m-d H:i:s'),
+            'sign_name'             => $this->request->getPost('sign_name') ?? $sign['sign_name'],
+            'sign_type'             => $this->request->getPost('sign_type') ?? $sign['sign_type'],
+            'dynamic_sign_type' => $this->request->getPost('dynamic_sign_type') ?? $sign['dynamic_sign_type'],
+            'replacement'           => $this->request->getPost('replacement') ?? $sign['replacement'],
+            'removal_scheduled'     => $this->request->getPost('removal_scheduled') ?? $sign['removal_scheduled'],
+            'todo'                  => $this->request->getPost('todo') ?? $sign['todo'],
+            'summary'               => $this->request->getPost('summary') ?? $sign['summary'],
+            'permit_required'       => $this->request->getPost('permit_required') ?? $sign['permit_required'],
+            'todo_permit'           => $this->request->getPost('todo_permit') ?? $sign['todo_permit'],
+            'summary_permit'        => $this->request->getPost('summary_permit') ?? $sign['summary_permit'],
+            'existing_sign_audit'   => $this->request->getPost('existing_sign_audit') ?? $sign['existing_sign_audit'],
+            'permitting_assessment' => $this->request->getPost('permitting_assessment') ?? $sign['permitting_assessment'],
+            'surveyor_kit'          => $this->request->getPost('surveyor_kit') ?? $sign['surveyor_kit'],
+            'assigned_to'           => $assignedTo,
+            'progress'              => $this->request->getPost('progress') ?? $sign['progress'],
+            'due_date'              => $this->request->getPost('due_date') ?? $sign['due_date'],
+            'sign_description'      => $this->request->getPost('sign_description') ?? $sign['sign_description'],
+            'sign_image'            => $sign_image,
         ];
 
         $signModel->update($id, $signData);
@@ -282,16 +321,34 @@ class SignController extends BaseController
     }
 
 
+
+
     public function view($id)
     {
         $signModel = new \App\Models\SignModel();
 
-        $sign = $signModel->find($id);
+        $sign = $signModel->getSignWithDetails($id);
 
         if (!$sign) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Sign not found");
         }
 
         return view('admin/signs/view', ['sign' => $sign]);
+    }
+
+
+    public function setDueDate()
+    {
+        $signId = $this->request->getPost('sign_id');
+        $dueDate = $this->request->getPost('due_date');
+
+        if ($signId && $dueDate) {
+            $signModel = new \App\Models\SignModel();
+            $signModel->update($signId, ['due_date' => $dueDate]);
+
+            return redirect()->back()->with('success', 'Due date updated successfully!');
+        }
+
+        return redirect()->back()->with('error', 'Missing sign or date.');
     }
 }

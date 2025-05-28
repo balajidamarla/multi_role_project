@@ -57,7 +57,6 @@
                                 <?php if (session()->has('first_name') && session()->has('last_name')): ?>
                                     <?= ucwords(session('first_name') . ' ' . session('last_name') . ' (' . ucfirst(session('role') . ')')) ?>
                                 <?php endif; ?>
-
                             </a>
                         </div>
                     </div>

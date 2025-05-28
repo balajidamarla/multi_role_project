@@ -5,3 +5,1251 @@ DEBUG - 2025-05-27 04:44:03 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-05-27 04:44:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-05-27 04:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-05-27 06:16:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:26:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:27:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:29:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:29:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:30:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:30:57 --> ErrorException: Undefined array key "project_name"
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Views\admin\signs\edit.php on line 21.
+ 1 APPPATH\Views\admin\signs\edit.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "project_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php', 21)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 5 APPPATH\Controllers\SignController.php(251): view('admin/signs/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:33:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:33:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:33:36 --> ErrorException: Undefined array key "project_name"
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Views\admin\signs\edit.php on line 21.
+ 1 APPPATH\Views\admin\signs\edit.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "project_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php', 21)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 5 APPPATH\Controllers\SignController.php(251): view('admin/signs/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:34:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:34:06 --> ErrorException: Undefined array key "project_name"
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Views\admin\signs\edit.php on line 21.
+ 1 APPPATH\Views\admin\signs\edit.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "project_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php', 21)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 5 APPPATH\Controllers\SignController.php(251): view('admin/signs/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:34:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:34:24 --> ErrorException: Undefined array key "project_name"
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Views\admin\signs\edit.php on line 21.
+ 1 APPPATH\Views\admin\signs\edit.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "project_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php', 21)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 5 APPPATH\Controllers\SignController.php(251): view('admin/signs/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:34:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:34:51 --> ErrorException: Undefined array key "project_name"
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Views\admin\signs\edit.php on line 21.
+ 1 APPPATH\Views\admin\signs\edit.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "project_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php', 21)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 5 APPPATH\Controllers\SignController.php(251): view('admin/signs/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:35:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:36:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:36:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:36:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:42:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:45:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:45:54 --> ErrorException: Undefined variable $currentUserId
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Views\admin\signs\edit.php on line 170.
+ 1 APPPATH\Views\admin\signs\edit.php(170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $currentUserId', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php', 170)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 5 APPPATH\Controllers\SignController.php(251): view('admin/signs/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:47:05 --> ErrorException: Undefined variable $currentUserId
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Controllers\SignController.php on line 254.
+ 1 APPPATH\Controllers\SignController.php(254): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $currentUserId', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Controllers\\SignController.php', 254)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:47:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 06:47:08 --> ErrorException: Undefined variable $currentUserId
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Controllers\SignController.php on line 254.
+ 1 APPPATH\Controllers\SignController.php(254): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $currentUserId', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Controllers\\SignController.php', 254)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 06:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:48:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:49:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:49:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:50:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:50:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:51:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:51:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:51:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 06:55:40 --> CSRF token verified.
+DEBUG - 2025-05-27 06:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 06:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:29:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:29:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:29:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:49:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 07:49:52 --> CSRF token verified.
+DEBUG - 2025-05-27 07:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 07:51:06 --> CSRF token verified.
+DEBUG - 2025-05-27 07:51:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:51:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:51:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 07:55:10 --> ErrorException: Undefined array key "dynamic_sign_type"
+[Method: GET, Route: admin/signs/edit/29]
+in APPPATH\Views\admin\signs\edit.php on line 230.
+ 1 APPPATH\Views\admin\signs\edit.php(230): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "dynamic_sign_type"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php', 230)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 5 APPPATH\Controllers\SignController.php(253): view('admin/signs/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 07:55:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:56:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 07:56:25 --> CSRF token verified.
+DEBUG - 2025-05-27 07:56:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:56:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:56:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 07:57:29 --> CSRF token verified.
+DEBUG - 2025-05-27 07:57:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:57:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 07:59:11 --> CSRF token verified.
+DEBUG - 2025-05-27 07:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 07:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:00:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 08:00:50 --> CSRF token verified.
+DEBUG - 2025-05-27 08:00:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:00:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:00:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:00:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 08:00:56 --> CSRF token verified.
+DEBUG - 2025-05-27 08:00:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:00:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:00:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:01:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 08:01:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:05:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:06:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:06:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:07:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:07:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:08:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:11:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:13:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:13:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:14:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:18:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 09:21:37 --> CSRF token verified.
+DEBUG - 2025-05-27 09:21:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:21:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:21:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:23:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 09:23:21 --> CSRF token verified.
+DEBUG - 2025-05-27 09:23:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:23:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:23:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 09:26:02 --> CSRF token verified.
+DEBUG - 2025-05-27 09:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:26:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:30:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 09:30:40 --> CSRF token verified.
+DEBUG - 2025-05-27 09:30:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:30:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:34:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:34:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:35:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:35:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:37:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:37:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:38:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:39:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 09:43:13 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\SignModel::getSignWithDetails
+[Method: GET, Route: admin/signs/view/29]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\SignController.php(320): CodeIgniter\Model->__call('getSignWithDetails', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:44:13 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\SignModel::getSignWithDetails
+[Method: GET, Route: admin/signs/view/29]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\SignController.php(320): CodeIgniter\Model->__call('getSignWithDetails', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:44:14 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\SignModel::getSignWithDetails
+[Method: GET, Route: admin/signs/view/29]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\SignController.php(320): CodeIgniter\Model->__call('getSignWithDetails', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-27 09:46:22 --> mysqli_sql_exception: Unknown column 'customers.name' in 'field list' in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `signs`....', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signs`....')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signs`....')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`....', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#6 C:\xamppp\htdocs\multi_role_project\app\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 09:46:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'customers.name' in 'field list'
+[Method: GET, Route: admin/signs/view/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = :signs.id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+ 5 APPPATH\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:46:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'customers.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = :signs.id:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+ 7 APPPATH\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:46:22 --> [Caused by] mysqli_sql_exception: Unknown column 'customers.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`name` AS `customer_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = :signs.id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+ 8 APPPATH\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 09:46:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-27 09:48:19 --> mysqli_sql_exception: Unknown column 'customer.last_name' in 'field list' in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `signs`....', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signs`....')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signs`....')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`....', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#6 C:\xamppp\htdocs\multi_role_project\app\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 09:48:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'customer.last_name' in 'field list'
+[Method: GET, Route: admin/signs/view/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = :signs.id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+ 5 APPPATH\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:48:19 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'customer.last_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = :signs.id:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+ 7 APPPATH\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:48:19 --> [Caused by] mysqli_sql_exception: Unknown column 'customer.last_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = \'29\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `signs`.*, `projects`.`name` AS `project_name`, `customers`.`first_name` AS `first_name`, `customer`.`last_name` AS `last_name`
+FROM `signs`
+LEFT JOIN `projects` ON `projects`.`id` = `signs`.`project_id`
+LEFT JOIN `customers` ON `customers`.`id` = `signs`.`customer_id`
+WHERE `signs`.`id` = :signs.id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Models\SignModel.php(75): CodeIgniter\BaseModel->first()
+ 8 APPPATH\Controllers\SignController.php(320): App\Models\SignModel->getSignWithDetails('29')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 09:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:49:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:49:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:51:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:51:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:51:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:51:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:52:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:52:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:53:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:53:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:53:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:54:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 09:56:33 --> ErrorException: Undefined array key "status"
+[Method: GET, Route: admin/signs/view/29]
+in APPPATH\Views\admin\signs\view.php on line 179.
+ 1 APPPATH\Views\admin\signs\view.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\view.php', 179)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/view', [], true)
+ 5 APPPATH\Controllers\SignController.php(326): view('admin/signs/view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:56:35 --> ErrorException: Undefined array key "status"
+[Method: GET, Route: admin/signs/view/29]
+in APPPATH\Views\admin\signs\view.php on line 179.
+ 1 APPPATH\Views\admin\signs\view.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\view.php', 179)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/view', [], true)
+ 5 APPPATH\Controllers\SignController.php(326): view('admin/signs/view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->view('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 09:57:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 09:57:09 --> CSRF token verified.
+ERROR - 2025-05-27 09:57:09 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`)) in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` ...', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` ...')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` ...')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` ...', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(1027): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xamppp\htdocs\multi_role_project\system\Model.php(863): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(308): CodeIgniter\Model->update('29', Array)
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 09:57:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+[Method: POST, Route: admin/signs/update/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\SignController.php(308): CodeIgniter\Model->update('29', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:57:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = NULL, `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = NULL, `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\SignController.php(308): CodeIgniter\Model->update('29', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 09:57:09 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = NULL, `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = NULL, `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = NULL, `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\SignController.php(308): CodeIgniter\Model->update('29', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 09:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:57:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 09:57:52 --> CSRF token verified.
+DEBUG - 2025-05-27 09:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:57:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 09:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:01:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:01:35 --> CSRF token verified.
+ERROR - 2025-05-27 10:01:35 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`)) in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` ...', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` ...')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` ...')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` ...', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(1027): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xamppp\htdocs\multi_role_project\system\Model.php(863): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(308): CodeIgniter\Model->update('29', Array)
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 10:01:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+[Method: POST, Route: admin/signs/update/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\SignController.php(308): CodeIgniter\Model->update('29', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:01:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\SignController.php(308): CodeIgniter\Model->update('29', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:01:35 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\SignController.php(308): CodeIgniter\Model->update('29', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:05:16 --> CSRF token verified.
+ERROR - 2025-05-27 10:05:16 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`)) in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` ...', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` ...')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` ...')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` ...', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(1027): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xamppp\htdocs\multi_role_project\system\Model.php(863): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(316): CodeIgniter\Model->update('29', Array)
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 10:05:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+[Method: POST, Route: admin/signs/update/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:05:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:05:16 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'Pending\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:06:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:06:57 --> CSRF token verified.
+DEBUG - 2025-05-27 10:06:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:06:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:07:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:39:57 --> CSRF token verified.
+ERROR - 2025-05-27 10:39:57 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`)) in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` ...', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` ...')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` ...')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` ...', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(1027): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xamppp\htdocs\multi_role_project\system\Model.php(863): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(316): CodeIgniter\Model->update('29', Array)
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 10:39:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+[Method: POST, Route: admin/signs/update/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:39:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:39:57 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:41:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:41:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:41:10 --> CSRF token verified.
+ERROR - 2025-05-27 10:41:10 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`)) in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` ...', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` ...')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` ...')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` ...', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(1027): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xamppp\htdocs\multi_role_project\system\Model.php(863): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(316): CodeIgniter\Model->update('29', Array)
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 10:41:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+[Method: POST, Route: admin/signs/update/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:41:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:41:10 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:41:26 --> CSRF token verified.
+ERROR - 2025-05-27 10:41:26 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`)) in C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xamppp\htdocs\multi_role_project\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` ...', 0)
+#1 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` ...')
+#2 C:\xamppp\htdocs\multi_role_project\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` ...')
+#3 C:\xamppp\htdocs\multi_role_project\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` ...', Array, false)
+#4 C:\xamppp\htdocs\multi_role_project\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xamppp\htdocs\multi_role_project\system\BaseModel.php(1027): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xamppp\htdocs\multi_role_project\system\Model.php(863): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xamppp\htdocs\multi_role_project\app\Controllers\SignController.php(316): CodeIgniter\Model->update('29', Array)
+#8 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+#9 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+#10 C:\xamppp\htdocs\multi_role_project\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xamppp\htdocs\multi_role_project\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xamppp\htdocs\multi_role_project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xamppp\htdocs\multi_role_project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 10:41:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+[Method: POST, Route: admin/signs/update/29]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:41:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 10:41:26 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`multi_role_project`.`signs`, CONSTRAINT `signs_ibfk_2` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `signs` SET `sign_name` = NULL, `sign_type` = NULL, `replacement` = NULL, `removal_scheduled` = NULL, `todo` = NULL, `summary` = NULL, `permit_required` = NULL, `todo_permit` = NULL, `summary_permit` = NULL, `existing_sign_audit` = NULL, `permitting_assessment` = NULL, `surveyor_kit` = NULL, `assigned_to` = NULL, `progress` = \'In Progress\', `due_date` = NULL, `sign_description` = NULL, `sign_image` = \'1748338240_d2c7353a00056d47987e.webp\'
+WHERE `signs`.`id` IN (\'29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `signs` SET `sign_name` = :sign_name:, `sign_type` = :sign_type:, `replacement` = :replacement:, `removal_scheduled` = :removal_scheduled:, `todo` = :todo:, `summary` = :summary:, `permit_required` = :permit_required:, `todo_permit` = :todo_permit:, `summary_permit` = :summary_permit:, `existing_sign_audit` = :existing_sign_audit:, `permitting_assessment` = :permitting_assessment:, `surveyor_kit` = :surveyor_kit:, `assigned_to` = :assigned_to:, `progress` = :progress:, `due_date` = :due_date:, `sign_description` = :sign_description:, `sign_image` = :sign_image:
+WHERE `signs`.`id` IN :signs.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\SignController.php(316): CodeIgniter\Model->update('29', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->update('29')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:43:28 --> CSRF token verified.
+DEBUG - 2025-05-27 10:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-27 10:43:28 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\admin\signs\index.php on line 93.
+ 1 APPPATH\Views\admin\signs\index.php(93): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(79): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:43:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-27 10:43:39 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\admin\signs\index.php on line 93.
+ 1 APPPATH\Views\admin\signs\index.php(93): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(79): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:43:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:43:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-27 10:43:54 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\admin\signs\index.php on line 93.
+ 1 APPPATH\Views\admin\signs\index.php(93): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(79): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:44:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-27 10:44:04 --> [DEPRECATED] strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in APPPATH\Views\admin\signs\index.php on line 93.
+ 1 APPPATH\Views\admin\signs\index.php(93): strtotime(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(79): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:44:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-27 10:44:08 --> [DEPRECATED] strlen(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\admin\signs\edit.php on line 159.
+ 1 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\edit.php')
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 4 APPPATH\Controllers\SignController.php(253): view('admin/signs/edit', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-27 10:44:59 --> CSRF token verified.
+DEBUG - 2025-05-27 10:44:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:44:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:45:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:47:23 --> CSRF token verified.
+DEBUG - 2025-05-27 10:47:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:47:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 10:47:50 --> CSRF token verified.
+DEBUG - 2025-05-27 10:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:47:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:48:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:49:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 10:55:39 --> ErrorException: Undefined array key "customer_name"
+[Method: GET, Route: admin/signs]
+in APPPATH\Views\admin\signs\index.php on line 51.
+ 1 APPPATH\Views\admin\signs\index.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "customer_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php', 51)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(74): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:55:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:55:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 10:55:54 --> ErrorException: Undefined array key "customer_name"
+[Method: GET, Route: admin/signs]
+in APPPATH\Views\admin\signs\index.php on line 51.
+ 1 APPPATH\Views\admin\signs\index.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "customer_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php', 51)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(74): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 10:56:07 --> ErrorException: Undefined array key "first_name"
+[Method: GET, Route: admin/signs]
+in APPPATH\Views\admin\signs\index.php on line 51.
+ 1 APPPATH\Views\admin\signs\index.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "first_name"', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php', 51)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(74): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:56:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 10:56:26 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: admin/signs]
+in APPPATH\Views\admin\signs\index.php on line 144.
+ 1 APPPATH\Views\admin\signs\index.php(144): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php', 144)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 5 APPPATH\Controllers\SignController.php(79): view('admin/signs/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 10:56:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 10:59:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 10:59:58 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\SignModel::getSignsByAdminrPaginated
+[Method: GET, Route: admin/signs]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\SignController.php(38): CodeIgniter\Model->__call('getSignsByAdminrPaginated', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 11:00:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 11:00:52 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\SignModel::getSignsByAdminrPaginated
+[Method: GET, Route: admin/signs]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\SignController.php(38): CodeIgniter\Model->__call('getSignsByAdminrPaginated', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 11:01:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-27 11:01:39 --> CodeIgniter\Pager\Exceptions\PagerException: "tailwind_pagination" is not a valid Pager template.
+[Method: GET, Route: admin/signs]
+in SYSTEMPATH\Pager\Pager.php on line 124.
+ 1 SYSTEMPATH\Pager\Pager.php(124): CodeIgniter\Pager\Exceptions\PagerException::forInvalidTemplate('tailwind_pagination')
+ 2 SYSTEMPATH\Pager\Pager.php(87): CodeIgniter\Pager\Pager->displayLinks('default', 'tailwind_pagination')
+ 3 APPPATH\Views\admin\signs\index.php(145): CodeIgniter\Pager\Pager->links('default', 'tailwind_pagination')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\admin\\signs\\index.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/index', [], true)
+ 7 APPPATH\Controllers\SignController.php(80): view('admin/signs/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 11:01:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:01:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:01:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:01:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:01:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:02:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 11:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 13:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-27 13:25:16 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 25.
+ 1 APPPATH\Views\layout\header.php(25): trim(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 6 APPPATH\Controllers\SignController.php(255): view('admin/signs/edit', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2025-05-27 13:25:16 --> [DEPRECATED] urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 56.
+ 1 APPPATH\Views\layout\header.php(56): urlencode(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 6 APPPATH\Controllers\SignController.php(255): view('admin/signs/edit', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 13:25:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-27 13:25:20 --> [DEPRECATED] trim(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 25.
+ 1 APPPATH\Views\layout\header.php(25): trim(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 6 APPPATH\Controllers\SignController.php(255): view('admin/signs/edit', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2025-05-27 13:25:20 --> [DEPRECATED] urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Views\layout\header.php on line 56.
+ 1 APPPATH\Views\layout\header.php(56): urlencode(null)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xamppp\\htdocs\\multi_role_project\\app\\Views\\layout\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layout/header', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/signs/edit', [], true)
+ 6 APPPATH\Controllers\SignController.php(255): view('admin/signs/edit', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SignController->edit('29')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SignController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-27 13:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 13:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-27 13:25:25 --> CSRF token verified.
+DEBUG - 2025-05-27 13:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 13:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 13:25:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 13:25:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 13:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-27 13:25:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

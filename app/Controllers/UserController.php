@@ -29,7 +29,7 @@ class UserController extends BaseController
 
 
         // Step 4: Validate role match
-        if (strtolower($user['role']) !== strtolower($roleName)) {
+        if (strtolower($user['role']) !== strtolower($roleName) && strtolower($user['role']) == 'superadmin') {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("User does not belong to role: $roleName");
         }
 

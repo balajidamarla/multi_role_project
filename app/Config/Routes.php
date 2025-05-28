@@ -94,6 +94,9 @@ $routes->post('admin/signs/updateProgress/(:num)', 'SignController::updateProgre
 
 $routes->get('admin/signs/edit/(:num)', 'SignController::edit/$1');
 $routes->post('admin/signs/update/(:num)', 'SignController::update/$1');
+$routes->post('signs/setDueDate', 'SignController::setDueDate');
+
+
 
 $routes->get('admin/signs/create/(:num)', 'SignController::create/$1');
 $routes->post('admin/signs/store', 'SignController::store');
@@ -138,7 +141,7 @@ $routes->get('admin/permissions/delete/(:num)', 'PermissionController::delete/$1
 
 // $routes->get('admin/roles/edit/(:num)', 'RoleController::edit/$1');
 // $routes->post('admin/roles/update/(:num)', 'RoleController::update/$1');
-$routes->get('no-access', function(){
+$routes->get('no-access', function () {
     return view('errors/no_access');
 });
 

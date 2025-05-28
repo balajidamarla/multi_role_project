@@ -16,7 +16,7 @@
             <h2 class="text-2xl font-semibold text-black mb-4">Admin Accounts</h2>
             <div class="overflow-x-auto bg-white shadow-md rounded-lg">
                 <table class="min-w-full text-sm divide-y divide-gray-200 text-gray-800">
-                    <thead class="bg-black text-white">
+                    <thead class="bg-gray-900 text-white">
                         <tr>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">ID</th>
                             <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">FIRST NAME</th>
