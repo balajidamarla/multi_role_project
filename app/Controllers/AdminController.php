@@ -83,7 +83,8 @@ class AdminController extends BaseController
             'address1'     => $this->request->getPost('address1'),
             'address2'     => $this->request->getPost('address2'),
             'zipcode'      => $this->request->getPost('zipcode'),
-            'city_state'   => $this->request->getPost('city'),
+            'state'   => $this->request->getPost('state'),
+            'city'   => $this->request->getPost('city'),
             'created_by'   => session()->get('user_id'), // assuming admin ID is stored in session
         ]);
 

@@ -4,12 +4,18 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+
 class AuthController extends BaseController
 {
     public function login()
     {
         return view('auth/login');
     }
+
+
 
     public function doLogin()
     {
@@ -24,19 +30,50 @@ class AuthController extends BaseController
             ->first();
 
         if ($user && password_verify($password, $user['password'])) {
-            $normalizedRole = strtolower(str_replace(' ', '', $user['role'])); // keep this if needed
+            $normalizedRole = strtolower(str_replace(' ', '', $user['role']));
 
+            // Store session data (for web use)
             $session->set([
-                'user_id'   => $user['id'],
-                'email'     => $user['email'],
-                'first_name' => $user['first_name'], 
+                'user_id'    => $user['id'],
+                'email'      => $user['email'],
+                'first_name' => $user['first_name'],
                 'last_name'  => $user['last_name'],
-                'role'      => strtolower(str_replace(' ', '', $user['role'])), // e.g. "admin"
-                'role_id' => $user['role_id'], // store role_id as well
-                'logged_in' => true
+                'role'       => $normalizedRole,
+                'role_id'    => $user['role_id'],
+                'logged_in'  => true
             ]);
 
-            // Redirect based on role string (optional)
+            // Optional: Only for admin store separately
+            if ($normalizedRole === 'admin') {
+                $session->set('user_id', $user['id']);
+            }
+
+            // If it's an API request (e.g., Accept: application/json)
+            if ($this->request->isAJAX() || $this->request->getHeaderLine('Accept') === 'application/json') {
+                $key = getenv('JWT_SECRET');
+                $payload = [
+                    'iss' => 'your-app-name',
+                    'aud' => 'your-app-name',
+                    'iat' => time(),
+                    'exp' => time() + 3600, // 1 hour
+                    'sub' => $user['id'],
+                    'email' => $user['email'],
+                    'role'  => $normalizedRole
+                ];
+                $jwt = JWT::encode($payload, $key, 'HS256');
+
+                return $this->response->setJSON([
+                    'token' => $jwt,
+                    'user'  => [
+                        'id'    => $user['id'],
+                        'email' => $user['email'],
+                        'name'  => $user['first_name'] . ' ' . $user['last_name'],
+                        'role'  => $normalizedRole
+                    ]
+                ]);
+            }
+
+            // For web request: redirect by role
             switch ($normalizedRole) {
                 case 'superadmin':
                     return redirect()->to('superadmin/dashboard');
@@ -49,8 +86,14 @@ class AuthController extends BaseController
             }
         }
 
+        // Handle invalid login
+        if ($this->request->isAJAX() || $this->request->getHeaderLine('Accept') === 'application/json') {
+            return $this->response->setJSON(['error' => 'Invalid credentials or inactive account'])->setStatusCode(401);
+        }
+
         return redirect()->back()->with('error', 'Invalid credentials or inactive account.');
     }
+
 
 
     public function registerForm()

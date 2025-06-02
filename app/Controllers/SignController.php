@@ -296,7 +296,7 @@ class SignController extends BaseController
         $signData = [
             'sign_name'             => $this->request->getPost('sign_name') ?? $sign['sign_name'],
             'sign_type'             => $this->request->getPost('sign_type') ?? $sign['sign_type'],
-            'dynamic_sign_type' => $this->request->getPost('dynamic_sign_type') ?? $sign['dynamic_sign_type'],
+            'dynamic_sign_type'     => $this->request->getPost('dynamic_sign_type') ?? $sign['dynamic_sign_type'],
             'replacement'           => $this->request->getPost('replacement') ?? $sign['replacement'],
             'removal_scheduled'     => $this->request->getPost('removal_scheduled') ?? $sign['removal_scheduled'],
             'todo'                  => $this->request->getPost('todo') ?? $sign['todo'],
@@ -350,5 +350,30 @@ class SignController extends BaseController
         }
 
         return redirect()->back()->with('error', 'Missing sign or date.');
+    }
+
+    public function search_signs()
+    {
+        $query = $this->request->getGet('query');
+        $signModel = new \App\Models\SignModel();
+
+        $signs = $signModel->like('sign_name', $query)
+            ->select('signs.*, customers.company_name AS customer_name, projects.project_name, users.first_name, users.last_name, users.role')
+            ->join('customers', 'customers.id = signs.customer_id')
+            ->join('projects', 'projects.id = signs.project_id')
+            ->join('users', 'users.id = signs.assigned_to', 'left')
+            ->findAll();
+
+        $result = [];
+
+        foreach ($signs as $sign) {
+            $assignedName = $sign['first_name'] ?? '';
+            $assignedLast = $sign['last_name'] ?? '';
+            $assignedRole = $sign['role'] ?? '';
+            $sign['assigned_to_name'] = $assignedName ? "$assignedName $assignedLast ($assignedRole)" : 'Unassigned';
+            $result[] = $sign;
+        }
+
+        return $this->response->setJSON($result);
     }
 }

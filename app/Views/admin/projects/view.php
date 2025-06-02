@@ -13,7 +13,7 @@
         <div class="space-y-2 text-sm text-gray-700">
             <p><strong>Company Name:</strong> <?= esc($project['company_name']) ?></p>
             <p><strong>Name:</strong> <?= esc($project['first_name'] . ' ' . $project['last_name']) ?></p>
-            <p><strong>Address:</strong> <?= esc($project['address1'] . ', ' . $project['address2'] . ', ' . $project['city_state']) ?></p>
+            <p><strong>Address:</strong> <?= esc($project['address1'] . ', ' . $project['address2'] . ', ' . $project['state']. ', ' . $project['city']) ?></p>
             <p><strong>Zipcode:</strong> <?= esc($project['zipcode']) ?></p>
             <p><strong>Phone:</strong> <?= esc($project['phone']) ?></p>
             <p><strong>Email:</strong> <?= esc($project['email']) ?></p>

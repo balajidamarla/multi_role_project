@@ -119,4 +119,27 @@ class CustomerController extends BaseController
             'user_role' => $user_role // Pass the role to the view
         ]);
     }
+
+    public function searchCustomers()
+    {
+        $search = $this->request->getGet('query');
+        $adminId = session()->get('user_id');  // current logged-in admin ID
+
+        if (!$adminId) {
+            return $this->response->setJSON(['error' => 'User not logged in']);
+        }
+
+        $customerModel = new \App\Models\CustomerModel();
+
+        $results = $customerModel
+            ->where('created_by', $adminId)  // filter by admin who created customer
+            ->groupStart()
+            ->like('company_name', $search)
+            ->orLike('first_name', $search)
+            ->orLike('last_name', $search)
+            ->groupEnd()
+            ->findAll();
+
+        return $this->response->setJSON($results);
+    }
 }

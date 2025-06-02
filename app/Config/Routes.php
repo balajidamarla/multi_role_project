@@ -150,4 +150,18 @@ $routes->get('admin/roles/(:segment)', 'UserController::showRole/$1');
 $routes->post('admin/user/update/(:num)', 'UserController::update/$1');
 
 
-// esc($user['first_name']. ' ' . $user['last_name'] . ' (' . 
+//search input for customers
+$routes->get('admin/search_customers', 'CustomerController::searchCustomers');
+// $routes->get('signs/filter', 'SignController::filter');
+$routes->get('signs/search', 'SignsController::searchSigns');
+
+// $routes->get('signs/filterByName', 'SignsController::filterByName');
+
+
+//jwt API's
+$routes->get('api/login', 'ApiController::login');
+$routes->group('api', ['filter' => 'jwt'], function($routes) {
+    $routes->get('protected-data', 'ApiController::protectedData');
+    // $routes->get('login', 'ApiController::login');
+
+});

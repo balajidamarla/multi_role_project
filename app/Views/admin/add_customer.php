@@ -49,14 +49,18 @@
         </div>
 
         <!-- Zip & City/State -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-gray-700 font-medium mb-1">Zipcode</label>
-                <input type="text" name="zipcode" class="w-full border border-gray-300 rounded px-3 py-2" required>
+                <input type="text" name="zipcode" id="zipcode" class="w-full border border-gray-300 rounded px-3 py-2" required>
             </div>
             <div>
-                <label class="block text-gray-700 font-medium mb-1">City / State</label>
-                <input type="text" name="city" class="w-full border border-gray-300 rounded px-3 py-2" required>
+                <label class="block text-gray-700 font-medium mb-1">State</label>
+                <input type="text" name="state" id="state" class="w-full border border-gray-300 rounded px-3 py-2" required readonly>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">City</label>
+                <input type="text" name="city" id="city" class="w-full border border-gray-300 rounded px-3 py-2" required readonly>
             </div>
         </div>
 
@@ -68,5 +72,34 @@
         </div>
     </form>
 </div>
+
+<!-- Autocomplete Script -->
+<script>
+    document.getElementById('zipcode').addEventListener('blur', function() {
+        const pin = this.value.trim();
+        if (pin.length !== 6 || isNaN(pin)) return;
+
+        fetch(`https://api.postalpincode.in/pincode/${pin}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data[0].Status === "Success" && data[0].PostOffice.length > 0) {
+                    const postOffice = data[0].PostOffice[0];
+                    document.getElementById('city').value = postOffice.District;
+                    document.getElementById('state').value = postOffice.State;
+                } else {
+                    alert('Invalid PIN code');
+                    document.getElementById('city').value = '';
+                    document.getElementById('state').value = '';
+                }
+            })
+            .catch(() => {
+                alert('Failed to fetch location');
+                document.getElementById('city').value = '';
+                document.getElementById('state').value = '';
+            });
+    });
+</script>
+
+
 
 <?= $this->endSection() ?>

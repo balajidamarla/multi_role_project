@@ -33,7 +33,8 @@ class ProjectModel extends Model
                 customers.last_name,
                 customers.address1,
                 customers.address2,
-                customers.city_state,
+                customers.state,
+                customers.city,
                 customers.zipcode,
                 customers.email,
                 customers.phone,
@@ -52,7 +53,7 @@ class ProjectModel extends Model
             ->select('
                 projects.*, 
                 CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
-                CONCAT(customers.address1, ", ", customers.address2, ", ", customers.city_state) AS customer_address,
+                CONCAT(customers.address1, ", ", customers.address2, ", ", customers.state, ", ", customers.city) AS customer_address,
                 customers.zipcode,
                 customers.company_name,
                 customers.phone AS contact_info,
@@ -71,7 +72,7 @@ class ProjectModel extends Model
             ->select('
                 projects.*, 
                 CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
-                CONCAT(customers.address1, ", ", customers.address2, ", ", customers.city_state) AS customer_address,
+                CONCAT(customers.address1, ", ", customers.address2, ", ", customers.state, ", ", customers.city) AS customer_address,
                 customers.zipcode,
                 customers.company_name,
                 customers.phone AS contact_info,
@@ -92,7 +93,7 @@ class ProjectModel extends Model
             ->select('
             projects.*, 
             CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
-            CONCAT(customers.address1, ", ", customers.address2, ", ", customers.city_state) AS customer_address,
+            CONCAT(customers.address1, ", ", customers.address2, ", ", customers.state, ", ", customers.city) AS customer_address,
             customers.zipcode,
             customers.company_name,
             customers.phone AS contact_info,
@@ -112,7 +113,7 @@ class ProjectModel extends Model
             ->select('
             projects.*, 
             CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
-            CONCAT(customers.address1, ", ", customers.address2, ", ", customers.city_state) AS customer_address,
+            CONCAT(customers.address1, ", ", customers.address2, ", ", customers.state, ", ", customers.city) AS customer_address,
             customers.zipcode,
             customers.company_name,
             customers.phone AS contact_info,

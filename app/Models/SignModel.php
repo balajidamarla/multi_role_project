@@ -114,4 +114,52 @@ class SignModel extends Model
             ->orderBy('signs.due_date', 'DESC')
             ->paginate($perPage);
     }
+
+    // public function filterSigns($project = null, $assigned = null)
+    // {
+    //     $builder = $this->db->table('signs')
+    //         ->select('signs.*, customers.customer_name, projects.project_name, users.first_name, users.last_name, users.role AS assigned_to_role')
+    //         ->join('customers', 'customers.id = signs.customer_id', 'left')
+    //         ->join('projects', 'projects.id = signs.project_id', 'left')
+    //         ->join('users', 'users.id = signs.assigned_to', 'left');
+
+    //     if ($project) {
+    //         $builder->like('projects.project_name', $project);
+    //     }
+
+    //     if ($assigned) {
+    //         // This filters by assigned user full name or role (you can adjust)
+    //         $builder->groupStart()
+    //             ->like('users.first_name', $assigned)
+    //             ->orLike('users.last_name', $assigned)
+    //             ->orLike('users.role', $assigned)
+    //             ->groupEnd();
+    //     }
+
+    //     $results = $builder->get()->getResultArray();
+
+    //     // Add formatted assigned_to_name for easier JS display
+    //     foreach ($results as &$row) {
+    //         $row['assigned_to_name'] = $row['first_name'] && $row['last_name']
+    //             ? $row['first_name'] . ' ' . $row['last_name'] . ' (' . ucfirst($row['assigned_to_role']) . ')'
+    //             : null;
+    //     }
+
+    //     return $results;
+    // }
+
+    public function filterBySignName($sign = null)
+    {
+        $builder = $this->db->table('signs')
+            ->select('signs.*, customers.name AS customer_name, projects.name AS project_name, users.name AS assigned_to')
+            ->join('customers', 'customers.id = signs.customer_id', 'left')
+            ->join('projects', 'projects.id = signs.project_id', 'left')
+            ->join('users', 'users.id = signs.assigned_to', 'left');
+
+        if (!empty($sign)) {
+            $builder->like('signs.sign_name', $sign);
+        }
+
+        return $builder->get()->getResultArray();
+    }
 }

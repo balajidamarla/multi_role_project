@@ -34,8 +34,10 @@
                 <label for="dynamic_sign_type" class="block font-medium text-gray-700 mb-2">Sign Type</label>
                 <select name="dynamic_sign_type" id="dynamic_sign_type" class="w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" required>
                     <option value="">Select a Sign Type</option>
+                    <!-- Options will be populated dynamically using JS -->
                 </select>
             </div>
+
 
             <div class="mb-4">
                 <label for="sign_name" class="block font-medium text-gray-700 mb-2">Sign Name</label>
@@ -217,62 +219,44 @@
 </div>
 
 <script>
-    // Update character count for description field
-    const description = document.getElementById('sign_description');
-    const charCount = document.getElementById('charCount');
-
-    description.addEventListener('input', () => {
-        charCount.textContent = description.value.length;
-    });
-
-    // These values come from your PHP sign data
-    const selectedMainType = "<?= esc($sign['sign_type']) ?>";
-    const selectedDynamicType = "<?= esc($sign['sign_type']) ?>";
-
-    function populateDynamicSignTypes(mainType, selected = '') {
-        const signTypeSelect = document.getElementById('dynamic_sign_type');
-        signTypeSelect.innerHTML = '<option value="">Select a Sign Type</option>';
-
-        const options = mainType === 'Indoor' ? ['LED', 'Neon', 'Banner'] :
-            mainType === 'Outdoor' ? ['Billboard', 'Flag', 'Poster'] : [];
-
-        options.forEach(type => {
-            const option = document.createElement('option');
-            option.value = type;
-            option.textContent = type;
-            if (type === selected) {
-                option.selected = true;
-            }
-            signTypeSelect.appendChild(option);
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
         const mainTypeSelect = document.getElementById('sign_type');
         const dynamicSelect = document.getElementById('dynamic_sign_type');
 
-        // Initial load
-        populateDynamicSignTypes(selectedMainType, selectedDynamicType);
+        // Values from PHP
+        const selectedMainType = "<?= esc($sign['sign_type'] ?? '') ?>";
+        const selectedDynamicType = "<?= esc($sign['dynamic_sign_type'] ?? '') ?>";
 
-        // On change of main type
+        const signTypeOptions = {
+            'Indoor': ['LED', 'Neon', 'Banner'],
+            'Outdoor': ['Billboard', 'Flag', 'Poster']
+        };
+
+        function populateDynamicOptions(mainType, selected = '') {
+            dynamicSelect.innerHTML = '<option value="">Select a Sign Type</option>';
+
+            (signTypeOptions[mainType] || []).forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type;
+                if (type === selected) {
+                    option.selected = true;
+                }
+                dynamicSelect.appendChild(option);
+            });
+        }
+
+        // Populate on page load
+        if (selectedMainType) {
+            populateDynamicOptions(selectedMainType, selectedDynamicType);
+        }
+
+        // Update options when main type changes
         mainTypeSelect.addEventListener('change', function() {
-            populateDynamicSignTypes(this.value);
+            populateDynamicOptions(this.value);
         });
     });
-
-    // Initialize counts for existing textareas with counters
-    function updateCharCount(id) {
-        const textarea = document.getElementById(id);
-        const countDisplay = document.getElementById(id + '-count');
-        if (textarea && countDisplay) {
-            countDisplay.textContent = textarea.value.length + '/150';
-        }
-    }
-
-    // Run once on load to update counts for punch list and summary fields
-    ['todo', 'summary', 'todo_permit', 'summary_permit'].forEach(updateCharCount);
-
-    // Your existing dynamic sign type JS here if any...
 </script>
+
 
 <?= $this->endSection() ?>

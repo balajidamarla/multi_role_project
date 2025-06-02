@@ -1,0 +1,7 @@
+{
+    "require": {
+        "dompdf/dompdf": "*",
+        "phpmailer/phpmailer": "*",
+        "firebase/php-jwt": "^6.11"
+    }
+}

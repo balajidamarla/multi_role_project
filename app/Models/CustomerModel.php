@@ -18,7 +18,8 @@ class CustomerModel extends Model
         'address1',
         'address2',
         'zipcode',
-        'city_state',
+        'state',
+        'city',
         'created_by',
         'created_at',
         'updated_at'

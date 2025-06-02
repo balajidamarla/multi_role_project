@@ -38,6 +38,7 @@ class Filters extends BaseFilters
         'superadminauth' => \App\Filters\SuperAdminAuth::class,
         'adminauth' => \App\Filters\AdminAuth::class,
         'permission' => \App\Filters\PermissionFilter::class,
+        'jwt' => \App\Filters\JwtAuth::class,
     ];
 
     /**

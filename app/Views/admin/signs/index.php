@@ -39,15 +39,43 @@ make it responsive without changing any thing"<?= $this->extend('layout/header')
             <?php endif; ?>
 
             <?php if (!empty($signs)): ?>
+                <div class="flex flex-wrap gap-4 mb-4">
+                    <!-- Project Name Input -->
+                    <div class="relative w-[20%] min-w-[200px] max-w-md">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <img src="<?= base_url('public/assets/filter.png') ?>" alt="Filter" class="h-5 w-5 opacity-50" />
+                        </div>
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search Sign Name..."
+                            class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-indigo-500" />
+
+                    </div>
+
+                    <!-- Assigned To Input -->
+                    <!-- <div class="relative w-[20%] min-w-[200px] max-w-md">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <img src="<//?= base_url('public/assets/filter.png') ?>" alt="Filter" class="h-5 w-5 opacity-50" />
+                        </div>
+                        <input
+                            type="search"
+                            id="searchAssigned"
+                            placeholder="Assigned to..."
+                            class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-indigo-500" />
+                    </div> -->
+                </div>
+
                 <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+
                     <table class="w-[100%] divide-y divide-gray-200 text-sm text-gray-800">
                         <thead class="bg-gray-900 text-white">
                             <tr>
                                 <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Name</th>
                                 <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Customer</th>
-                                <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Company</th>
+                                <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Project</th>
                                 <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Assigned To</th>
-                                <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Sign Cat</th>
+                                <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">In / Out</th>
                                 <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Due Date</th>
 
                                 <th class="px-4 py-3 text-left font-medium uppercase tracking-wider">Status</th>
@@ -59,7 +87,7 @@ make it responsive without changing any thing"<?= $this->extend('layout/header')
                                 <?php endif; ?>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
+                        <tbody id="signsTableBody" class="divide-y divide-gray-200">
                             <?php foreach ($signs as $sign): ?>
                                 <?php
                                 // Allow access if the user is assigned OR is an admin/manager/salessurveyor
@@ -68,7 +96,7 @@ make it responsive without changing any thing"<?= $this->extend('layout/header')
                                     <tr class="hover:bg-gray-100 transition">
                                         <td class="px-4 py-3"><?= esc($sign['sign_name']) ?></td>
                                         <td class="px-4 py-3"><?= esc($sign['customer_name']) ?></td>
-                                        <td class="px-4 py-3"><?= esc($sign['company_name']) ?></td>
+                                        <td class="px-4 py-3"><?= esc($sign['project_name']) ?></td>
 
                                         <td class="px-4 py-3">
                                             <?php
@@ -204,9 +232,19 @@ make it responsive without changing any thing"<?= $this->extend('layout/header')
 </body>
 
 
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const query = this.value.toLowerCase().trim();
+        const rows = document.querySelectorAll('#signsTableBody tr');
+
+        rows.forEach(row => {
+            const signNameCell = row.querySelector('td');
+            const signName = signNameCell ? signNameCell.textContent.toLowerCase() : '';
+            row.style.display = signName.includes(query) ? '' : 'none';
+        });
+    });
+</script>
+
 </html>
 
-
-
-
-<?= $this->endSection() ?>"
+<?= $this->endSection() ?>
