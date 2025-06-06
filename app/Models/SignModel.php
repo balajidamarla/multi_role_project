@@ -102,7 +102,7 @@ class SignModel extends Model
         signs.*,
         projects.name AS project_name,
         CONCAT(customers.first_name, " ", customers.last_name) AS customer_name,
-        CONCAT(customers.address1, ", ", customers.address2, ", ", customers.city_state) AS customer_address,
+        CONCAT(customers.address1, ", ", customers.address2, ", ", customers.state, ", ", customers.city) AS customer_address,
         customers.zipcode,
         customers.company_name,
         customers.phone AS contact_info,

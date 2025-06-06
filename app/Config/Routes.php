@@ -158,8 +158,14 @@ $routes->get('signs/search', 'SignsController::searchSigns');
 // $routes->get('signs/filterByName', 'SignsController::filterByName');
 
 
+
+
+//-------------------------------------------------------------------------------------------
+
 //jwt API's
+$routes->post('api/login', 'ApiController::login');
 $routes->get('api/login', 'ApiController::login');
+
 $routes->group('api', ['filter' => 'jwt'], function($routes) {
     $routes->get('protected-data', 'ApiController::protectedData');
     // $routes->get('login', 'ApiController::login');
