@@ -115,9 +115,6 @@ $routes->get('admin/signs/view/(:num)', 'SignController::view/$1');
 $routes->get('team/create', 'TeamController::showCreateForm');
 
 
-
-
-
 $routes->get('admin/roles/edit/(:num)', 'RoleController::edit/$1');
 $routes->post('admin/roles/update/(:num)', 'RoleController::update/$1');
 $routes->get('admin/roles', 'RoleController::index');
@@ -163,11 +160,18 @@ $routes->get('signs/search', 'SignsController::searchSigns');
 //-------------------------------------------------------------------------------------------
 
 //jwt API's
-$routes->post('api/login', 'ApiController::login');
-$routes->get('api/login', 'ApiController::login');
+$routes->post('api/login', 'api\ApiLoginController::login');
+$routes->get('api/login', 'api\ApiLoginController::login');
 
-$routes->group('api', ['filter' => 'jwt'], function($routes) {
-    $routes->get('protected-data', 'ApiController::protectedData');
-    // $routes->get('login', 'ApiController::login');
+$routes->group('api', ['filter' => 'jwt'], function ($routes) {
+    $routes->get('protected-data', 'api\ApiLoginController::protectedData');
+    $routes->get('customers', 'api\CustomerApiController::index');
+    $routes->get('projects', 'api\ProjectApiController::index');
+    $routes->get('signs', 'api\SignsApiController::index');
+    $routes->get('users', 'api\UsersApiController::index');
+    $routes->get('roles', 'api\RoleApiController::index');
+    $routes->get('permissions', 'api\PermissionsApiController::index');
+    
 
 });
+

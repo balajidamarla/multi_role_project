@@ -9,6 +9,7 @@ use CodeIgniter\Filters\FilterInterface;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Exception;
+require APPPATH . 'ThirdParty/files/vendor/autoload.php';
 
 class JwtAuth implements FilterInterface
 {
